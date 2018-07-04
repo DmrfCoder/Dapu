@@ -1,5 +1,7 @@
 # 打浦中医 Android App 
 
+## 开发工具
+Android Studio 3.1.3 
 
 ## 功能需求
 
