@@ -6,7 +6,7 @@
  * Vestibulum commodo. Ut rhoncus gravida arcu.
  */
 
-package cn.xiaojii.dapu;
+package cn.xiaojii.dapu.Activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +16,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabWidget;
@@ -27,17 +28,23 @@ import java.util.List;
 import cn.xiaojii.dapu.Fragment.FragmentMain;
 import cn.xiaojii.dapu.Fragment.FragmentHypertension;
 import cn.xiaojii.dapu.Fragment.FragmentDiabetes;
+import cn.xiaojii.dapu.Adapter.MyFragmentAdapter;
+import cn.xiaojii.dapu.R;
 
 public class MainActivity extends FragmentActivity implements
         ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener {
 
     private FragmentTabHost mTabHost;
     private LayoutInflater layoutInflater;
-    private Class fragmentArray[] = { FragmentMain.class, FragmentHypertension.class ,FragmentDiabetes.class};
-    private int imageViewArray[] = { R.drawable.tab_home_btn, R.drawable.tab_diabetes_btn, R.drawable.tab_diabetes_btn};
-    private String textViewArray[] = { "发现", "高血压","糖尿病"};
-    private List<Fragment> fragmentList = new ArrayList<Fragment>();
+    private Class fragmentArray[] = {FragmentMain.class, FragmentHypertension.class, FragmentDiabetes.class};
+    private int imageViewArray[] = {R.drawable.tab_home_btn, R.drawable.tab_diabetes_btn, R.drawable.tab_diabetes_btn};
+    private String textViewArray[] = {"发现", "高血压", "糖尿病"};
+    private List<Fragment> fragmentList = new ArrayList<Fragment>();//三个tab对应的content fragment
     private ViewPager vp;
+    private Button topLeftButton;
+    private TextView topCenterTextview;
+    private Button topRightButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +56,12 @@ public class MainActivity extends FragmentActivity implements
 
     //    控件初始化控件
     private void initView() {
-        vp = (ViewPager) findViewById(R.id.pager);
+
+        topLeftButton = findViewById(R.id.id_main_top_left);
+        topRightButton = findViewById(R.id.id_main_top_right);
+        topCenterTextview = findViewById(R.id.id_main_top_center);
+
+        vp = (ViewPager) findViewById(R.id.id_pager);
 
         /*实现OnPageChangeListener接口,目的是监听Tab选项卡的变化，然后通知ViewPager适配器切换界面*/
         /*简单来说,是为了让ViewPager滑动的时候能够带着底部菜单联动*/
@@ -58,8 +70,8 @@ public class MainActivity extends FragmentActivity implements
         layoutInflater = LayoutInflater.from(this);//加载布局管理器
 
         /*实例化FragmentTabHost对象并进行绑定*/
-        mTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);//绑定tahost
-        mTabHost.setup(this, getSupportFragmentManager(), R.id.pager);//绑定viewpager
+        mTabHost = (FragmentTabHost) findViewById(R.id.id_tabhost);//绑定tahost
+        mTabHost.setup(this, getSupportFragmentManager(), R.id.id_pager);//绑定viewpager
 
         /*实现setOnTabChangedListener接口,目的是为监听界面切换），然后实现TabHost里面图片文字的选中状态切换*/
         /*简单来说,是为了当点击下面菜单时,上面的ViewPager能滑动到对应的Fragment*/
@@ -86,6 +98,7 @@ public class MainActivity extends FragmentActivity implements
         FragmentHypertension fragmentHypertension = new FragmentHypertension();
         FragmentDiabetes fragmentDiabetes = new FragmentDiabetes();
 
+
         fragmentList.add(fragmentMain);
         fragmentList.add(fragmentHypertension);
         fragmentList.add(fragmentDiabetes);
@@ -101,8 +114,8 @@ public class MainActivity extends FragmentActivity implements
         view.setBackgroundResource(R.mipmap.buttom_bar_background);
         //利用view对象，找到布局中的组件,并设置内容，然后返回视图
         ImageView mImageView = (ImageView) view
-                .findViewById(R.id.tab_imageview);
-        TextView mTextView = (TextView) view.findViewById(R.id.tab_textview);
+                .findViewById(R.id.id_tab_icon);
+        TextView mTextView = (TextView) view.findViewById(R.id.id_tab_name);
         mImageView.setBackgroundResource(imageViewArray[tabIndex]);
         mTextView.setText(textViewArray[tabIndex]);
         return view;
@@ -133,6 +146,44 @@ public class MainActivity extends FragmentActivity implements
     public void onTabChanged(String tabId) {//Tab改变的时候调用
         int position = mTabHost.getCurrentTab();
         vp.setCurrentItem(position);//把选中的Tab的位置赋给适配器，让它控制页面切换
+        UpdateTopView(position);
+    }
+
+
+    public void UpdateTopView(int currentTabIndex) {//通过此方法更新顶部view
+
+
+        switch (currentTabIndex) {
+            case 0:
+                UpdateTopViewFirst();
+                break;
+            case 1:
+                UpdateTopViewSecond();
+                break;
+            case 2:
+                UpdateTopViewThird();
+                break;
+        }
+
+    }
+
+    private void UpdateTopViewFirst() {
+        topLeftButton.setText("资料");
+        topCenterTextview.setText("发现");
+        topRightButton.setText("关于");
+
+    }
+
+    private void UpdateTopViewSecond() {
+        topLeftButton.setText("资料");
+        topCenterTextview.setText("高血压");
+        topRightButton.setText("关于");
+    }
+
+    private void UpdateTopViewThird() {
+        topLeftButton.setText("资料");
+        topCenterTextview.setText("糖尿病");
+        topRightButton.setText("关于");
     }
 
 }

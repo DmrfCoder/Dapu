@@ -11,13 +11,11 @@ import cn.xiaojii.dapu.R;
 /**
  * Created by Carson_Ho on 16/5/23.
  */
-public class FragmentMain extends Fragment
-
-    {
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+public class FragmentMain extends Fragment {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, null);
         return view;
     }
-    }
+}
 

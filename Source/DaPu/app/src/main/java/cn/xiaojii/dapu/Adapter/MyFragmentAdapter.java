@@ -1,4 +1,4 @@
-package cn.xiaojii.dapu;
+package cn.xiaojii.dapu.Adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
