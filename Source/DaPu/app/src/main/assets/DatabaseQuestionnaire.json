@@ -1,0 +1,136 @@
+[{
+	"AnswerCandidate": ["有糖尿病的症状+任何时间的静脉血浆葡萄糖浓度≥ 11.1mmol\/l", "空腹静脉血浆葡萄糖浓度≥ 8.0 mmol\/L", "OGTT+2小时静脉血浆葡萄糖浓度≥ 10.1 mmol\/L", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "1",
+	"Question": "您知道糖尿病的诊断标准是多少吗？"
+}, {
+	"AnswerCandidate": ["知道", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "2",
+	"Question": "您知道糖尿病的并发症很多吗？"
+}, {
+	"AnswerCandidate": ["容易", "不容易"],
+	"Chapter": "糖尿病问卷",
+	"Index": "3",
+	"Question": "您认为肥胖者易患糖尿病吗？"
+}, {
+	"AnswerCandidate": ["知道", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "4",
+	"Question": "您知道糖尿病饮食要控制总热量和体重吗？"
+}, {
+	"AnswerCandidate": ["只需药物治疗", "只需非药物治疗", "两者均要", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "5",
+	"Question": "您认为糖尿病应该如何治疗？"
+}, {
+	"AnswerCandidate": ["有", "没有"],
+	"Chapter": "糖尿病问卷",
+	"Index": "6",
+	"Question": "您的家人有糖尿病病史吗？"
+}, {
+	"AnswerCandidate": ["从不吸烟", "吸烟，现在仍在吸", "过去吸烟，现已戒烟"],
+	"Chapter": "糖尿病问卷",
+	"Index": "7",
+	"Question": "您吸烟吗？（本次吸烟定义指20岁及以上成年人，每天至少吸1支烟，吸6个月或6个月以上者，但不一定为连续的6个月。）"
+}, {
+	"AnswerCandidate": ["偏咸", "偏淡", "偏甜", "一般", "不清楚"],
+	"Chapter": "糖尿病问卷",
+	"Index": "8",
+	"Question": "您的饮食习惯是"
+}, {
+	"AnswerCandidate": ["经常", "有时", "没有", "过去过量饮酒，现已戒"],
+	"Chapter": "糖尿病问卷",
+	"Index": "9",
+	"Question": "您有过量饮酒吗？（过量饮酒指每日饮白酒≥100ml，且每周饮酒在4次以上）"
+}, {
+	"AnswerCandidate": ["有", "没有"],
+	"Chapter": "糖尿病问卷",
+	"Index": "10",
+	"Question": "过去一年中，您进行过户外锻炼吗？"
+}, {
+	"AnswerCandidate": ["经常", "有时", "没有", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "11",
+	"Question": "过去一年中，您会感到精神过度紧张吗？"
+}, {
+	"AnswerCandidate": ["增加锻炼", "服用减肥药", "控制饮食", "其他", "没有采取任何措施"],
+	"Chapter": "糖尿病问卷",
+	"Index": "12",
+	"Question": "过去一年中，您采取什么措施控制体重？"
+}, {
+	"AnswerCandidate": ["很好", "较好", "一般", "较差", "差", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "13",
+	"Question": "过去一年中，您认为自己的健康状况如何？"
+}, {
+	"AnswerCandidate": ["多饮、多尿、多食", "体重减轻", "疲乏无力", "以上都有", "没有症状", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "14",
+	"Question": "您目前有哪些症状？"
+}, {
+	"AnswerCandidate": ["有", "没有"],
+	"Chapter": "糖尿病问卷",
+	"Index": "15",
+	"Question": "您有过低血糖反应吗（如心慌、饥饿、手抖、乏力、头晕、出汗）？"
+}, {
+	"AnswerCandidate": ["非药物治疗", "药物治疗", "两者都采用", "没有治疗"],
+	"Chapter": "糖尿病问卷",
+	"Index": "16",
+	"Question": "您目前采用哪些方法来控制血糖？"
+}, {
+	"AnswerCandidate": ["有", "没有"],
+	"Chapter": "糖尿病问卷",
+	"Index": "17",
+	"Question": "您是否有忘记服药的经历？"
+}, {
+	"AnswerCandidate": ["是", "不是"],
+	"Chapter": "糖尿病问卷",
+	"Index": "18",
+	"Question": "您是否有时不注意服药？"
+}, {
+	"AnswerCandidate": ["是", "不是"],
+	"Chapter": "糖尿病问卷",
+	"Index": "19",
+	"Question": "自觉症状改善时，您是否曾停药？"
+}, {
+	"AnswerCandidate": ["是", "不是"],
+	"Chapter": "糖尿病问卷",
+	"Index": "20",
+	"Question": "服药自觉症状更坏时，您是否曾停药？"
+}, {
+	"AnswerCandidate": ["不能", "可以", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "21",
+	"Question": "经过治疗后，您的血糖可以控制在正常水平吗？"
+}, {
+	"AnswerCandidate": ["没有坚持非药物治疗", "不能按医嘱服用降血压的药物", "两者都有", "其他", "没有治疗"],
+	"Chapter": "糖尿病问卷",
+	"Index": "22",
+	"Question": "您的血糖不能控制在正常水平的原因是什么？"
+}, {
+	"AnswerCandidate": ["定期到医院检查", "参加糖友俱乐部", "社区随诊", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "23",
+	"Question": "您目前对糖尿病管理主要采取哪些措施？"
+}, {
+	"AnswerCandidate": ["有必要", "没有必要", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "24",
+	"Question": "您觉得有必要提高您的糖尿病相关知识和管理技能吗？"
+}, {
+	"AnswerCandidate": ["是", "否"],
+	"Chapter": "糖尿病问卷",
+	"Index": "25",
+	"Question": "您是否接触过糖尿病的手机app？"
+}, {
+	"AnswerCandidate": ["网络", "医生", "报纸", "电视", "其他"],
+	"Chapter": "糖尿病问卷",
+	"Index": "26",
+	"Question": "您是通过何种途径了解糖尿病的相关知识？"
+}, {
+	"AnswerCandidate": ["契约管理", "自我管理", "家庭管理", "不管理", "不知道"],
+	"Chapter": "糖尿病问卷",
+	"Index": "27",
+	"Question": "您倾向于选择哪种糖尿病管理方式？"
+}]
