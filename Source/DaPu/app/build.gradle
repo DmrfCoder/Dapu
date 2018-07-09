@@ -21,7 +21,7 @@ android {
             res.srcDirs=[
                     'src/main/res/layout/activities',
                     'src/main/res/layout/contents',
-                    'src/main/res/layout/fragments/database',
+                    'src/main/res/layout/fragments/diabetes',
                     'src/main/res/layout/fragments/discover',
                     'src/main/res/layout/fragments/hypertension',
                     'src/main/res/layout/fragments/topbar',

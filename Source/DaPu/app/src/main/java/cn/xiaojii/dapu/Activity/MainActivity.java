@@ -8,20 +8,15 @@
 
 package cn.xiaojii.dapu.Activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TabHost;
-import android.widget.TabWidget;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,7 +24,7 @@ import java.util.List;
 
 import cn.xiaojii.dapu.Fragment.Discover.FragmentDiscover;
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
-import cn.xiaojii.dapu.Fragment.Database.FragmentDatabase;
+import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetes;
 import cn.xiaojii.dapu.Adapter.FragmentAdapter;
 import cn.xiaojii.dapu.R;
 import cn.xiaojii.dapu.Utils.StartUtils;
@@ -40,7 +35,7 @@ public class MainActivity extends FragmentActivity implements
 
     private FragmentTabHost mTabHost;
     private LayoutInflater layoutInflater;
-    private Class fragmentArray[] = {FragmentDiscover.class, FragmentHypertension.class, FragmentDatabase.class};
+    private Class fragmentArray[] = {FragmentDiscover.class, FragmentHypertension.class, FragmentDiabetes.class};
     private int imageViewArray[] = {R.drawable.tab_home_btn, R.drawable.tab_diabetes_btn, R.drawable.tab_diabetes_btn};
     private String textViewArray[] = {"发现", "高血压", "糖尿病"};
     private List<Fragment> fragmentList = new ArrayList<Fragment>();//三个tab对应的content fragment
@@ -104,12 +99,12 @@ public class MainActivity extends FragmentActivity implements
     private void initPage() {
         FragmentDiscover fragmentDiscover = new FragmentDiscover();
         FragmentHypertension fragmentHypertension = new FragmentHypertension();
-        FragmentDatabase fragmentDatabase = new FragmentDatabase();
+        FragmentDiabetes fragmentDiabetes = new FragmentDiabetes();
 
 
         fragmentList.add(fragmentDiscover);
         fragmentList.add(fragmentHypertension);
-        fragmentList.add(fragmentDatabase);
+        fragmentList.add(fragmentDiabetes);
 
         //绑定Fragment适配器
         vp.setAdapter(new FragmentAdapter(getSupportFragmentManager()));

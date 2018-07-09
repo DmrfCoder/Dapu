@@ -2,18 +2,18 @@ package cn.xiaojii.dapu.Factory;
 
 import android.support.v4.app.Fragment;
 
-import cn.xiaojii.dapu.Fragment.Database.FragmentDatabase;
-import cn.xiaojii.dapu.Fragment.Database.FragmentDatabaseSecondary;
+import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetes;
+import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetesSecondary;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentBmi;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentTcmConstitutionIdentification;
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentDiscover;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentWaitYouChallage;
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertensionSecondary;
+import cn.xiaojii.dapu.Fragment.TopBar.FragmentAbout;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentPdfReadList;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentPdfReadPdf;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.StartUtils;
 
 
 /**
@@ -38,10 +38,10 @@ public class FragmentFactory {
                 fragment = new FragmentWaitYouChallage();
                 break;
             case R.id.id_database_questionnaire:
-                fragment = new FragmentDatabaseSecondary();
+                fragment = new FragmentDiabetesSecondary();
                 break;
             case R.id.id_database_self_test:
-                fragment = new FragmentDatabaseSecondary();
+                fragment = new FragmentDiabetesSecondary();
                 break;
             case R.id.id_hypertension_questionnaire:
                 fragment = new FragmentHypertensionSecondary();
@@ -70,7 +70,7 @@ public class FragmentFactory {
                 fragment = new FragmentHypertension();
                 break;
             case 2:// 糖尿病
-                fragment = new FragmentDatabase();
+                fragment = new FragmentDiabetes();
                 break;
         }
         return fragment;
@@ -86,14 +86,25 @@ public class FragmentFactory {
                         fragment = new FragmentPdfReadList();
                         break;
                     case 1:
+
                         break;
                     case 2:
+
                         break;
                 }
                 break;
             case R.id.id_top_center:
                 break;
             case R.id.id_top_right:
+                switch (CurTabIndex) {
+                    case 0:
+                        fragment=new FragmentAbout();
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                }
                 break;
 
         }

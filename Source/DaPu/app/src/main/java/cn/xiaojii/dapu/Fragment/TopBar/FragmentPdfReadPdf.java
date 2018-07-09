@@ -14,9 +14,10 @@ import android.widget.Button;
 
 import com.joanzapata.pdfview.PDFView;
 
+import cn.xiaojii.dapu.Fragment.BaseFragment;
 import cn.xiaojii.dapu.R;
 
-public class FragmentPdfReadPdf extends Fragment implements View.OnClickListener {
+public class FragmentPdfReadPdf extends BaseFragment implements View.OnClickListener {
     private String filename;
     private PDFView pdfView;
     private Button leftButton;
@@ -54,16 +55,7 @@ public class FragmentPdfReadPdf extends Fragment implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.id_top_left:
-                new Thread() {
-                    public void run() {
-                        try {
-                            Instrumentation inst = new Instrumentation();
-                            inst.sendKeyDownUpSync(KeyEvent.KEYCODE_BACK);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }.start();
+                onBack();
                 break;
 
         }

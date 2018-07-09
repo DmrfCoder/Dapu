@@ -1,10 +1,7 @@
-package cn.xiaojii.dapu.Fragment.Database;
+package cn.xiaojii.dapu.Fragment.Diabetes;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +13,7 @@ import cn.xiaojii.dapu.Utils.StartUtils;
 /**
  * Created by Carson_Ho on 16/5/23.
  */
-public class FragmentDatabase extends Fragment implements View.OnClickListener {
+public class FragmentDiabetes extends Fragment implements View.OnClickListener {
     private Button DatabaseQuestionnaire;
     private Button DatabaseSelfTest;
 

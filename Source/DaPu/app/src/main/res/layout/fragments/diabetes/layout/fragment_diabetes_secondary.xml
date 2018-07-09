@@ -29,7 +29,7 @@
 
         <EditText
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_home_name"
+            android:id="@+id/id_diabetes_questionnaire_home_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
@@ -53,14 +53,14 @@
             android:text="性别" />
 
         <RadioGroup
-            android:id="@+id/id_database_questionnaire_home_sex"
+            android:id="@+id/id_diabetes_questionnaire_home_sex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
                 android:textColor="@color/colorBlack"
-                android:id="@+id/id_database_questionnaire_home_sex_male"
+                android:id="@+id/id_diabetes_questionnaire_home_sex_male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -68,7 +68,7 @@
 
             <RadioButton
                 android:textColor="@color/colorBlack"
-                android:id="@+id/id_database_questionnaire_home_sex_female"
+                android:id="@+id/id_diabetes_questionnaire_home_sex_female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="女" />
@@ -93,7 +93,7 @@
 
         <EditText
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_home_age"
+            android:id="@+id/id_diabetes_questionnaire_home_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
@@ -115,7 +115,7 @@
 
         <EditText
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_home_id_number"
+            android:id="@+id/id_diabetes_questionnaire_home_id_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
@@ -139,26 +139,26 @@
 
         <RadioGroup
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_home_educational_level"
+            android:id="@+id/id_diabetes_questionnaire_home_educational_level"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_educational_level_0"
+                android:id="@+id/id_diabetes_questionnaire_home_educational_level_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="小学及以下" />
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_educational_level_1"
+                android:id="@+id/id_diabetes_questionnaire_home_educational_level_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="中学/中专" />
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_educational_level_2"
+                android:id="@+id/id_diabetes_questionnaire_home_educational_level_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="大专及以上" />
@@ -183,26 +183,26 @@
 
         <RadioGroup
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_home_database_level"
+            android:id="@+id/id_diabetes_questionnaire_home_database_level"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_database_level_0"
+                android:id="@+id/id_diabetes_questionnaire_home_database_level_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="小于5年" />
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_database_level_1"
+                android:id="@+id/id_diabetes_questionnaire_home_database_level_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5年-10年" />
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_database_level_2"
+                android:id="@+id/id_diabetes_questionnaire_home_database_level_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=">10年" />
@@ -227,20 +227,20 @@
 
         <RadioGroup
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_home_insulin"
+            android:id="@+id/id_diabetes_questionnaire_home_insulin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_insulin_true"
+                android:id="@+id/id_diabetes_questionnaire_home_insulin_true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="是" />
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_insulin_false"
+                android:id="@+id/id_diabetes_questionnaire_home_insulin_false"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="否" />
@@ -265,26 +265,26 @@
 
         <RadioGroup
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_home_work_status"
+            android:id="@+id/id_diabetes_questionnaire_home_work_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_work_status_0"
+                android:id="@+id/id_diabetes_questionnaire_home_work_status_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="离退休" />
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_work_status_1"
+                android:id="@+id/id_diabetes_questionnaire_home_work_status_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="在职" />
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_work_status_2"
+                android:id="@+id/id_diabetes_questionnaire_home_work_status_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="未就业" />
@@ -310,26 +310,26 @@
 
         <RadioGroup
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_home_antihypertensive_drugs"
+            android:id="@+id/id_diabetes_questionnaire_home_antihypertensive_drugs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_antihypertensive_drugs_0"
+                android:id="@+id/id_diabetes_questionnaire_home_antihypertensive_drugs_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
                 android:text="1种" />
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_antihypertensive_drugs_1"
+                android:id="@+id/id_diabetes_questionnaire_home_antihypertensive_drugs_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2种" />
 
             <RadioButton
-                android:id="@+id/id_database_questionnaire_home_antihypertensive_drugs_2"
+                android:id="@+id/id_diabetes_questionnaire_home_antihypertensive_drugs_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3种及以上" />
@@ -353,7 +353,7 @@
 
         <EditText
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_antihypertensive_drug_number"
+            android:id="@+id/id_diabetes_questionnaire_antihypertensive_drug_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
@@ -376,7 +376,7 @@
 
         <EditText
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_antihypertensive_fasting_blood_sugar"
+            android:id="@+id/id_diabetes_questionnaire_antihypertensive_fasting_blood_sugar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
@@ -404,7 +404,7 @@
 
         <EditText
             android:textColor="@color/colorBlack"
-            android:id="@+id/id_database_questionnaire_antihypertensive_total_insulin"
+            android:id="@+id/id_diabetes_questionnaire_antihypertensive_total_insulin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
