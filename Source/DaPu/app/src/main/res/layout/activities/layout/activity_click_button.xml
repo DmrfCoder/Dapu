@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@mipmap/main_background"
+    android:orientation="vertical">
+
+    <include layout="@layout/top_bar" />
+
+    <!--Fragment容器-->
+    <FrameLayout
+        android:id="@+id/fl_click_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <include
+        android:id="@+id/id_tab_bar_click_button"
+        layout="@layout/tab_bar" />
+
+</LinearLayout>

@@ -1,18 +1,16 @@
-package cn.xiaojii.dapu.Util;
+package cn.xiaojii.dapu.Utils;
 
 import android.content.Context;
 import android.content.res.AssetManager;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ReadFileToStringUtil {
+public class ReadFileToStringUtils {
     private Context context;
 
-    public ReadFileToStringUtil(Context context) {
+    public ReadFileToStringUtils(Context context) {
         this.context = context;
     }
 

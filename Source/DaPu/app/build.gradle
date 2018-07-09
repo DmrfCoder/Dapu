@@ -16,9 +16,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets{
+        main{
+            res.srcDirs=[
+                    'src/main/res/layout/activities',
+                    'src/main/res/layout/contents',
+                    'src/main/res/layout/fragments/database',
+                    'src/main/res/layout/fragments/discover',
+                    'src/main/res/layout/fragments/hypertension',
+                    'src/main/res/layout/fragments/topbar',
+                    'src/main/res/layout',
+                    'src/main/res',
+
+            ]
+        }
+    }
 }
 
 dependencies {
+    implementation 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'

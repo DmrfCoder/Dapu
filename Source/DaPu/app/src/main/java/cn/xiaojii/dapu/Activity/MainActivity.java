@@ -8,6 +8,7 @@
 
 package cn.xiaojii.dapu.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TabHost;
 import android.widget.TabWidget;
 import android.widget.TextView;
@@ -25,18 +27,19 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.xiaojii.dapu.Fragment.FragmentMain;
-import cn.xiaojii.dapu.Fragment.FragmentHypertension;
-import cn.xiaojii.dapu.Fragment.FragmentDiabetes;
-import cn.xiaojii.dapu.Adapter.MyFragmentAdapter;
+import cn.xiaojii.dapu.Fragment.Discover.FragmentDiscover;
+import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
+import cn.xiaojii.dapu.Fragment.Database.FragmentDatabase;
+import cn.xiaojii.dapu.Adapter.FragmentAdapter;
 import cn.xiaojii.dapu.R;
+import cn.xiaojii.dapu.Utils.StartUtils;
 
 public class MainActivity extends FragmentActivity implements
-        ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener {
+        ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener, View.OnClickListener {
 
     private FragmentTabHost mTabHost;
     private LayoutInflater layoutInflater;
-    private Class fragmentArray[] = {FragmentMain.class, FragmentHypertension.class, FragmentDiabetes.class};
+    private Class fragmentArray[] = {FragmentDiscover.class, FragmentHypertension.class, FragmentDatabase.class};
     private int imageViewArray[] = {R.drawable.tab_home_btn, R.drawable.tab_diabetes_btn, R.drawable.tab_diabetes_btn};
     private String textViewArray[] = {"发现", "高血压", "糖尿病"};
     private List<Fragment> fragmentList = new ArrayList<Fragment>();//三个tab对应的content fragment
@@ -44,6 +47,7 @@ public class MainActivity extends FragmentActivity implements
     private Button topLeftButton;
     private TextView topCenterTextview;
     private Button topRightButton;
+    private int CurTabIndex = 0;
 
 
     @Override
@@ -54,12 +58,16 @@ public class MainActivity extends FragmentActivity implements
         initPage();//初始化页面
     }
 
+
     //    控件初始化控件
     private void initView() {
 
-        topLeftButton = findViewById(R.id.id_main_top_left);
-        topRightButton = findViewById(R.id.id_main_top_right);
-        topCenterTextview = findViewById(R.id.id_main_top_center);
+        topLeftButton = findViewById(R.id.id_top_left);
+        topRightButton = findViewById(R.id.id_top_right);
+        topCenterTextview = findViewById(R.id.id_top_center);
+
+        topLeftButton.setOnClickListener(this);
+        topRightButton.setOnClickListener(this);
 
         vp = (ViewPager) findViewById(R.id.id_pager);
 
@@ -94,17 +102,17 @@ public class MainActivity extends FragmentActivity implements
 
     /*初始化Fragment*/
     private void initPage() {
-        FragmentMain fragmentMain = new FragmentMain();
+        FragmentDiscover fragmentDiscover = new FragmentDiscover();
         FragmentHypertension fragmentHypertension = new FragmentHypertension();
-        FragmentDiabetes fragmentDiabetes = new FragmentDiabetes();
+        FragmentDatabase fragmentDatabase = new FragmentDatabase();
 
 
-        fragmentList.add(fragmentMain);
+        fragmentList.add(fragmentDiscover);
         fragmentList.add(fragmentHypertension);
-        fragmentList.add(fragmentDiabetes);
+        fragmentList.add(fragmentDatabase);
 
         //绑定Fragment适配器
-        vp.setAdapter(new MyFragmentAdapter(getSupportFragmentManager(), fragmentList));
+        vp.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
         mTabHost.getTabWidget().setDividerDrawable(null);
     }
 
@@ -138,6 +146,7 @@ public class MainActivity extends FragmentActivity implements
         int oldFocusability = widget.getDescendantFocusability();
         widget.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);//设置View覆盖子类控件而直接获得焦点
         mTabHost.setCurrentTab(arg0);//根据位置Postion设置当前的Tab
+
         widget.setDescendantFocusability(oldFocusability);//设置取消分割线
 
     }
@@ -146,14 +155,15 @@ public class MainActivity extends FragmentActivity implements
     public void onTabChanged(String tabId) {//Tab改变的时候调用
         int position = mTabHost.getCurrentTab();
         vp.setCurrentItem(position);//把选中的Tab的位置赋给适配器，让它控制页面切换
-        UpdateTopView(position);
+        CurTabIndex = position;
+        UpdateTopView();
     }
 
 
-    public void UpdateTopView(int currentTabIndex) {//通过此方法更新顶部view
+    public void UpdateTopView() {//通过此方法更新顶部view
 
 
-        switch (currentTabIndex) {
+        switch (CurTabIndex) {
             case 0:
                 UpdateTopViewFirst();
                 break;
@@ -186,5 +196,12 @@ public class MainActivity extends FragmentActivity implements
         topRightButton.setText("关于");
     }
 
+
+    @Override
+    public void onClick(View view) {
+        StartUtils.startActivityByIdAndTabIndex(MainActivity.this,view.getId(),CurTabIndex);
+
+
+    }
 }
 

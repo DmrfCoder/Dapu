@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/coin_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/colorBlack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="基本情况:" />
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名" />
+
+        <EditText
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_home_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_background"
+            android:text="张三" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="性别" />
+
+        <RadioGroup
+            android:id="@+id/id_database_questionnaire_home_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:textColor="@color/colorBlack"
+                android:id="@+id/id_database_questionnaire_home_sex_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="男" />
+
+            <RadioButton
+                android:textColor="@color/colorBlack"
+                android:id="@+id/id_database_questionnaire_home_sex_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="女" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="年龄" />
+
+        <EditText
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_home_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_background"
+            android:text="23" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="身份证号" />
+
+        <EditText
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_home_id_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_background"
+            android:text="666666666666666666" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="文化程度" />
+
+        <RadioGroup
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_home_educational_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_educational_level_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="小学及以下" />
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_educational_level_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="中学/中专" />
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_educational_level_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="大专及以上" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="糖尿病病程" />
+
+        <RadioGroup
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_home_database_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_database_level_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="小于5年" />
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_database_level_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5年-10年" />
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_database_level_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=">10年" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="胰岛素治疗" />
+
+        <RadioGroup
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_home_insulin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_insulin_true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="是" />
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_insulin_false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="否" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="工作状态" />
+
+        <RadioGroup
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_home_work_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_work_status_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="离退休" />
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_work_status_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="在职" />
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_work_status_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未就业" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="服降糖药种类" />
+
+        <RadioGroup
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_home_antihypertensive_drugs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_antihypertensive_drugs_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="1种" />
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_antihypertensive_drugs_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2种" />
+
+            <RadioButton
+                android:id="@+id/id_database_questionnaire_home_antihypertensive_drugs_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3种及以上" />
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服降压药总粒数" />
+
+        <EditText
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_antihypertensive_drug_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_background"
+            android:text="23" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="目前空腹血糖" />
+
+        <EditText
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_antihypertensive_fasting_blood_sugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_background"
+            android:text="23" />
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mmol/l"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="胰岛素一天总量" />
+
+        <EditText
+            android:textColor="@color/colorBlack"
+            android:id="@+id/id_database_questionnaire_antihypertensive_total_insulin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_background"
+            android:text="23" />
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="u"/>
+    </LinearLayout>
+</LinearLayout>

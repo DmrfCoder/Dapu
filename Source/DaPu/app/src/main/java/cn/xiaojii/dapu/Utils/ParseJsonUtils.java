@@ -1,4 +1,4 @@
-package cn.xiaojii.dapu.Util;
+package cn.xiaojii.dapu.Utils;
 
 import android.content.Context;
 
@@ -13,18 +13,18 @@ import java.util.List;
 
 import cn.xiaojii.dapu.Bean.QuestionnaireAndTestBean;
 
-public class ParseJsonUtil {
-    private ReadFileToStringUtil readFileToStringUtil;
+public class ParseJsonUtils {
+    private ReadFileToStringUtils readFileToStringUtils;
     private List<QuestionnaireAndTestBean> QuestionnaireAndTestBeanList;
 
 
-    public ParseJsonUtil(Context context) {
-        readFileToStringUtil = new ReadFileToStringUtil(context);
+    public ParseJsonUtils(Context context) {
+        readFileToStringUtils = new ReadFileToStringUtils(context);
 
     }
 
     public List<QuestionnaireAndTestBean> GetJsonData(String filename) {
-        String json = readFileToStringUtil.ReadJsonToString(filename + ".json");
+        String json = readFileToStringUtils.ReadJsonToString(filename + ".json");
         Gson gson = new Gson();
         List<JsonElement> list = new ArrayList();
         JsonParser jsonParser = new JsonParser();

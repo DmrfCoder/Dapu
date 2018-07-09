@@ -3,12 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@mipmap/navigation_bar_background"
-
     android:orientation="horizontal">
 
     <Button
         android:textColor="@color/colorWhite"
-        android:id="@+id/id_main_top_left"
+        android:id="@+id/id_top_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -18,7 +17,7 @@
     <TextView
         android:textColor="@color/colorWhite"
         android:layout_centerVertical="true"
-        android:id="@+id/id_main_top_center"
+        android:id="@+id/id_top_center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -27,7 +26,7 @@
 
     <Button
         android:textColor="@color/colorWhite"
-        android:id="@+id/id_main_top_right"
+        android:id="@+id/id_top_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
