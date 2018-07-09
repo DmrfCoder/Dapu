@@ -28,7 +28,7 @@ import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetes;
 import cn.xiaojii.dapu.Adapter.FragmentAdapter;
 import cn.xiaojii.dapu.R;
 import cn.xiaojii.dapu.Utils.StartUtils;
-import cn.xiaojii.dapu.View.NoScrollViewPager;
+import cn.xiaojii.dapu.Widght.NoScrollViewPager;
 
 public class MainActivity extends FragmentActivity implements
         TabHost.OnTabChangeListener, View.OnClickListener {
@@ -114,7 +114,7 @@ public class MainActivity extends FragmentActivity implements
     private View getTabItemView(int tabIndex) {
         //将xml布局转换为view对象
         View view = layoutInflater.inflate(R.layout.tab_content, null);
-        view.setBackgroundResource(R.mipmap.buttom_bar_background);
+        view.setBackgroundResource(R.mipmap.bottom_bar_background);
         //利用view对象，找到布局中的组件,并设置内容，然后返回视图
         ImageView mImageView = (ImageView) view
                 .findViewById(R.id.id_tab_icon);

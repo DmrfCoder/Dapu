@@ -1,4 +1,4 @@
-package cn.xiaojii.dapu.View;
+package cn.xiaojii.dapu.Widght;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

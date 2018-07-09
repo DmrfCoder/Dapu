@@ -34,6 +34,7 @@ android {
 }
 
 dependencies {
+    implementation 'info.hoang8f:android-segmented:1.0.6'
     implementation 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'

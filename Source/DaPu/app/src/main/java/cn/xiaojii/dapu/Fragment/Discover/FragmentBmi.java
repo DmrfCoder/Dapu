@@ -13,7 +13,6 @@ import cn.xiaojii.dapu.Fragment.BaseFragment;
 import cn.xiaojii.dapu.R;
 
 public class FragmentBmi extends BaseFragment {
-    private Button LeftButton;
 
     @Nullable
     @Override

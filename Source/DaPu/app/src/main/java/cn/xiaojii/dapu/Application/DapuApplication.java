@@ -1,4 +1,4 @@
-package cn.xiaojii.dapu.application;
+package cn.xiaojii.dapu.Application;
 
 import android.content.Context;
 import android.os.Handler;

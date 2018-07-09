@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 
 import cn.xiaojii.dapu.Activity.ClickButtonActivity;
-import cn.xiaojii.dapu.application.DapuApplication;
+import cn.xiaojii.dapu.Application.DapuApplication;
 
 
 /**
