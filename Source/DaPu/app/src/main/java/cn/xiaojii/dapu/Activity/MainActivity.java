@@ -33,9 +33,10 @@ import cn.xiaojii.dapu.Fragment.Database.FragmentDatabase;
 import cn.xiaojii.dapu.Adapter.FragmentAdapter;
 import cn.xiaojii.dapu.R;
 import cn.xiaojii.dapu.Utils.StartUtils;
+import cn.xiaojii.dapu.View.NoScrollViewPager;
 
 public class MainActivity extends FragmentActivity implements
-        ViewPager.OnPageChangeListener, TabHost.OnTabChangeListener, View.OnClickListener {
+        TabHost.OnTabChangeListener, View.OnClickListener {
 
     private FragmentTabHost mTabHost;
     private LayoutInflater layoutInflater;
@@ -43,7 +44,7 @@ public class MainActivity extends FragmentActivity implements
     private int imageViewArray[] = {R.drawable.tab_home_btn, R.drawable.tab_diabetes_btn, R.drawable.tab_diabetes_btn};
     private String textViewArray[] = {"发现", "高血压", "糖尿病"};
     private List<Fragment> fragmentList = new ArrayList<Fragment>();//三个tab对应的content fragment
-    private ViewPager vp;
+    private NoScrollViewPager vp;
     private Button topLeftButton;
     private TextView topCenterTextview;
     private Button topRightButton;
@@ -69,12 +70,11 @@ public class MainActivity extends FragmentActivity implements
         topLeftButton.setOnClickListener(this);
         topRightButton.setOnClickListener(this);
 
-        vp = (ViewPager) findViewById(R.id.id_pager);
+        vp = (NoScrollViewPager) findViewById(R.id.id_pager);
 
         /*实现OnPageChangeListener接口,目的是监听Tab选项卡的变化，然后通知ViewPager适配器切换界面*/
         /*简单来说,是为了让ViewPager滑动的时候能够带着底部菜单联动*/
 
-        vp.addOnPageChangeListener(this);//设置页面切换时的监听器
         layoutInflater = LayoutInflater.from(this);//加载布局管理器
 
         /*实例化FragmentTabHost对象并进行绑定*/
@@ -130,26 +130,6 @@ public class MainActivity extends FragmentActivity implements
     }
 
 
-    @Override
-    public void onPageScrollStateChanged(int arg0) {
-
-    }//arg0 ==1的时候表示正在滑动，arg0==2的时候表示滑动完毕了，arg0==0的时候表示什么都没做，就是停在那。
-
-    @Override
-    public void onPageScrolled(int arg0, float arg1, int arg2) {
-
-    }//表示在前一个页面滑动到后一个页面的时候，在前一个页面滑动前调用的方法
-
-    @Override
-    public void onPageSelected(int arg0) {//arg0是表示你当前选中的页面位置Postion，这事件是在你页面跳转完毕的时候调用的。
-        TabWidget widget = mTabHost.getTabWidget();
-        int oldFocusability = widget.getDescendantFocusability();
-        widget.setDescendantFocusability(ViewGroup.FOCUS_BLOCK_DESCENDANTS);//设置View覆盖子类控件而直接获得焦点
-        mTabHost.setCurrentTab(arg0);//根据位置Postion设置当前的Tab
-
-        widget.setDescendantFocusability(oldFocusability);//设置取消分割线
-
-    }
 
     @Override
     public void onTabChanged(String tabId) {//Tab改变的时候调用
