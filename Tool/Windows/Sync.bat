@@ -1,5 +1,3 @@
-#!/bin/sh
-
 
 echo "0. git pull"
 set rw=%~dp0../../
