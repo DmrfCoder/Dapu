@@ -22,10 +22,9 @@ import cn.xiaojii.dapu.R;
 @SuppressLint("ValidFragment")
 public class FragmentTcmConstitution extends BaseFragment {
 
-    private List<QuestionBean> questionBeanList;
+
     private Context context;
-    private int CurQuestionIndex;
-    private int QuestionCount;
+
 
 
     @SuppressLint("SetTextI18n")
@@ -33,6 +32,7 @@ public class FragmentTcmConstitution extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discover_tcm_constitution, null);
+        CurQuestionIndex=1;
         InitView(view);
 
         return view;
@@ -69,12 +69,14 @@ public class FragmentTcmConstitution extends BaseFragment {
 
         AnswerListView = view.findViewById(R.id.id_tcm_constitution_answer_listview);
 
-        AnswerAdapter answerAdapter = new AnswerAdapter(getActivity(), questionBeanList.get(0));
+        answerAdapter = new AnswerAdapter(getActivity(), questionBeanList.get(0));
         AnswerListView.setAdapter(answerAdapter);
 
         AnswerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+              CurQuestionIndex++;
+              UpdateView();
 
             }
         });

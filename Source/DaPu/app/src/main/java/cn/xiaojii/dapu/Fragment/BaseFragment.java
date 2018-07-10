@@ -9,6 +9,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.List;
+
+import cn.xiaojii.dapu.Adapter.AnswerAdapter;
+import cn.xiaojii.dapu.Bean.QuestionBean;
+
 public class BaseFragment extends Fragment implements View.OnClickListener {
 
     public Button LeftButton;
@@ -18,8 +23,12 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
     public Button PreviousButton;
     public Button NextButton;
     public TextView QuestionTextView;
+    public List<QuestionBean> questionBeanList;
 
+    public int CurQuestionIndex;
+    public int QuestionCount;
 
+    public AnswerAdapter answerAdapter;
 
 
     public void onBack() {
@@ -41,8 +50,10 @@ public class BaseFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    public void UpdateView(int cur,int sum){
-        CenterTextview.setText("问卷(" + cur + "/" + sum + ")");
-
+    public void UpdateView() {
+        CenterTextview.setText("问卷(" + CurQuestionIndex + "/" + QuestionCount + ")");
+        QuestionTextView.setText("问题:" + questionBeanList.get(CurQuestionIndex-1).getQuestion());
+        answerAdapter.setQuestionBean(questionBeanList.get(CurQuestionIndex - 1));
+        answerAdapter.notifyDataSetChanged();
     }
 }
