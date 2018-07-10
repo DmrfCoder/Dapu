@@ -13,9 +13,9 @@ echo %PROJECT_NAME%
 
 set SOURCE_PATH=%RootPath%Source/DaPu/app/build/outputs/apk/debug/app-debug.apk
 set Target_PATH=C:/work/backup/baiduyun/DapuAndroid/%PROJECT_NAME%
-del %SOURCE_PATH%
 cd %RootPath%Source/DaPu/app/build/outputs/apk/debug/
 copy "app-debug.apk" "%Target_PATH%"
+cd %RootPath%Tool/Windows
 
 
 
