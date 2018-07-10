@@ -6,51 +6,51 @@
     android:orientation="vertical">
 
     <TextView
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="20dp"
-        android:textColor="@color/colorBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="基本情况:" />
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:text="基本情况:"
+        android:textColor="@color/colorBlack"
+        android:textSize="20dp" />
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="姓名" />
+            android:text="姓名"
+            android:textColor="@color/colorBlack" />
 
         <EditText
-            android:textColor="@color/colorBlack"
             android:id="@+id/id_hypertension_questionnaire_home_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
-            android:text="张三" />
+            android:text="张三"
+            android:textColor="@color/colorBlack" />
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="性别" />
+            android:text="性别"
+            android:textColor="@color/colorBlack" />
 
         <RadioGroup
             android:id="@+id/id_hypertension_questionnaire_home_sex"
@@ -58,20 +58,31 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:textColor="@color/colorBlack"
-                android:id="@+id/id_hypertension_questionnaire_home_sex_male"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="男" />
 
-            <RadioButton
-                android:textColor="@color/colorBlack"
-                android:id="@+id/id_hypertension_questionnaire_home_sex_female"
+            <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/id_tcm_segmentedgroup_sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="女" />
+                android:orientation="horizontal"
+                segmentedgroup:sc_border_width="2dp"
+                segmentedgroup:sc_corner_radius="5dp">
+
+                <RadioButton
+                    android:id="@+id/id_hypertension_questionnaire_home_sex_male"
+                    style="@style/RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="男" />
+
+                <RadioButton
+                    android:id="@+id/id_hypertension_questionnaire_home_sex_female"
+                    style="@style/RadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="女" />
+            </info.hoang8f.android.segmented.SegmentedGroup>
+
 
         </RadioGroup>
 
@@ -79,73 +90,78 @@
 
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="年龄" />
+            android:text="年龄"
+            android:textColor="@color/colorBlack" />
 
         <EditText
-            android:textColor="@color/colorBlack"
             android:id="@+id/id_hypertension_questionnaire_home_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
-            android:text="23" />
+            android:text="23"
+            android:textColor="@color/colorBlack" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="身份证号" />
+            android:text="身份证号"
+            android:textColor="@color/colorBlack" />
 
         <EditText
-            android:textColor="@color/colorBlack"
             android:id="@+id/id_hypertension_questionnaire_home_id_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
-            android:text="666666666666666666" />
+            android:text="666666666666666666"
+            android:textColor="@color/colorBlack" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
+
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="文化程度" />
+            android:text="文化程度"
+            android:textColor="@color/colorBlack" />
 
-        <RadioGroup
-            android:textColor="@color/colorBlack"
+
+        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
             android:id="@+id/id_hypertension_questionnaire_home_educational_level"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="2dp"
+            segmentedgroup:sc_corner_radius="5dp">
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_educational_level_0"
+
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -153,43 +169,49 @@
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_educational_level_1"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="中学/中专" />
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_educational_level_2"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="大专及以上" />
 
-        </RadioGroup>
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="糖尿病病程" />
+            android:text="糖尿病病程"
+            android:textColor="@color/colorBlack" />
 
-        <RadioGroup
-            android:textColor="@color/colorBlack"
+
+        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
             android:id="@+id/id_hypertension_questionnaire_home_database_level"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="2dp"
+            segmentedgroup:sc_corner_radius="5dp">
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_database_level_0"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -197,43 +219,50 @@
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_database_level_1"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="5年-10年" />
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_database_level_2"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=">10年" />
 
-        </RadioGroup>
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="胰岛素治疗" />
+            android:text="胰岛素治疗"
+            android:textColor="@color/colorBlack" />
 
-        <RadioGroup
-            android:textColor="@color/colorBlack"
+
+        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
             android:id="@+id/id_hypertension_questionnaire_home_insulin"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="2dp"
+            segmentedgroup:sc_corner_radius="5dp">
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_insulin_true"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -241,37 +270,44 @@
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_insulin_false"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="否" />
 
-        </RadioGroup>
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="工作状态" />
+            android:text="工作状态"
+            android:textColor="@color/colorBlack" />
 
-        <RadioGroup
-            android:textColor="@color/colorBlack"
+
+        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
             android:id="@+id/id_hypertension_questionnaire_home_work_status"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="2dp"
+            segmentedgroup:sc_corner_radius="5dp">
+
 
             <RadioButton
                 android:id="@+id/id_diabetes_questionnaire_home_work_status_0"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -279,44 +315,52 @@
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_work_status_1"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="在职" />
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_work_status_2"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="未就业" />
 
-        </RadioGroup>
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
 
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="服降糖药种类" />
+            android:text="服降糖药种类"
+            android:textColor="@color/colorBlack" />
 
-        <RadioGroup
-            android:textColor="@color/colorBlack"
+
+        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
             android:id="@+id/id_hypertension_questionnaire_home_antihypertensive_drugs"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="2dp"
+            segmentedgroup:sc_corner_radius="5dp">
+
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_antihypertensive_drugs_0"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
@@ -324,95 +368,109 @@
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_antihypertensive_drugs_1"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="2种" />
 
             <RadioButton
                 android:id="@+id/id_hypertension_questionnaire_home_antihypertensive_drugs_2"
+                style="@style/RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3种及以上" />
 
-        </RadioGroup>
+
+            <RadioButton
+                android:id="@+id/id_hypertension_questionnaire_home_work_status_2"
+                style="@style/RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未就业" />
+
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="服降压药总粒数" />
+            android:text="服降压药总粒数"
+            android:textColor="@color/colorBlack" />
 
         <EditText
-            android:textColor="@color/colorBlack"
             android:id="@+id/id_hypertension_questionnaire_antihypertensive_drug_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
-            android:text="23" />
+            android:text="23"
+            android:textColor="@color/colorBlack" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="目前空腹血糖" />
+            android:text="目前空腹血糖"
+            android:textColor="@color/colorBlack" />
 
         <EditText
-            android:textColor="@color/colorBlack"
             android:id="@+id/id_hypertension_questionnaire_antihypertensive_fasting_blood_sugar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
-            android:text="23" />
+            android:text="23"
+            android:textColor="@color/colorBlack" />
+
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="mmol/l"/>
+            android:text="mmol/l"
+            android:textColor="@color/colorBlack" />
     </LinearLayout>
 
 
     <LinearLayout
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="胰岛素一天总量" />
+            android:text="胰岛素一天总量"
+            android:textColor="@color/colorBlack" />
 
         <EditText
-            android:textColor="@color/colorBlack"
             android:id="@+id/id_hypertension_questionnaire_antihypertensive_total_insulin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
-            android:text="23" />
+            android:text="23"
+            android:textColor="@color/colorBlack" />
+
         <TextView
-            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="u"/>
+            android:text="u"
+            android:textColor="@color/colorBlack" />
     </LinearLayout>
 </LinearLayout>

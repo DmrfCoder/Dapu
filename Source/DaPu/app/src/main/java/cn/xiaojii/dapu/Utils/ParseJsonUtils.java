@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import cn.xiaojii.dapu.Bean.QuestionnaireAndTestBean;
+import cn.xiaojii.dapu.Bean.QuestionInPdfBean;
 
 public class ParseJsonUtils {
     private ReadFileToStringUtils readFileToStringUtils;
-    private List<QuestionnaireAndTestBean> QuestionnaireAndTestBeanList;
+    private List<QuestionInPdfBean> questionInPdfBeanList;
 
 
     public ParseJsonUtils(Context context) {
@@ -23,22 +23,22 @@ public class ParseJsonUtils {
 
     }
 
-    public List<QuestionnaireAndTestBean> GetJsonData(String filename) {
-        String json = readFileToStringUtils.ReadJsonToString(filename + ".json");
+    public List<QuestionInPdfBean> GetJsonData(String filename) {
+        String json = readFileToStringUtils.ReadJsonToString(filename);
         Gson gson = new Gson();
         List<JsonElement> list = new ArrayList();
         JsonParser jsonParser = new JsonParser();
         JsonElement jsonElement = jsonParser.parse(json);  //将json字符串转换成JsonElement
         JsonArray jsonArray = jsonElement.getAsJsonArray();  //将JsonElement转换成JsonArray
         Iterator it = jsonArray.iterator();  //Iterator处理
-        QuestionnaireAndTestBeanList = new ArrayList<>();
+        questionInPdfBeanList = new ArrayList<QuestionInPdfBean>();
 
         while (it.hasNext()) {  //循环
             jsonElement = (JsonElement) it.next(); //提取JsonElement
             json = jsonElement.toString();  //JsonElement转换成String
-            QuestionnaireAndTestBean questionnaireAndTestBean = gson.fromJson(json, QuestionnaireAndTestBean.class); //String转化成JavaBean
-            QuestionnaireAndTestBeanList.add(questionnaireAndTestBean);
+            QuestionInPdfBean questionInPdfBean = gson.fromJson(json, QuestionInPdfBean.class); //String转化成JavaBean
+            questionInPdfBeanList.add(questionInPdfBean);
         }
-        return QuestionnaireAndTestBeanList;
+        return questionInPdfBeanList;
     }
 }

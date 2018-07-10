@@ -15,24 +15,42 @@ public class StartUtils {
     public static void startActivityById(Context context, int resId) {
         Context context1 = DapuApplication.getContext();
         Intent intent = new Intent(context1, ClickButtonActivity.class);
-        intent.putExtra("resId", resId);
-        intent.putExtra("code",1);
+        intent.putExtra("ResId", resId);
+        intent.putExtra("code", 1);
+        context.startActivity(intent);
+    }
+
+
+    public static void startActivityToPdf(Context context, String filenme) {
+        Intent intent = new Intent(context, ClickButtonActivity.class);
+        intent.putExtra("pdf_file_name", filenme);
+        intent.putExtra("code", 3);
+        context.startActivity(intent);
+    }
+
+    public static void startActivityByFragment(Context context, String fragmentName) {
+
+        Context context1 = DapuApplication.getContext();
+        Intent intent = new Intent(context1, ClickButtonActivity.class);
+        intent.putExtra("fragmentName", fragmentName);
+        intent.putExtra("code", 4);
         context.startActivity(intent);
     }
 
     public static void startActivityByIdAndTabIndex(Context context, int resId, int tabIndex) {
         Context context1 = DapuApplication.getContext();
         Intent intent = new Intent(context1, ClickButtonActivity.class);
-        intent.putExtra("resId", resId);
+        intent.putExtra("ResId", resId);
         intent.putExtra("tabIndex", tabIndex);
-        intent.putExtra("code",2);
+        intent.putExtra("code", 2);
         context.startActivity(intent);
     }
 
     public static void startActivityByIdForResult(Fragment activity, int resId, int requestCode) {
         Intent intent = new Intent(DapuApplication.getContext(), ClickButtonActivity.class);
-        intent.putExtra("resId", resId);
+        intent.putExtra("ResId", resId);
         activity.startActivityForResult(intent, requestCode);
     }
+
 
 }

@@ -7,12 +7,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.Switch;
 
 import cn.xiaojii.dapu.Factory.FragmentFactory;
-import cn.xiaojii.dapu.Fragment.TopBar.FragmentPdfReadPdf;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.StartUtils;
 
 
 /**
@@ -25,12 +22,14 @@ public class ClickButtonActivity extends FragmentActivity implements View.OnClic
     public Intent intent;
     public FragmentTransaction ft;
 
-    public FrameLayout flClickButton;
-    public int resId;
+    public FrameLayout FlClickButton;
+    public int ResId;
     public String id;
-    public String pdfFileName;
+    public String PdfFileName;
     public int CurTabIndex;
     public int Code;
+
+    public String FragmentName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,20 +44,26 @@ public class ClickButtonActivity extends FragmentActivity implements View.OnClic
 
         Code = intent.getIntExtra("code", 0);
         if (Code != 0) {
-            resId = intent.getIntExtra("resId", 0);
+            ResId = intent.getIntExtra("ResId", 0);
             switch (Code) {
                 case 1:
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createById(resId));
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createById(ResId));
                     break;
 
 
                 case 2:
                     CurTabIndex = intent.getIntExtra("tabIndex", 0);
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createByIdAndTabIndex(resId,CurTabIndex));
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createByIdAndTabIndex(ResId, CurTabIndex));
                     break;
+
                 case 3:
-                    pdfFileName = intent.getStringExtra("pdf_file_name");
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createByIdAndPdfFileName(pdfFileName));
+                    PdfFileName = intent.getStringExtra("pdf_file_name");
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createByIdAndPdfFileName(PdfFileName));
+                    break;
+                case 4:
+                    FragmentName = intent.getStringExtra("fragmentName");
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName(FragmentName,ClickButtonActivity.this));
+
                     break;
             }
         }

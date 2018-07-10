@@ -1,11 +1,13 @@
 package cn.xiaojii.dapu.Factory;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 
 import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetes;
 import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetesSecondary;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentBmi;
-import cn.xiaojii.dapu.Fragment.Discover.FragmentTcmConstitutionIdentification;
+import cn.xiaojii.dapu.Fragment.Discover.FragmentTcmConstitution;
+import cn.xiaojii.dapu.Fragment.Discover.FragmentTcmConstitutionIdentificationSecondary;
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentDiscover;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentWaitYouChallage;
@@ -32,7 +34,7 @@ public class FragmentFactory {
                 fragment = new FragmentBmi();
                 break;
             case R.id.id_physical_identification:
-                fragment = new FragmentTcmConstitutionIdentification();
+                fragment = new FragmentTcmConstitutionIdentificationSecondary();
                 break;
             case R.id.id_waiting_for_challenge:
                 fragment = new FragmentWaitYouChallage();
@@ -98,7 +100,7 @@ public class FragmentFactory {
             case R.id.id_top_right:
                 switch (CurTabIndex) {
                     case 0:
-                        fragment=new FragmentAbout();
+                        fragment = new FragmentAbout();
                         break;
                     case 1:
                         break;
@@ -115,6 +117,19 @@ public class FragmentFactory {
     public static Fragment createByIdAndPdfFileName(String filename) {
         Fragment fragment = null;
         fragment = new FragmentPdfReadPdf(filename);
+        return fragment;
+    }
+
+    public static Fragment createByFragmentName(String fragmentName, Context context) {
+        Fragment fragment = null;
+
+
+        switch (fragmentName) {
+            case "FragmentTcmConstitution":
+                fragment = new FragmentTcmConstitution(context);
+                break;
+
+        }
         return fragment;
     }
 }

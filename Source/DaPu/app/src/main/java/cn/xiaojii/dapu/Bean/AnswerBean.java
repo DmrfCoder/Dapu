@@ -2,24 +2,50 @@ package cn.xiaojii.dapu.Bean;
 
 public class AnswerBean {
     private int ImageId;//答案对应的ImageId
-    private String Answer;//答案
-    private String Order;//答案对应的序号(A/B/C/D)
+    private String StringAnswer;//答案
+    private String AnswerIndex;//答案对应的序号(A/B/C/D)
+    private String[] IndexString = {"A", "B", "C", "D","E","F"};
 
-    public String getOrder() {
-        return Order;
+    public String getAnswerIndex() {
+        return AnswerIndex;
+    }
+
+    public void setImageId(int imageId) {
+        ImageId = imageId;
+    }
+
+    public void setStringAnswer(String stringAnswer) {
+        StringAnswer = stringAnswer;
+    }
+
+    public void setAnswerIndex(String answerIndex) {
+        AnswerIndex = answerIndex;
+    }
+
+    public void setAnswerIndex(int answerIndex) {
+        AnswerIndex = IndexString[answerIndex];
+    }
+
+
+
+    public void setIndexString(String[] indexString) {
+        IndexString = indexString;
     }
 
     public int getImageId() {
         return ImageId;
     }
 
-    public String getAnswer() {
-        return Answer;
+    public String getStringAnswer() {
+        return StringAnswer;
     }
 
-    public AnswerBean(int imageId, String answer,String order) {
+    public AnswerBean() {
+    }
+
+    public AnswerBean(int imageId, String stringAnswer, int answerIndex) {
         ImageId = imageId;
-        Answer = answer;
-        this.Order=order;
+        StringAnswer = stringAnswer;
+        this.AnswerIndex = IndexString[answerIndex];
     }
 }
