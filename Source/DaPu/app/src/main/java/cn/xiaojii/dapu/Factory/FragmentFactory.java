@@ -36,9 +36,7 @@ public class FragmentFactory {
             case R.id.id_physical_identification:
                 fragment = new FragmentTcmConstitutionIdentificationSecondary();
                 break;
-            case R.id.id_waiting_for_challenge:
-                fragment = new FragmentWaitYouChallage();
-                break;
+
             case R.id.id_database_questionnaire:
                 fragment = new FragmentDiabetesSecondary();
                 break;
@@ -127,6 +125,10 @@ public class FragmentFactory {
         switch (fragmentName) {
             case "FragmentTcmConstitution":
                 fragment = new FragmentTcmConstitution(context);
+                break;
+
+            case "FragmentWaitYouChallage":
+                fragment = new FragmentWaitYouChallage(context);
                 break;
 
         }

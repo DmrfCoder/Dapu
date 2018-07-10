@@ -47,7 +47,12 @@ public class ClickButtonActivity extends FragmentActivity implements View.OnClic
             ResId = intent.getIntExtra("ResId", 0);
             switch (Code) {
                 case 1:
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createById(ResId));
+                    if (ResId==R.id.id_waiting_for_challenge){
+                        ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName("FragmentWaitYouChallage",ClickButtonActivity.this));
+                    }else {
+                        ft.replace(R.id.fl_click_button, FragmentFactory.createById(ResId));
+                    }
+
                     break;
 
 

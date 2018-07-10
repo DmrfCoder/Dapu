@@ -18,6 +18,11 @@ public class AnswerAdapter extends BaseAdapter {
     }
 
     private Context context;
+
+    public QuestionBean getQuestionBean() {
+        return questionBean;
+    }
+
     private QuestionBean questionBean;
 
 

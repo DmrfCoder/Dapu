@@ -11,6 +11,7 @@
         android:layout_marginLeft="10dp" />
 
     <TextView
+        android:textSize="20dp"
         android:id="@+id/id_item_answers_listview_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

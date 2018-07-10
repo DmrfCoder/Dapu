@@ -23,8 +23,15 @@ import cn.xiaojii.dapu.R;
 public class FragmentTcmConstitution extends BaseFragment {
 
 
-    private Context context;
+    @SuppressLint("ValidFragment")
+    public FragmentTcmConstitution(Context context) {
+        this.context = context;
+        questionBeanList = QuestionAnswerFactory.GetNormalData(context, "PhysicalTest.json");
+        QuestionCount = questionBeanList.size();
+        CurQuestionIndex = 1;
 
+
+    }
 
 
     @SuppressLint("SetTextI18n")
@@ -32,7 +39,7 @@ public class FragmentTcmConstitution extends BaseFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discover_tcm_constitution, null);
-        CurQuestionIndex=1;
+        CurQuestionIndex = 1;
         InitView(view);
 
         return view;
@@ -72,11 +79,12 @@ public class FragmentTcmConstitution extends BaseFragment {
         answerAdapter = new AnswerAdapter(getActivity(), questionBeanList.get(0));
         AnswerListView.setAdapter(answerAdapter);
 
+        AnswerSelectedTextView = view.findViewById(R.id.id_tcm_constitution_answer_selected);
         AnswerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-              CurQuestionIndex++;
-              UpdateView();
+
+                AnswerSelectedTextView.setText(IndexString[position]);
 
             }
         });
@@ -84,26 +92,28 @@ public class FragmentTcmConstitution extends BaseFragment {
 
     }
 
-    @SuppressLint("ValidFragment")
-    public FragmentTcmConstitution(Context context) {
-        this.context = context;
-        questionBeanList = QuestionAnswerFactory.GetNormalData(context, "PhysicalTest.json");
-        QuestionCount = questionBeanList.size() + 1;
-        CurQuestionIndex = 1;
-
-
-    }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.id_top_left:
+                onBack();
                 break;
             case R.id.id_top_right:
                 break;
             case R.id.id_bommom_bar_previous:
+                if (CurQuestionIndex > 1) {
+                    CurQuestionIndex--;
+                    UpdateView();
+                }
+
                 break;
             case R.id.id_bottom_bar_next:
+                if (CurQuestionIndex < QuestionCount) {
+                    CurQuestionIndex++;
+                    UpdateView();
+                }
+
                 break;
 
 
