@@ -9,3 +9,4 @@ del %SOURCE_PATH%
 
 cd Source/DaPu
 gradlew build
+cd %RootPath%Tool/Windows
