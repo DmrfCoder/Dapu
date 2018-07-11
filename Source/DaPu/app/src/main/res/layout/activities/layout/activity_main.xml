@@ -7,11 +7,12 @@
     android:orientation="vertical">
     <include layout="@layout/top_bar" />
 
-    <FrameLayout
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:visibility="gone" />
+        android:visibility="gone"
+         />
 
     <cn.xiaojii.dapu.Widght.NoScrollViewPager
         android:id="@+id/id_pager"

@@ -36,7 +36,8 @@ public class MainActivity extends FragmentActivity implements
     private FragmentTabHost mTabHost;
     private LayoutInflater layoutInflater;
     private Class fragmentArray[] = {FragmentDiscover.class, FragmentHypertension.class, FragmentDiabetes.class};
-    private int imageViewArray[] = {R.drawable.selector_tab_discover, R.drawable.selector_tab_hypertension, R.drawable.selector_tab_diabetes};
+    private int imageViewArray[] = {R.mipmap.ic_tab_bar_discover, R.mipmap.ic_tab_bar_hypertension, R.mipmap.ic_tab_bar_diabetes};
+    private int imageSelectedViewArray[] = {R.mipmap.ic_tab_bar_discover_selected, R.mipmap.ic_tab_bar_hypertension_selected, R.mipmap.ic_tab_bar_diabetes_selected};
     private String textViewArray[] = {"发现", "高血压", "糖尿病"};
     private List<Fragment> fragmentList = new ArrayList<Fragment>();//三个tab对应的content fragment
     private NoScrollViewPager vp;
@@ -90,8 +91,7 @@ public class MainActivity extends FragmentActivity implements
             // 将Tab按钮添加进Tab选项卡中，并绑定Fragment
             mTabHost.addTab(tabSpec, fragmentArray[tabIndex], null);
             mTabHost.setTag(tabIndex);
-            mTabHost.getTabWidget().getChildAt(tabIndex)
-                    .setBackgroundResource(R.drawable.selector_tab_background);//设置Tab被选中的时候颜色改变
+            mTabHost.getTabWidget().getChildAt(tabIndex).setBackgroundColor(this.getResources().getColor(R.color.colorWhite));
         }
     }
 
@@ -129,9 +129,23 @@ public class MainActivity extends FragmentActivity implements
 
 
         int position = mTabHost.getCurrentTab();
-        TextView tv = (TextView) mTabHost.getTabWidget().getChildAt(position).findViewById(R.id.id_tab_name);
+        for (int i = 0; i < mTabHost.getTabWidget().getChildCount(); i++) {
+            TextView tv = (TextView) mTabHost.getTabWidget().getChildAt(i).findViewById(R.id.id_tab_name);
+            ImageView iv = (ImageView) mTabHost.getTabWidget().getChildAt(i).findViewById(R.id.id_tab_icon);
 
-        tv.setTextColor(this.getResources().getColor(R.color.colorBlue));
+            if (i == position) {//选中
+                iv.setBackgroundResource(imageSelectedViewArray[i]);
+                tv.setTextColor(this.getResources().getColor(R.color.colorBlue));
+
+            } else {//不选中
+                iv.setBackgroundResource(imageViewArray[i]);
+                tv.setTextColor(this.getResources().getColor(R.color.colorBlack));
+
+            }
+        }
+
+
+
 
         vp.setCurrentItem(position);//把选中的Tab的位置赋给适配器，让它控制页面切换
         CurTabIndex = position;
