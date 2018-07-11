@@ -31,6 +31,9 @@ public class ClickButtonActivity extends FragmentActivity implements View.OnClic
 
     public String FragmentName;
 
+    public String JsonFileName;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +73,12 @@ public class ClickButtonActivity extends FragmentActivity implements View.OnClic
                     ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName(FragmentName,ClickButtonActivity.this));
 
                     break;
+                case 5:
+                    JsonFileName = intent.getStringExtra("jsonFileName");
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createByJsonFileName(JsonFileName,ClickButtonActivity.this));
+
+                    break;
+
             }
         }
 

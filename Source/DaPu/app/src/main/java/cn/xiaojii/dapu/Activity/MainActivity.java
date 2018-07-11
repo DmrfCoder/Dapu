@@ -36,7 +36,10 @@ public class MainActivity extends FragmentActivity implements
     private FragmentTabHost mTabHost;
     private LayoutInflater layoutInflater;
     private Class fragmentArray[] = {FragmentDiscover.class, FragmentHypertension.class, FragmentDiabetes.class};
-    private int imageViewArray[] = {R.drawable.tab_home_btn, R.drawable.tab_diabetes_btn, R.drawable.tab_diabetes_btn};
+    private int imageViewArray[] = {R.mipmap.ic_tab_bar_discover, R.mipmap.ic_tab_bar_hypertension, R.mipmap.ic_tab_bar_diabetes};
+    private int imageSelectedViewArray[] = {R.mipmap.ic_tab_bar_discover_selected, R.mipmap.ic_tab_bar_hypertension, R.mipmap.ic_tab_bar_diabetes};
+
+
     private String textViewArray[] = {"发现", "高血压", "糖尿病"};
     private List<Fragment> fragmentList = new ArrayList<Fragment>();//三个tab对应的content fragment
     private NoScrollViewPager vp;
@@ -129,6 +132,24 @@ public class MainActivity extends FragmentActivity implements
     @Override
     public void onTabChanged(String tabId) {//Tab改变的时候调用
         int position = mTabHost.getCurrentTab();
+        for (int i = 0; i < mTabHost.getTabWidget().getChildCount(); i++) {
+            TextView tv = (TextView) mTabHost.getTabWidget().getChildAt(i).findViewById(R.id.id_tab_name);
+            ImageView iv = (ImageView) mTabHost.getTabWidget().getChildAt(i).findViewById(R.id.id_tab_icon);
+
+            if (i == position) {//选中
+                iv.setBackgroundResource(imageSelectedViewArray[i]);
+                tv.setTextColor(this.getResources().getColor(R.color.colorBlue));
+
+            } else {//不选中
+                iv.setBackgroundResource(imageViewArray[i]);
+                tv.setTextColor(this.getResources().getColor(R.color.colorBlack));
+
+            }
+        }
+
+
+
+
         vp.setCurrentItem(position);//把选中的Tab的位置赋给适配器，让它控制页面切换
         CurTabIndex = position;
         UpdateTopView();

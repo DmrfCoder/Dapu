@@ -3,11 +3,13 @@ package cn.xiaojii.dapu.Factory;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
+import cn.xiaojii.dapu.Activity.ClickButtonActivity;
 import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetes;
 import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetesSecondary;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentBmi;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentTcmConstitution;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentTcmConstitutionIdentificationSecondary;
+import cn.xiaojii.dapu.Fragment.FragmentQuestionnaire;
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentDiscover;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentWaitYouChallage;
@@ -86,10 +88,10 @@ public class FragmentFactory {
                         fragment = new FragmentPdfReadList();
                         break;
                     case 1:
-
+                        fragment = new FragmentPdfReadList();
                         break;
                     case 2:
-
+                        fragment = new FragmentPdfReadList();
                         break;
                 }
                 break;
@@ -101,8 +103,10 @@ public class FragmentFactory {
                         fragment = new FragmentAbout();
                         break;
                     case 1:
+                        fragment = new FragmentAbout();
                         break;
                     case 2:
+                        fragment = new FragmentAbout();
                         break;
                 }
                 break;
@@ -133,5 +137,23 @@ public class FragmentFactory {
 
         }
         return fragment;
+    }
+
+    public static Fragment createByJsonFileName(String jsonFileName, Context context) {
+        Fragment fragment = null;
+
+
+        switch (jsonFileName) {
+            case "PhysicalTest":
+                fragment = new FragmentQuestionnaire(context,"<中医体质辨识","PhysicalTest.json");
+                break;
+
+            case "FragmentWaitYouChallage":
+                fragment = new FragmentWaitYouChallage(context);
+                break;
+
+        }
+        return fragment;
+
     }
 }

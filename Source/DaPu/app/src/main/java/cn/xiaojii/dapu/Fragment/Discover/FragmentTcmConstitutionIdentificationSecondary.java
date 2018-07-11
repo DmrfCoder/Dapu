@@ -47,7 +47,7 @@ public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment
                 onBack();
                 break;
             case R.id.id_top_right:
-                StartUtils.startActivityByFragment(getActivity(), "FragmentTcmConstitution");
+                StartUtils.startActivityByJsonFileName(getActivity(),"PhysicalTest");
                 break;
         }
     }
