@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import cn.xiaojii.dapu.Bean.QuestionInPdfBean;
+import cn.xiaojii.dapu.Bean.QuestionInJsonBean;
 
 public class ParseJsonUtils {
     private ReadFileToStringUtils readFileToStringUtils;
-    private List<QuestionInPdfBean> questionInPdfBeanList;
+    private List<QuestionInJsonBean> questionInJsonBeanList;
 
 
     public ParseJsonUtils(Context context) {
@@ -23,7 +23,7 @@ public class ParseJsonUtils {
 
     }
 
-    public List<QuestionInPdfBean> GetJsonData(String filename) {
+    public List<QuestionInJsonBean> GetJsonData(String filename) {
         String json = readFileToStringUtils.ReadJsonToString(filename);
         Gson gson = new Gson();
         List<JsonElement> list = new ArrayList();
@@ -31,14 +31,14 @@ public class ParseJsonUtils {
         JsonElement jsonElement = jsonParser.parse(json);  //将json字符串转换成JsonElement
         JsonArray jsonArray = jsonElement.getAsJsonArray();  //将JsonElement转换成JsonArray
         Iterator it = jsonArray.iterator();  //Iterator处理
-        questionInPdfBeanList = new ArrayList<QuestionInPdfBean>();
+        questionInJsonBeanList = new ArrayList<QuestionInJsonBean>();
 
         while (it.hasNext()) {  //循环
             jsonElement = (JsonElement) it.next(); //提取JsonElement
             json = jsonElement.toString();  //JsonElement转换成String
-            QuestionInPdfBean questionInPdfBean = gson.fromJson(json, QuestionInPdfBean.class); //String转化成JavaBean
-            questionInPdfBeanList.add(questionInPdfBean);
+            QuestionInJsonBean questionInJsonBean = gson.fromJson(json, QuestionInJsonBean.class); //String转化成JavaBean
+            questionInJsonBeanList.add(questionInJsonBean);
         }
-        return questionInPdfBeanList;
+        return questionInJsonBeanList;
     }
 }

@@ -2,7 +2,7 @@ package cn.xiaojii.dapu.Bean;
 
 import java.util.List;
 
-public class QuestionInPdfBean {
+public class QuestionInJsonBean {
     private List<String> AnswerCandidate;
     private String Chapter;
     private String Index;

@@ -13,7 +13,6 @@ import cn.xiaojii.dapu.Fragment.FragmentQuestionnaire;
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentDiscover;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentWaitYouChallage;
-import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertensionQuestionnaire;
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertensionSecondary;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentAbout;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentPdfReadList;
@@ -21,10 +20,7 @@ import cn.xiaojii.dapu.Fragment.TopBar.FragmentPdfReadPdf;
 import cn.xiaojii.dapu.R;
 
 
-/**
- * fragment的工厂类
- * zs on 2015/11/3.
- */
+
 public class FragmentFactory {
 
     /**
@@ -135,9 +131,7 @@ public class FragmentFactory {
             case "FragmentWaitYouChallage":
                 fragment = new FragmentWaitYouChallage(context);
                 break;
-            case "FragmentHypertensionQuestionnaire":
-                fragment = new FragmentHypertensionQuestionnaire(context);
-                break;
+
 
         }
         return fragment;

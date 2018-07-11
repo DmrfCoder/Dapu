@@ -10,11 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
-import java.util.List;
-
 import cn.xiaojii.dapu.Adapter.AnswerAdapter;
-import cn.xiaojii.dapu.Bean.QuestionBean;
-import cn.xiaojii.dapu.Factory.DataFactory.QuestionAnswerFactory;
+import cn.xiaojii.dapu.Factory.DataFactory.QuestionAndAnswerFactory;
 import cn.xiaojii.dapu.Fragment.BaseFragment;
 import cn.xiaojii.dapu.R;
 
@@ -26,7 +23,7 @@ public class FragmentTcmConstitution extends BaseFragment {
     @SuppressLint("ValidFragment")
     public FragmentTcmConstitution(Context context) {
         this.context = context;
-        questionBeanList = QuestionAnswerFactory.GetNormalData(context, "PhysicalTest.json");
+        questionBeanList = QuestionAndAnswerFactory.GetNormalData(context, "PhysicalTest.json");
         QuestionCount = questionBeanList.size();
         CurQuestionIndex = 1;
     }

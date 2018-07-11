@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import cn.xiaojii.dapu.Adapter.AnswerAdapter;
-import cn.xiaojii.dapu.Factory.DataFactory.QuestionAnswerFactory;
+import cn.xiaojii.dapu.Factory.DataFactory.QuestionAndAnswerFactory;
 import cn.xiaojii.dapu.Fragment.BaseFragment;
 import cn.xiaojii.dapu.R;
 
@@ -20,7 +20,7 @@ public class FragmentWaitYouChallage extends BaseFragment {
 
     @SuppressLint("ValidFragment")
     public FragmentWaitYouChallage(Context context) {
-        questionBeanList = QuestionAnswerFactory.GetNormalData(context, "WaitYouChallage.json");
+        questionBeanList = QuestionAndAnswerFactory.GetNormalData(context, "WaitYouChallage.json");
         QuestionCount = questionBeanList.size();
         CurQuestionIndex = 1;
     }

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import cn.xiaojii.dapu.Adapter.AnswerAdapter;
-import cn.xiaojii.dapu.Factory.DataFactory.QuestionAnswerFactory;
+import cn.xiaojii.dapu.Factory.DataFactory.QuestionAndAnswerFactory;
 import cn.xiaojii.dapu.R;
 
 @SuppressLint("ValidFragment")
@@ -25,7 +25,7 @@ public class FragmentQuestionnaire extends BaseFragment {
         this.context = context;
         LeftText = leftText;
         FileName = fileName;
-        questionBeanList = QuestionAnswerFactory.GetNormalData(context, fileName);
+        questionBeanList = QuestionAndAnswerFactory.GetNormalData(context, fileName);
         QuestionCount = questionBeanList.size();
         CurQuestionIndex = 1;
     }

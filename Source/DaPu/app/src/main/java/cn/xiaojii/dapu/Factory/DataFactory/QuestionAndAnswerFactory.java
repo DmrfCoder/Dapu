@@ -7,18 +7,18 @@ import java.util.List;
 
 import cn.xiaojii.dapu.Bean.AnswerBean;
 import cn.xiaojii.dapu.Bean.QuestionBean;
-import cn.xiaojii.dapu.Bean.QuestionInPdfBean;
+import cn.xiaojii.dapu.Bean.QuestionInJsonBean;
 import cn.xiaojii.dapu.Utils.ParseJsonUtils;
 
-public class QuestionAnswerFactory {
+public class QuestionAndAnswerFactory {
 
-    private static List<QuestionInPdfBean> questionInPdfBeanList;
+    private static List<QuestionInJsonBean> questionInJsonBeanList;
     private List<QuestionBean> questionBeanList;
 
-    public static List<QuestionInPdfBean> GetDataFromJSONFile(Context context, String filename) {
+    public static List<QuestionInJsonBean> GetDataFromJSONFile(Context context, String filename) {
         ParseJsonUtils parseJsonUtils = new ParseJsonUtils(context);
-        questionInPdfBeanList = parseJsonUtils.GetJsonData(filename);
-        return questionInPdfBeanList;
+        questionInJsonBeanList = parseJsonUtils.GetJsonData(filename);
+        return questionInJsonBeanList;
     }
 
     public static List<QuestionBean> GetNormalData(Context context, String filename) {
@@ -26,11 +26,11 @@ public class QuestionAnswerFactory {
         List<QuestionBean> questionBeanList;
 
 
-        List<QuestionInPdfBean> questionInPdfBeanList = QuestionAnswerFactory.GetDataFromJSONFile(context, filename);
+        List<QuestionInJsonBean> questionInJsonBeanList = QuestionAndAnswerFactory.GetDataFromJSONFile(context, filename);
 
         questionBeanList = new ArrayList<>();
 
-        for (QuestionInPdfBean q : questionInPdfBeanList) {
+        for (QuestionInJsonBean q : questionInJsonBeanList) {
 
 
             QuestionBean questionBean = new QuestionBean();
