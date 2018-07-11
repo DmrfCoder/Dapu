@@ -3,7 +3,7 @@ package cn.xiaojii.dapu.Factory;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
-import cn.xiaojii.dapu.Activity.ClickButtonActivity;
+import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetes;
 import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetesSecondary;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentBmi;
@@ -41,16 +41,16 @@ public class FragmentFactory {
                 break;
 
             case R.id.id_database_questionnaire:
-                fragment = new FragmentDiabetesSecondary();
+                fragment = new FragmentDiabetesSecondary(GlogalBean.Type.Questionnaire);
                 break;
             case R.id.id_database_self_test:
-                fragment = new FragmentDiabetesSecondary();
+                fragment = new FragmentDiabetesSecondary(GlogalBean.Type.SelfTest);
                 break;
             case R.id.id_hypertension_questionnaire:
-                fragment = new FragmentHypertensionSecondary();
+                fragment = new FragmentHypertensionSecondary(GlogalBean.Type.Questionnaire);
                 break;
             case R.id.id_hypertension_self_test:
-                fragment = new FragmentHypertensionSecondary();
+                fragment = new FragmentHypertensionSecondary(GlogalBean.Type.SelfTest);
                 break;
 
         }
@@ -149,11 +149,23 @@ public class FragmentFactory {
 
         switch (jsonFileName) {
             case "PhysicalTest":
-                fragment = new FragmentQuestionnaire(context,"<中医体质辨识","PhysicalTest.json");
+                fragment = new FragmentQuestionnaire(context, "<中医体质辨识", "PhysicalTest.json");
                 break;
 
-            case "FragmentWaitYouChallage":
-                fragment = new FragmentWaitYouChallage(context);
+            case "WaitYouChallage":
+                fragment = new FragmentQuestionnaire(context, "<发现", "WaitYouChallage.json");
+                break;
+            case "HypertensionQuestionnaire":
+                fragment = new FragmentQuestionnaire(context, "<高血压问卷", "HypertensionQuestionnaire.json");
+                break;
+            case "HypertensionTest":
+                fragment = new FragmentQuestionnaire(context, "<高血压自测", "HypertensionTest.json");
+                break;
+            case "DiabetesQuestionnaire":
+                fragment = new FragmentQuestionnaire(context, "<糖尿病问卷", "DiabetesQuestionnaire.json");
+                break;
+            case "DiabetesTest":
+                fragment = new FragmentQuestionnaire(context, "<糖尿病自测", "DiabetesTest.json");
                 break;
 
         }

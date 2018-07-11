@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_main_page"
+    android:background="@drawable/background_secondary_page"
     android:orientation="vertical">
 
     <include layout="@layout/top_bar" />
@@ -67,10 +67,10 @@
         <ListView
             android:id="@+id/id_wait_you_challage_answer_listview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_marginTop="10dp"
             android:background="@color/colorWhite"
-            android:textSize="20dp"></ListView>
+            android:textSize="20dp" />
 
         <include
             layout="@layout/bottom_arrow"

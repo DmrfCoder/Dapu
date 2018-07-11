@@ -25,7 +25,7 @@ public class FragmentQuestionnaire extends BaseFragment {
         this.context = context;
         LeftText = leftText;
         FileName = fileName;
-        questionBeanList = QuestionAnswerFactory.GetNormalData(context, "PhysicalTest.json");
+        questionBeanList = QuestionAnswerFactory.GetNormalData(context, fileName);
         QuestionCount = questionBeanList.size();
         CurQuestionIndex = 1;
     }

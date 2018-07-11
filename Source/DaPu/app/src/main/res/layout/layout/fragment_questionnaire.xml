@@ -41,11 +41,12 @@
                 android:layout_height="wrap_content"
                 android:text="答案(单选题): "
                 android:textSize="20dp" />
+
             <TextView
+                android:id="@+id/id_questionnaire_answer_selected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/id_questionnaire_answer_selected"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
         </LinearLayout>
 
 
@@ -63,8 +64,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:background="@color/colorWhite"></ListView>
+            android:background="@android:color/transparent"
+            android:textSize="20dp" />
 
         <include
             layout="@layout/bottom_arrow"

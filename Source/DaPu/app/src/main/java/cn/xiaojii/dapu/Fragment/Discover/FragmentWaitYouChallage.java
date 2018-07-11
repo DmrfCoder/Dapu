@@ -5,14 +5,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
 import cn.xiaojii.dapu.Adapter.AnswerAdapter;
-import cn.xiaojii.dapu.Bean.QuestionBean;
 import cn.xiaojii.dapu.Factory.DataFactory.QuestionAnswerFactory;
 import cn.xiaojii.dapu.Fragment.BaseFragment;
 import cn.xiaojii.dapu.R;
@@ -22,7 +20,7 @@ public class FragmentWaitYouChallage extends BaseFragment {
 
     @SuppressLint("ValidFragment")
     public FragmentWaitYouChallage(Context context) {
-        questionBeanList = QuestionAnswerFactory.GetNormalData(context, "DiabetesQuestionnaireAnswer.json");
+        questionBeanList = QuestionAnswerFactory.GetNormalData(context, "WaitYouChallage.json");
         QuestionCount = questionBeanList.size();
         CurQuestionIndex = 1;
     }

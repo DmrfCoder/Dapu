@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import cn.xiaojii.dapu.Activity.MainActivity;
 import cn.xiaojii.dapu.R;
 import cn.xiaojii.dapu.Utils.StartUtils;
 
@@ -47,7 +48,13 @@ public class FragmentDiscover extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        StartUtils.startActivityById(getActivity(), view.getId());
+
+
+        if (view.getId() == R.id.id_waiting_for_challenge) {
+            StartUtils.startActivityByJsonFileName(getActivity(), "WaitYouChallage");
+        } else {
+            StartUtils.startActivityById(getActivity(), view.getId());
+        }
     }
 }
 

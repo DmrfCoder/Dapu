@@ -146,8 +146,6 @@ public class MainActivity extends FragmentActivity implements
         }
 
 
-
-
         vp.setCurrentItem(position);//把选中的Tab的位置赋给适配器，让它控制页面切换
         CurTabIndex = position;
         UpdateTopView();
@@ -193,7 +191,7 @@ public class MainActivity extends FragmentActivity implements
 
     @Override
     public void onClick(View view) {
-        StartUtils.startActivityByIdAndTabIndex(MainActivity.this, view.getId(), CurTabIndex);
+        StartUtils.startActivityByIdAndTabIndex(MainActivity.this, view.getId(), 0);
 
 
     }
