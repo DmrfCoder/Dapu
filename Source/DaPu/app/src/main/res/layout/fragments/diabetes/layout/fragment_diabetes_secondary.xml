@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/coin_background"
+    android:background="@drawable/background_main_page"
     android:orientation="vertical">
 
     <include layout="@layout/top_bar" />
@@ -34,7 +34,7 @@
             android:id="@+id/id_diabetes_questionnaire_home_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/text_background"
+            android:background="@drawable/background_edit_text"
             android:text="张三"
             android:textColor="@color/colorBlack" />
 
@@ -98,7 +98,7 @@
             android:id="@+id/id_diabetes_questionnaire_home_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/text_background"
+            android:background="@drawable/background_edit_text"
             android:text="23"
             android:textColor="@color/colorBlack" />
     </LinearLayout>
@@ -120,7 +120,7 @@
             android:id="@+id/id_diabetes_questionnaire_home_id_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/text_background"
+            android:background="@drawable/background_edit_text"
             android:text="666666666666666666"
             android:textColor="@color/colorBlack" />
     </LinearLayout>
@@ -358,7 +358,7 @@
             android:id="@+id/id_diabetes_questionnaire_antihypertensive_drug_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/text_background"
+            android:background="@drawable/background_edit_text"
             android:text="23"
             android:textColor="@color/colorBlack" />
     </LinearLayout>
@@ -381,7 +381,7 @@
             android:id="@+id/id_diabetes_questionnaire_antihypertensive_fasting_blood_sugar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/text_background"
+            android:background="@drawable/background_edit_text"
             android:text="23"
             android:textColor="@color/colorBlack" />
 
@@ -410,7 +410,7 @@
             android:id="@+id/id_diabetes_questionnaire_antihypertensive_total_insulin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/text_background"
+            android:background="@drawable/background_edit_text"
             android:text="23"
             android:textColor="@color/colorBlack" />
 

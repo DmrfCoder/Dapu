@@ -39,7 +39,6 @@ public class MainActivity extends FragmentActivity implements
     private int imageViewArray[] = {R.mipmap.ic_tab_bar_discover, R.mipmap.ic_tab_bar_hypertension, R.mipmap.ic_tab_bar_diabetes};
     private int imageSelectedViewArray[] = {R.mipmap.ic_tab_bar_discover_selected, R.mipmap.ic_tab_bar_hypertension, R.mipmap.ic_tab_bar_diabetes};
 
-
     private String textViewArray[] = {"发现", "高血压", "糖尿病"};
     private List<Fragment> fragmentList = new ArrayList<Fragment>();//三个tab对应的content fragment
     private NoScrollViewPager vp;
@@ -93,8 +92,7 @@ public class MainActivity extends FragmentActivity implements
             // 将Tab按钮添加进Tab选项卡中，并绑定Fragment
             mTabHost.addTab(tabSpec, fragmentArray[tabIndex], null);
             mTabHost.setTag(tabIndex);
-            mTabHost.getTabWidget().getChildAt(tabIndex)
-                    .setBackgroundResource(R.drawable.selector_tab_background);//设置Tab被选中的时候颜色改变
+            mTabHost.getTabWidget().getChildAt(tabIndex).setBackgroundColor(this.getResources().getColor(R.color.colorWhite));
         }
     }
 
@@ -117,7 +115,6 @@ public class MainActivity extends FragmentActivity implements
     private View getTabItemView(int tabIndex) {
         //将xml布局转换为view对象
         View view = layoutInflater.inflate(R.layout.tab_content, null);
-        view.setBackgroundResource(R.mipmap.bottom_bar_background);
         //利用view对象，找到布局中的组件,并设置内容，然后返回视图
         ImageView mImageView = (ImageView) view
                 .findViewById(R.id.id_tab_icon);
@@ -128,9 +125,10 @@ public class MainActivity extends FragmentActivity implements
     }
 
 
-
     @Override
     public void onTabChanged(String tabId) {//Tab改变的时候调用
+
+
         int position = mTabHost.getCurrentTab();
         for (int i = 0; i < mTabHost.getTabWidget().getChildCount(); i++) {
             TextView tv = (TextView) mTabHost.getTabWidget().getChildAt(i).findViewById(R.id.id_tab_name);
@@ -195,7 +193,7 @@ public class MainActivity extends FragmentActivity implements
 
     @Override
     public void onClick(View view) {
-        StartUtils.startActivityByIdAndTabIndex(MainActivity.this,view.getId(),CurTabIndex);
+        StartUtils.startActivityByIdAndTabIndex(MainActivity.this, view.getId(), CurTabIndex);
 
 
     }

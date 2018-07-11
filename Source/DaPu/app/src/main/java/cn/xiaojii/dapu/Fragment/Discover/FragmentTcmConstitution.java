@@ -29,8 +29,6 @@ public class FragmentTcmConstitution extends BaseFragment {
         questionBeanList = QuestionAnswerFactory.GetNormalData(context, "PhysicalTest.json");
         QuestionCount = questionBeanList.size();
         CurQuestionIndex = 1;
-
-
     }
 
 

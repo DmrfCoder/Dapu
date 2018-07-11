@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_marginTop="10dp"
+
+    <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
+       android:layout_centerInParent="true">
 
-        <Button
-            android:id="@+id/id_hypertension_questionnaire"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@mipmap/rectangle_background"
-            android:text="高血压问卷"
-            android:textColor="@color/colorWhite" />
+        <TableRow android:layout_weight="1">
 
-        <Button
-            android:id="@+id/id_hypertension_self_test"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:background="@mipmap/rectangle_background"
-            android:text=" 高血压自测 "
-            android:textColor="@color/colorWhite" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/id_hypertension_questionnaire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/background_main_function"
+                android:text="高血压问卷"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/id_hypertension_self_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@mipmap/background_main_function"
+                android:text=" 高血压自测 "
+                android:textColor="@color/colorWhite" />
+        </TableRow>
+
+
+
+    </TableLayout>
 
 
 </RelativeLayout>

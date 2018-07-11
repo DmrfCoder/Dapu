@@ -1,11 +1,14 @@
 package cn.xiaojii.dapu.Fragment.Hypertension;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+
 
 import cn.xiaojii.dapu.Fragment.BaseFragment;
 import cn.xiaojii.dapu.R;
@@ -20,6 +23,7 @@ public class FragmentHypertensionSecondary extends BaseFragment implements View.
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hypertension_secondary, null);
+
 
 
         LeftButton = view.findViewById(R.id.id_top_left);
@@ -42,6 +46,7 @@ public class FragmentHypertensionSecondary extends BaseFragment implements View.
     }
 
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -52,5 +57,7 @@ public class FragmentHypertensionSecondary extends BaseFragment implements View.
                 StartUtils.startActivityByFragment(getActivity(), "");
                 break;
         }
+
+
     }
 }

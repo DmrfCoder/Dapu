@@ -15,10 +15,6 @@ import cn.xiaojii.dapu.Factory.DataFactory.QuestionAnswerFactory;
 import cn.xiaojii.dapu.Fragment.BaseFragment;
 import cn.xiaojii.dapu.R;
 
-
-
-
-
 @SuppressLint("ValidFragment")
 public class FragmentHypertensionQuestionnaire extends BaseFragment {
 
@@ -40,10 +36,10 @@ public class FragmentHypertensionQuestionnaire extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_discover_tcm_constitution, null);
         CurQuestionIndex = 1;
-        InitView(view);
-
         return view;
+
     }
+
 
     @SuppressLint("SetTextI18n")
     private void InitView(View view) {
@@ -76,10 +72,13 @@ public class FragmentHypertensionQuestionnaire extends BaseFragment {
 
         AnswerListView = view.findViewById(R.id.id_tcm_constitution_answer_listview);
 
+
         answerAdapter = new AnswerAdapter(getActivity(), questionBeanList.get(0));
         AnswerListView.setAdapter(answerAdapter);
 
+
         AnswerSelectedTextView = view.findViewById(R.id.id_tcm_constitution_answer_selected);
+
         AnswerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -88,7 +87,6 @@ public class FragmentHypertensionQuestionnaire extends BaseFragment {
 
             }
         });
-
 
     }
 
@@ -119,6 +117,5 @@ public class FragmentHypertensionQuestionnaire extends BaseFragment {
 
         }
     }
-
 
 }

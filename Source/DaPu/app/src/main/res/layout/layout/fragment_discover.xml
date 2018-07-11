@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     >
 
     <TableLayout
@@ -15,18 +15,15 @@
             <Button
                 android:textColor="@color/colorWhite"
                 android:id="@+id/id_bmi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/rectangle_background"
+                android:background="@mipmap/background_main_function"
                 android:text="BMI" />
 
             <Button
                 android:textColor="@color/colorWhite"
                 android:id="@+id/id_physical_identification"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+
                 android:layout_marginLeft="10dp"
-                android:background="@mipmap/rectangle_background"
+                android:background="@mipmap/background_main_function"
                 android:text=" 中医体质辨识 " />
         </TableRow>
 
@@ -35,9 +32,8 @@
             <Button
                 android:textColor="@color/colorWhite"
                 android:id="@+id/id_waiting_for_challenge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@mipmap/rectangle_background"
+
+                android:background="@mipmap/background_main_function"
                 android:text=" 等你来挑战 " />
         </TableRow>
 
