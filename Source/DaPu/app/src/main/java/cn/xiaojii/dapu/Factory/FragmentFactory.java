@@ -11,6 +11,7 @@ import cn.xiaojii.dapu.Fragment.Discover.FragmentTcmConstitutionIdentificationSe
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentDiscover;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentWaitYouChallage;
+import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertensionQuestionnaire;
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertensionSecondary;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentAbout;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentPdfReadList;
@@ -129,6 +130,9 @@ public class FragmentFactory {
 
             case "FragmentWaitYouChallage":
                 fragment = new FragmentWaitYouChallage(context);
+                break;
+            case "FragmentHypertensionQuestionnaire":
+                fragment = new FragmentHypertensionQuestionnaire(context);
                 break;
 
         }

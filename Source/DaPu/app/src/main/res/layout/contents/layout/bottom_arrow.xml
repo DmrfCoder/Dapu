@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    android:background="@mipmap/bottom_bar_background"
+    android:background="@drawable/background_main_page"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:background="@mipmap/previous" />
+            android:background="@mipmap/ic_previous" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:background="@mipmap/next" />
+            android:background="@mipmap/ic_next" />
 
         <TextView
             android:layout_width="wrap_content"

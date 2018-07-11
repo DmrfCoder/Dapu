@@ -15,7 +15,7 @@
             android:id="@+id/id_database_questionnaire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/rectangle_background"
+            android:background="@mipmap/background_main_function"
             android:text="糖尿病问卷"
             android:textColor="@color/colorWhite" />
 
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:background="@mipmap/rectangle_background"
+            android:background="@mipmap/background_main_function"
             android:text=" 糖尿病自测 "
             android:textColor="@color/colorWhite" />
     </LinearLayout>

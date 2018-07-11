@@ -36,7 +36,7 @@ public class MainActivity extends FragmentActivity implements
     private FragmentTabHost mTabHost;
     private LayoutInflater layoutInflater;
     private Class fragmentArray[] = {FragmentDiscover.class, FragmentHypertension.class, FragmentDiabetes.class};
-    private int imageViewArray[] = {R.drawable.tab_home_btn, R.drawable.tab_diabetes_btn, R.drawable.tab_diabetes_btn};
+    private int imageViewArray[] = {R.drawable.selector_tab_discover, R.drawable.selector_tab_hypertension, R.drawable.selector_tab_diabetes};
     private String textViewArray[] = {"发现", "高血压", "糖尿病"};
     private List<Fragment> fragmentList = new ArrayList<Fragment>();//三个tab对应的content fragment
     private NoScrollViewPager vp;
@@ -114,7 +114,6 @@ public class MainActivity extends FragmentActivity implements
     private View getTabItemView(int tabIndex) {
         //将xml布局转换为view对象
         View view = layoutInflater.inflate(R.layout.tab_content, null);
-        view.setBackgroundResource(R.mipmap.bottom_bar_background);
         //利用view对象，找到布局中的组件,并设置内容，然后返回视图
         ImageView mImageView = (ImageView) view
                 .findViewById(R.id.id_tab_icon);
@@ -125,10 +124,15 @@ public class MainActivity extends FragmentActivity implements
     }
 
 
-
     @Override
     public void onTabChanged(String tabId) {//Tab改变的时候调用
+
+
         int position = mTabHost.getCurrentTab();
+        TextView tv = (TextView) mTabHost.getTabWidget().getChildAt(position).findViewById(R.id.id_tab_name);
+
+        tv.setTextColor(this.getResources().getColor(R.color.colorBlue));
+
         vp.setCurrentItem(position);//把选中的Tab的位置赋给适配器，让它控制页面切换
         CurTabIndex = position;
         UpdateTopView();
@@ -174,7 +178,7 @@ public class MainActivity extends FragmentActivity implements
 
     @Override
     public void onClick(View view) {
-        StartUtils.startActivityByIdAndTabIndex(MainActivity.this,view.getId(),CurTabIndex);
+        StartUtils.startActivityByIdAndTabIndex(MainActivity.this, view.getId(), CurTabIndex);
 
 
     }

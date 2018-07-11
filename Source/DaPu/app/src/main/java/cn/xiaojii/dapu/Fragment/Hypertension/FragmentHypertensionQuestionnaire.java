@@ -1,4 +1,4 @@
-package cn.xiaojii.dapu.Fragment.Discover;
+package cn.xiaojii.dapu.Fragment.Hypertension;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,48 +10,43 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
-import java.util.List;
-
 import cn.xiaojii.dapu.Adapter.AnswerAdapter;
-import cn.xiaojii.dapu.Bean.QuestionBean;
 import cn.xiaojii.dapu.Factory.DataFactory.QuestionAnswerFactory;
 import cn.xiaojii.dapu.Fragment.BaseFragment;
 import cn.xiaojii.dapu.R;
 
-
 @SuppressLint("ValidFragment")
-public class FragmentTcmConstitution extends BaseFragment {
+public class FragmentHypertensionQuestionnaire extends BaseFragment {
+
 
 
     @SuppressLint("ValidFragment")
-    public FragmentTcmConstitution(Context context) {
+    public FragmentHypertensionQuestionnaire(Context context) {
         this.context = context;
-        questionBeanList = QuestionAnswerFactory.GetNormalData(context, "PhysicalTest.json");
+        questionBeanList = QuestionAnswerFactory.GetNormalData(context, "HypertensionQuestionnaire.json");
         QuestionCount = questionBeanList.size();
         CurQuestionIndex = 1;
+
     }
 
-
-    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_discover_tcm_constitution, null);
+        View view = inflater.inflate(R.layout.fragment_hypertention_questionnaire, null);
         CurQuestionIndex = 1;
+
         InitView(view);
 
         return view;
     }
 
-    @SuppressLint("SetTextI18n")
     private void InitView(View view) {
-
         LeftButton = view.findViewById(R.id.id_top_left);
         CenterTextview = view.findViewById(R.id.id_top_center);
         RightButton = view.findViewById(R.id.id_top_right);
 
 
-        LeftButton.setText("<中医体质辨识");
+        LeftButton.setText("<高血压问卷");
         LeftButton.setVisibility(View.VISIBLE);
 
         RightButton.setText("交卷");
@@ -69,15 +64,15 @@ public class FragmentTcmConstitution extends BaseFragment {
         PreviousButton.setOnClickListener(this);
         NextButton.setOnClickListener(this);
 
-        QuestionTextView = view.findViewById(R.id.id_tcm_constitution_question);
+        QuestionTextView = view.findViewById(R.id.id_hypertension_questionnaire_question);
         QuestionTextView.setText("问题:" + questionBeanList.get(0).getQuestion());
 
-        AnswerListView = view.findViewById(R.id.id_tcm_constitution_answer_listview);
+        AnswerListView = view.findViewById(R.id.id_hypertension_answer_listview);
 
         answerAdapter = new AnswerAdapter(getActivity(), questionBeanList.get(0));
         AnswerListView.setAdapter(answerAdapter);
 
-        AnswerSelectedTextView = view.findViewById(R.id.id_tcm_constitution_answer_selected);
+        AnswerSelectedTextView = view.findViewById(R.id.id_hypertension_answer_selected);
         AnswerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -86,8 +81,6 @@ public class FragmentTcmConstitution extends BaseFragment {
 
             }
         });
-
-
     }
 
 
@@ -117,6 +110,4 @@ public class FragmentTcmConstitution extends BaseFragment {
 
         }
     }
-
-
 }
