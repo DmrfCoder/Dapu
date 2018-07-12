@@ -1,4 +1,4 @@
-package cn.xiaojii.dapu.Fragment;
+package cn.xiaojii.dapu.Fragment.Template;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,25 +9,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.xiaojii.dapu.Adapter.AnswerAdapter;
 import cn.xiaojii.dapu.Factory.DataFactory.QuestionAndAnswerFactory;
+import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
 
 @SuppressLint("ValidFragment")
-public class FragmentQuestionnaire extends BaseFragment {
+public class QuestionnaireTemplateFragment extends BaseFragment {
 
     private String LeftText;
     private String FileName;
 
+    private int[] UserAnswerArray;//保存用户问卷/自测的答案
+
     @SuppressLint("ValidFragment")
-    public FragmentQuestionnaire(Context context, String leftText, String fileName) {
+    public QuestionnaireTemplateFragment(Context context, String leftText, String fileName) {
         this.context = context;
         LeftText = leftText;
         FileName = fileName;
         questionBeanList = QuestionAndAnswerFactory.GetNormalData(context, fileName);
         QuestionCount = questionBeanList.size();
         CurQuestionIndex = 1;
+        UserAnswerArray = new int[QuestionCount];
     }
 
 
@@ -83,6 +91,7 @@ public class FragmentQuestionnaire extends BaseFragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
                 AnswerSelectedTextView.setText(IndexString[position]);
+                UserAnswerArray[CurQuestionIndex - 1] = position;
 
             }
         });

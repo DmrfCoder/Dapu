@@ -25,6 +25,7 @@ android {
                     'src/main/res/layout/fragments/discover',
                     'src/main/res/layout/fragments/hypertension',
                     'src/main/res/layout/fragments/topbar',
+                    'src/main/res/layout/fragments/template',
                     'src/main/res/layout',
                     'src/main/res',
 

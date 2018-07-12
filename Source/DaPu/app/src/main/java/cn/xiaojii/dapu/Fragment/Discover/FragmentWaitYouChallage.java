@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 
 import cn.xiaojii.dapu.Adapter.AnswerAdapter;
 import cn.xiaojii.dapu.Factory.DataFactory.QuestionAndAnswerFactory;
-import cn.xiaojii.dapu.Fragment.BaseFragment;
+import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
 
 @SuppressLint("ValidFragment")

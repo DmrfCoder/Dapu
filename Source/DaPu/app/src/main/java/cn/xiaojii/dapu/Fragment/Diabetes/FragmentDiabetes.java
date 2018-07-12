@@ -20,10 +20,10 @@ public class FragmentDiabetes extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
             savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_database, null);
+        View view = inflater.inflate(R.layout.fragment_diabetes, null);
 
-        DatabaseQuestionnaire = view.findViewById(R.id.id_database_questionnaire);
-        DatabaseSelfTest = view.findViewById(R.id.id_database_self_test);
+        DatabaseQuestionnaire = view.findViewById(R.id.id_diabetes_questionnaire);
+        DatabaseSelfTest = view.findViewById(R.id.id_diabetes_self_test);
         DatabaseQuestionnaire.setOnClickListener(this);
         DatabaseSelfTest.setOnClickListener(this);
         return view;

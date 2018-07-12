@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_app_dapu"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.ClickButtonActivity"/>
+        <activity android:name=".Activity.SkipActivity"/>
         <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

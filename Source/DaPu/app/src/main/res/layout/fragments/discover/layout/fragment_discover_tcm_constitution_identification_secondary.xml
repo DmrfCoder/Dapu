@@ -83,7 +83,7 @@
                     segmentedgroup:sc_corner_radius="5dp">
 
                     <RadioButton
-                        android:id="@+id/id_tcm_segmentedgroup_sex_man"
+                        android:id="@+id/id_tcm_segmentedgroup_sex_male"
                         style="@style/RadioButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                         android:text="男" />
 
                     <RadioButton
-                        android:id="@+id/id_tcm_segmentedgroup_sex_woman"
+                        android:id="@+id/id_tcm_segmentedgroup_sex_female"
                         style="@style/RadioButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

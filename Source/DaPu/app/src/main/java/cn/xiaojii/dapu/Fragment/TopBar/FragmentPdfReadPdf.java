@@ -1,12 +1,9 @@
 package cn.xiaojii.dapu.Fragment.TopBar;
 
 import android.annotation.SuppressLint;
-import android.app.Instrumentation;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +11,7 @@ import android.widget.Button;
 
 import com.joanzapata.pdfview.PDFView;
 
-import cn.xiaojii.dapu.Fragment.BaseFragment;
+import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
 
 public class FragmentPdfReadPdf extends BaseFragment implements View.OnClickListener {

@@ -12,7 +12,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/id_database_questionnaire"
+            android:id="@+id/id_diabetes_questionnaire"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@mipmap/background_main_function"
@@ -20,7 +20,7 @@
             android:textColor="@color/colorWhite" />
 
         <Button
-            android:id="@+id/id_database_self_test"
+            android:id="@+id/id_diabetes_self_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"

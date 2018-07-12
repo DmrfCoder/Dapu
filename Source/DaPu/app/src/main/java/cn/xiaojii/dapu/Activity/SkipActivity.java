@@ -16,7 +16,7 @@ import cn.xiaojii.dapu.R;
  * 所有能点击的按钮全部跳转到这个页面
  * Created by zs on 2015/11/3.
  */
-public class ClickButtonActivity extends FragmentActivity implements View.OnClickListener {
+public class SkipActivity extends FragmentActivity implements View.OnClickListener {
 
     FragmentManager fm;
     public Intent intent;
@@ -37,7 +37,7 @@ public class ClickButtonActivity extends FragmentActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_click_button);
+        setContentView(R.layout.activity_skip);
         // 获取传递过来的资源id值
 
         fm = getSupportFragmentManager();
@@ -51,7 +51,7 @@ public class ClickButtonActivity extends FragmentActivity implements View.OnClic
             switch (Code) {
                 case 1:
                     if (ResId==R.id.id_waiting_for_challenge){
-                        ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName("FragmentWaitYouChallage",ClickButtonActivity.this));
+                        ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName("FragmentWaitYouChallage",SkipActivity.this));
                     }else {
                         ft.replace(R.id.fl_click_button, FragmentFactory.createById(ResId));
                     }
@@ -70,12 +70,12 @@ public class ClickButtonActivity extends FragmentActivity implements View.OnClic
                     break;
                 case 4:
                     FragmentName = intent.getStringExtra("fragmentName");
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName(FragmentName,ClickButtonActivity.this));
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName(FragmentName,SkipActivity.this));
 
                     break;
                 case 5:
                     JsonFileName = intent.getStringExtra("jsonFileName");
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createByJsonFileName(JsonFileName,ClickButtonActivity.this));
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createByJsonFileName(JsonFileName,SkipActivity.this));
 
                     break;
 
