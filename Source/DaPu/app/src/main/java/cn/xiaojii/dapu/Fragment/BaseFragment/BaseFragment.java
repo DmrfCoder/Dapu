@@ -15,6 +15,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import cn.xiaojii.dapu.Adapter.AnswerAdapter;
+import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Bean.QuestionBean;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Interfaces.SecondaryPageInterface;
@@ -53,6 +54,8 @@ public class BaseFragment extends Fragment implements View.OnClickListener, Radi
     public EditText EtNumberOfTablets;
     public EditText EtFastingBloodSugar;
     public EditText EtTotalAmountOfInsulinAday;
+
+    public GlogalBean.InformationType Type;//标记是当前Secondary的所属
 
 
 

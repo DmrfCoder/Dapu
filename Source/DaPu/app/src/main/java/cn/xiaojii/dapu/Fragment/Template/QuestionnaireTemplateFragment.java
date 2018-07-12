@@ -18,19 +18,23 @@ import cn.xiaojii.dapu.Adapter.AnswerAdapter;
 import cn.xiaojii.dapu.Factory.DataFactory.QuestionAndAnswerFactory;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
+import cn.xiaojii.dapu.Utils.StartUtils;
 
 @SuppressLint("ValidFragment")
 public class QuestionnaireTemplateFragment extends BaseFragment {
 
     private String LeftText;
     private String FileName;
+    private String UserName;
 
     private int[] UserAnswerArray;//保存用户问卷/自测的答案
+    private int Score;
+
 
     @SuppressLint("ValidFragment")
     public QuestionnaireTemplateFragment(Context context, String leftText, String fileName) {
         this.context = context;
-        LeftText = leftText;
+        LeftText =leftText;
         FileName = fileName;
         questionBeanList = QuestionAndAnswerFactory.GetNormalData(context, fileName);
         QuestionCount = questionBeanList.size();
@@ -107,6 +111,8 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
                 onBack();
                 break;
             case R.id.id_top_right:
+
+
                 break;
             case R.id.id_bommom_bar_previous:
                 if (CurQuestionIndex > 1) {

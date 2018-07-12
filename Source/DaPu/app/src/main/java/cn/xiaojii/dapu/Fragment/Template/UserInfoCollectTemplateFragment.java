@@ -26,7 +26,7 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
         Type = type;
     }
 
-    private GlogalBean.InformationType Type;//标记是当前Secondary的所属
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle
