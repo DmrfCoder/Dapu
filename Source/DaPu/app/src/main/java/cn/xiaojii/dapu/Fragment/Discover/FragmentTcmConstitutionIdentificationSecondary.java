@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.RadioButton;
 
 import cn.xiaojii.dapu.Activity.ClickButtonActivity;
 import cn.xiaojii.dapu.Fragment.BaseFragment;
@@ -14,6 +16,14 @@ import cn.xiaojii.dapu.R;
 import cn.xiaojii.dapu.Utils.StartUtils;
 
 public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment implements View.OnClickListener {
+
+
+    private EditText EtName;
+    private EditText EtAge;
+    private EditText EtIdNumber;
+
+    private RadioButton RbMale;
+    private RadioButton RbFeMale;
 
 
     @Nullable
@@ -34,6 +44,12 @@ public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment
         RightButton.setText("测试");
         RightButton.setVisibility(View.VISIBLE);
 
+        EtName = view.findViewById(R.id.id_tcm_name);
+        EtAge = view.findViewById(R.id.id_tcm_age);
+        EtIdNumber = view.findViewById(R.id.id_tcm_id_number);
+        RbMale = view.findViewById(R.id.id_tcm_segmentedgroup_sex_man);
+        RbFeMale = view.findViewById(R.id.id_tcm_segmentedgroup_sex_man);
+
         LeftButton.setOnClickListener(this);
         RightButton.setOnClickListener(this);
 
@@ -47,7 +63,7 @@ public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment
                 onBack();
                 break;
             case R.id.id_top_right:
-                StartUtils.startActivityByJsonFileName(getActivity(),"PhysicalTest");
+                StartUtils.startActivityByJsonFileName(getActivity(), "PhysicalTest");
                 break;
         }
     }
