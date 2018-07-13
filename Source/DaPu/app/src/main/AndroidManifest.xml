@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.xiaojii.dapu">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
