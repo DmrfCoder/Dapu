@@ -9,7 +9,7 @@ import cn.xiaojii.dapu.Bean.AnswerBean;
 import cn.xiaojii.dapu.Bean.QuestionBean;
 import cn.xiaojii.dapu.Bean.QuestionInJsonBean;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.ParseQuestionnaireJsonUtils;
+import cn.xiaojii.dapu.Utils.ParseQuestionnaireJsonUtil;
 
 public class QuestionAndAnswerFactory {
 
@@ -19,8 +19,8 @@ public class QuestionAndAnswerFactory {
     private static String[] StrAnswerCode = {"A", "B", "C", "D"};
 
     public static List<QuestionInJsonBean> GetDataFromJSONFile(Context context, String filename) {
-        ParseQuestionnaireJsonUtils parseQuestionnaireJsonUtils = new ParseQuestionnaireJsonUtils(context);
-        questionInJsonBeanList = parseQuestionnaireJsonUtils.GetJsonData(filename);
+        ParseQuestionnaireJsonUtil parseQuestionnaireJsonUtil = new ParseQuestionnaireJsonUtil(context);
+        questionInJsonBeanList = parseQuestionnaireJsonUtil.GetJsonData(filename);
         return questionInJsonBeanList;
     }
 

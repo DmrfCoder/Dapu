@@ -13,18 +13,18 @@ import java.util.List;
 
 import cn.xiaojii.dapu.Bean.QuestionInJsonBean;
 
-public class ParseQuestionnaireJsonUtils {
-    private ReadFileToStringUtils readFileToStringUtils;
+public class ParseQuestionnaireJsonUtil {
+    private ReadFileToStringUtil readFileToStringUtil;
     private List<QuestionInJsonBean> questionInJsonBeanList;
 
 
-    public ParseQuestionnaireJsonUtils(Context context) {
-        readFileToStringUtils = new ReadFileToStringUtils(context);
+    public ParseQuestionnaireJsonUtil(Context context) {
+        readFileToStringUtil = new ReadFileToStringUtil(context);
 
     }
 
     public List<QuestionInJsonBean> GetJsonData(String filename) {
-        String json = readFileToStringUtils.ReadJsonToString(filename);
+        String json = readFileToStringUtil.ReadJsonToString(filename);
         Gson gson = new Gson();
         List<JsonElement> list = new ArrayList();
         JsonParser jsonParser = new JsonParser();

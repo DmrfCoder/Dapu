@@ -13,7 +13,7 @@ import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.Interfaces.SecondaryPageInterface;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.StartUtils;
+import cn.xiaojii.dapu.Utils.StartUtil;
 
 /**
  * Created by Carson_Ho on 16/5/23.
@@ -275,7 +275,7 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
 //        }
 //        userInformationBean.setTotalAmountOfInsulinAday(int_totalamountofinsulinaday);
 
-        StartUtils.startActivityByUserInfo(getActivity(), userInformationBean);
+        StartUtil.startActivityByUserInfo(getActivity(), userInformationBean);
 
     }
 }

@@ -3,14 +3,14 @@ package cn.xiaojii.dapu.Utils;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 
-public class AuthenticatorUtils extends Authenticator {
+public class AuthenticatorUtil extends Authenticator {
     String userName = null;
     String password = null;
 
-    public AuthenticatorUtils() {
+    public AuthenticatorUtil() {
     }
 
-    public AuthenticatorUtils(String username, String password) {
+    public AuthenticatorUtil(String username, String password) {
         this.userName = username;
         this.password = password;
     }

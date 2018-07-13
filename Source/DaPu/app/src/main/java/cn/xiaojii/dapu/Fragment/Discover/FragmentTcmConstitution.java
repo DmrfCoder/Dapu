@@ -19,7 +19,7 @@ import cn.xiaojii.dapu.Factory.DataFactory.QuestionAndAnswerFactory;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.Interfaces.SubmitInterface;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.ParseTcmJsonUtils;
+import cn.xiaojii.dapu.Utils.ParseTcmJsonUtil;
 
 
 @SuppressLint("ValidFragment")
@@ -36,8 +36,8 @@ public class FragmentTcmConstitution extends BaseFragment implements SubmitInter
         CurQuestionIndex = 1;
         UserAnswerArray = new int[QuestionCount];
         this.userInformationBean = userInformationBean;
-        ParseTcmJsonUtils parseTcmJsonUtils=new ParseTcmJsonUtils(getActivity());
-        tcmJsonBeans= parseTcmJsonUtils.GetJsonData("PhysiqueChineseMedicineConditioning.json");
+        ParseTcmJsonUtil parseTcmJsonUtil =new ParseTcmJsonUtil(getActivity());
+        tcmJsonBeans= parseTcmJsonUtil.GetJsonData("PhysiqueChineseMedicineConditioning.json");
 
     }
 

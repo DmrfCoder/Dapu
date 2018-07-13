@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.StartUtils;
+import cn.xiaojii.dapu.Utils.StartUtil;
 
 public class FragmentPdfReadList extends BaseFragment implements View.OnClickListener {
     private ListView listView;
@@ -49,7 +49,7 @@ public class FragmentPdfReadList extends BaseFragment implements View.OnClickLis
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
-                StartUtils.startActivityToPdf(getContext(), FileNameList[position]);
+                StartUtil.startActivityToPdf(getContext(), FileNameList[position]);
             }
         });
 

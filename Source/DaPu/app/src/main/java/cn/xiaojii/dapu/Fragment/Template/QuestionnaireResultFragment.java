@@ -12,7 +12,6 @@ import android.widget.TextView;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.StartUtils;
 
 @SuppressLint("ValidFragment")
 public class QuestionnaireResultFragment extends BaseFragment {

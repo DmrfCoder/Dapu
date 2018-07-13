@@ -7,10 +7,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ReadFileToStringUtils {
+public class ReadFileToStringUtil {
     private Context context;
 
-    public ReadFileToStringUtils(Context context) {
+    public ReadFileToStringUtil(Context context) {
         this.context = context;
     }
 

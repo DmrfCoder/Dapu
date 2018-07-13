@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.StartUtils;
+import cn.xiaojii.dapu.Utils.StartUtil;
 
 /**
  * Created by Carson_Ho on 16/5/23.
@@ -48,6 +48,6 @@ public class FragmentDiabetes extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        StartUtils.startActivityById(getActivity(), view.getId());
+        StartUtil.startActivityById(getActivity(), view.getId());
     }
 }

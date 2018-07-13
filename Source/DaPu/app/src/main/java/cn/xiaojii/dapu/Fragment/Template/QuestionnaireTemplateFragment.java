@@ -2,7 +2,6 @@ package cn.xiaojii.dapu.Fragment.Template;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.icu.lang.UScript;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -23,8 +22,7 @@ import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Factory.DataFactory.QuestionAndAnswerFactory;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.ParseTcmJsonUtils;
-import cn.xiaojii.dapu.Utils.StartUtils;
+import cn.xiaojii.dapu.Utils.StartUtil;
 
 @SuppressLint("ValidFragment")
 public class QuestionnaireTemplateFragment extends BaseFragment {
@@ -215,13 +213,13 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
                         //什么都不是
                     }
 
-                    StartUtils.startActivityForTcmResult(getActivity(), userInformationBean, FinalZhiIndex);
+                    StartUtil.startActivityForTcmResult(getActivity(), userInformationBean, FinalZhiIndex);
                     return;
 
                 }
 
 
-                StartUtils.startActivityForQuestionnaireResult(getActivity(), userInformationBean);
+                StartUtil.startActivityForQuestionnaireResult(getActivity(), userInformationBean);
 
                 break;
             case R.id.id_bommom_bar_previous:

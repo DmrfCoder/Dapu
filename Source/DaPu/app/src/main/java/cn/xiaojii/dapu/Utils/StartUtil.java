@@ -14,7 +14,7 @@ import cn.xiaojii.dapu.Bean.UserInformationBean;
 /**
  * Created by zhaoshuo on 2016/3/17.
  */
-public class StartUtils {
+public class StartUtil {
     public static void startActivityById(Context context, int resId) {
         Context context1 = DapuApplication.getContext();
         Intent intent = new Intent(context1, SkipActivity.class);

@@ -10,10 +10,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 
-public class WriteStringToFileUtils {
+public class WriteStringToFileUtil {
     private Context context;
 
-    public WriteStringToFileUtils(Context context) {
+    public WriteStringToFileUtil(Context context) {
         this.context = context;
     }
 

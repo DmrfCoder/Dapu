@@ -27,7 +27,8 @@ import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
 import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetes;
 import cn.xiaojii.dapu.Adapter.FragmentAdapter;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.StartUtils;
+import cn.xiaojii.dapu.Utils.SendMailUtil;
+import cn.xiaojii.dapu.Utils.StartUtil;
 import cn.xiaojii.dapu.Widght.NoScrollViewPager;
 
 public class MainActivity extends FragmentActivity implements
@@ -52,8 +53,9 @@ public class MainActivity extends FragmentActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();//初始化控件
-        initPage();//初始化页面
+        SendMailUtil.send("1241302030@qq.com");
+//        initView();//初始化控件
+//        initPage();//初始化页面
     }
 
 
@@ -191,7 +193,7 @@ public class MainActivity extends FragmentActivity implements
 
     @Override
     public void onClick(View view) {
-        StartUtils.startActivityByIdAndTabIndex(MainActivity.this, view.getId(), 0);
+        StartUtil.startActivityByIdAndTabIndex(MainActivity.this, view.getId(), 0);
 
 
     }

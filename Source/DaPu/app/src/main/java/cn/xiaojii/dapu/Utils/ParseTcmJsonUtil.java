@@ -11,21 +11,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import cn.xiaojii.dapu.Bean.QuestionInJsonBean;
 import cn.xiaojii.dapu.Bean.TcmJsonBean;
 
-public class ParseTcmJsonUtils {
-    private ReadFileToStringUtils readFileToStringUtils;
+public class ParseTcmJsonUtil {
+    private ReadFileToStringUtil readFileToStringUtil;
     private List<TcmJsonBean> tcmJsonBeans;
 
 
-    public ParseTcmJsonUtils(Context context) {
-        readFileToStringUtils = new ReadFileToStringUtils(context);
+    public ParseTcmJsonUtil(Context context) {
+        readFileToStringUtil = new ReadFileToStringUtil(context);
 
     }
 
     public List<TcmJsonBean> GetJsonData(String filename) {
-        String json = readFileToStringUtils.ReadJsonToString(filename);
+        String json = readFileToStringUtil.ReadJsonToString(filename);
         Gson gson = new Gson();
         List<JsonElement> list = new ArrayList();
         JsonParser jsonParser = new JsonParser();

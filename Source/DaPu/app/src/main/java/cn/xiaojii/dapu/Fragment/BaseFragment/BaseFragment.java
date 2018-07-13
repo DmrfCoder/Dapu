@@ -21,7 +21,7 @@ import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Bean.QuestionBean;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Interfaces.SecondaryPageInterface;
-import cn.xiaojii.dapu.Utils.WriteStringToFileUtils;
+import cn.xiaojii.dapu.Utils.WriteStringToFileUtil;
 
 public class BaseFragment extends Fragment implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, SecondaryPageInterface {
     public Context context;
@@ -105,8 +105,8 @@ public class BaseFragment extends Fragment implements View.OnClickListener, Radi
     public void SaveData(UserInformationBean userInformation, String filename) {
         Gson gson = new Gson();
         String datacontent = gson.toJson(userInformation);
-        WriteStringToFileUtils writeStringToFileUtils = new WriteStringToFileUtils(getActivity());
-        writeStringToFileUtils.WriteStringToFile(datacontent, filename);
+        WriteStringToFileUtil writeStringToFileUtil = new WriteStringToFileUtil(getActivity());
+        writeStringToFileUtil.WriteStringToFile(datacontent, filename);
 
     }
 

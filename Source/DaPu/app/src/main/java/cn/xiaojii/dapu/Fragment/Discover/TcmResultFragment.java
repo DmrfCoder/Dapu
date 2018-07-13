@@ -15,7 +15,7 @@ import cn.xiaojii.dapu.Bean.TcmJsonBean;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.ParseTcmJsonUtils;
+import cn.xiaojii.dapu.Utils.ParseTcmJsonUtil;
 
 @SuppressLint("ValidFragment")
 public class TcmResultFragment extends BaseFragment {
@@ -37,8 +37,8 @@ public class TcmResultFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tcm_result, null);
 
-        ParseTcmJsonUtils parseTcmJsonUtils = new ParseTcmJsonUtils(getActivity());
-        tcmJsonBeans = parseTcmJsonUtils.GetJsonData("PhysiqueChineseMedicineConditioning.json");
+        ParseTcmJsonUtil parseTcmJsonUtil = new ParseTcmJsonUtil(getActivity());
+        tcmJsonBeans = parseTcmJsonUtil.GetJsonData("PhysiqueChineseMedicineConditioning.json");
 
         InitView(view);
 

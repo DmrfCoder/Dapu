@@ -12,7 +12,7 @@ import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.StartUtils;
+import cn.xiaojii.dapu.Utils.StartUtil;
 
 public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment {
 
@@ -114,6 +114,6 @@ public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment
         userInformationBean.setStrName(name);
 
 
-        StartUtils.startActivityByUserInfo(getActivity(),userInformationBean);
+        StartUtil.startActivityByUserInfo(getActivity(),userInformationBean);
     }
 }
