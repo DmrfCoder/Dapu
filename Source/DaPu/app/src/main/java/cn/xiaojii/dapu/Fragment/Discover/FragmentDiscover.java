@@ -10,7 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import cn.xiaojii.dapu.Activity.MainActivity;
+import cn.xiaojii.dapu.Bean.GlogalBean;
+import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.R;
 import cn.xiaojii.dapu.Utils.StartUtils;
 
@@ -51,7 +52,9 @@ public class FragmentDiscover extends Fragment implements View.OnClickListener {
 
 
         if (view.getId() == R.id.id_waiting_for_challenge) {
-            StartUtils.startActivityByJsonFileName(getActivity(), "WaitYouChallage");
+            UserInformationBean userInformationBean=new UserInformationBean();
+            userInformationBean.setInformationType(GlogalBean.InformationType.WaitYouChallage);
+            StartUtils.startActivityByUserInfo(getActivity(), userInformationBean);
         } else {
             StartUtils.startActivityById(getActivity(), view.getId());
         }

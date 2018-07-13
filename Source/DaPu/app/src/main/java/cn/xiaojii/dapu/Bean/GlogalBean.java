@@ -7,7 +7,7 @@ public class GlogalBean {
     }
 
     public enum InformationType {
-        TcmConstitutionIdentification,HypertensionQuestionnaire,HypertensionSelfTest,DiabetesQuestionnaire,DiabetesSelfTest
+        TcmConstitutionIdentification,HypertensionQuestionnaire,HypertensionSelfTest,DiabetesQuestionnaire,DiabetesSelfTest,WaitYouChallage
     }
 
     public enum Sex {

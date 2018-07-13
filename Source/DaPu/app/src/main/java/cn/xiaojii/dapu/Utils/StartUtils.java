@@ -2,10 +2,13 @@ package cn.xiaojii.dapu.Utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 
 import cn.xiaojii.dapu.Activity.SkipActivity;
 import cn.xiaojii.dapu.Application.DapuApplication;
+import cn.xiaojii.dapu.Bean.UserInformationBean;
 
 
 /**
@@ -47,12 +50,20 @@ public class StartUtils {
         context.startActivity(intent);
     }
 
-    public static void startActivityByJsonFileName(Context context, String jsonFileName){
+    public static void startActivityByUserInfo(Context context, UserInformationBean userInformationBean){
         Context context1 = DapuApplication.getContext();
+
         Intent intent = new Intent(context1, SkipActivity.class);
-        intent.putExtra("jsonFileName", jsonFileName);
-        intent.putExtra("code", 5);
+
+        Bundle bundle=new Bundle();
+        bundle.putParcelable("userinfobean",userInformationBean);
+
+        intent.putExtra("code",5);
+
+        intent.putExtras(bundle);
+
         context.startActivity(intent);
+
 
     }
 
@@ -68,4 +79,38 @@ public class StartUtils {
     }
 
 
+    public static void startActivityForQuestionnaireResult(Context context, UserInformationBean userInformationBean) {
+        Context context1 = DapuApplication.getContext();
+
+        Intent intent = new Intent(context1, SkipActivity.class);
+
+        Bundle bundle=new Bundle();
+        bundle.putParcelable("userinfobean",userInformationBean);
+
+        intent.putExtra("code",6);
+
+        intent.putExtras(bundle);
+
+        context.startActivity(intent);
+    }
+
+    public static void startActivityForTcmResult(Context context, UserInformationBean userInformationBean, int finalZhiIndex) {
+        Context context1 = DapuApplication.getContext();
+
+        Intent intent = new Intent(context1, SkipActivity.class);
+
+        Bundle bundle=new Bundle();
+        bundle.putParcelable("userinfobean",userInformationBean);
+        bundle.putInt("ZhiIndex",finalZhiIndex);
+
+
+        intent.putExtra("code",7);
+
+
+        intent.putExtras(bundle);
+
+        context.startActivity(intent);
+
+
+    }
 }

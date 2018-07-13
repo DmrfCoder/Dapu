@@ -95,25 +95,25 @@ public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment
         String str_age = EtAge.getText().toString();
         String id = EtIdNumber.getText().toString();
 
-        //检测输入是否都不为空
-        if (name == "" || str_age == "" || id == "") {//有未输入的内容,提示用户输入
-            return;
-        }
-
-
-        //检测输入的年龄格式是否正确
-        int int_age;
-        try {
-            int_age = Integer.parseInt(str_age);
-        } catch (NumberFormatException e) {
-            return;
-        }
-
-        userInformationBean.setIntAge(int_age);
+//        //检测输入是否都不为空
+//        if (name == "" || str_age == "" || id == "") {//有未输入的内容,提示用户输入
+//            return;
+//        }
+//
+//
+//        //检测输入的年龄格式是否正确
+//        int int_age;
+//        try {
+//            int_age = Integer.parseInt(str_age);
+//        } catch (NumberFormatException e) {
+//            return;
+//        }
+//
+//        userInformationBean.setIntAge(int_age);
         userInformationBean.setStrIdNumber(id);
         userInformationBean.setStrName(name);
-        SaveUserInfoData();
 
-        StartUtils.startActivityByJsonFileName(getActivity(), "PhysicalTest");
+
+        StartUtils.startActivityByUserInfo(getActivity(),userInformationBean);
     }
 }

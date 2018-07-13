@@ -1,4 +1,4 @@
-package cn.xiaojii.dapu.Fragment.Template;
+package cn.xiaojii.dapu.Fragment.Discover;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -9,27 +9,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
+import cn.xiaojii.dapu.Bean.TcmJsonBean;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.StartUtils;
+import cn.xiaojii.dapu.Utils.ParseTcmJsonUtils;
 
 @SuppressLint("ValidFragment")
-public class QuestionnaireResultFragment extends BaseFragment {
+public class TcmResultFragment extends BaseFragment {
 
 
 
+    private List<TcmJsonBean> tcmJsonBeans;
+    private int ZhiIndex;
 
     @SuppressLint("ValidFragment")
-    public QuestionnaireResultFragment(UserInformationBean userInformationBean) {
+    public TcmResultFragment(UserInformationBean userInformationBean,int ZhiIndex) {
 
-        this.QuestionCount = userInformationBean.getUserAnswerArray().length;
         this.userInformationBean = userInformationBean;
+        this.ZhiIndex=ZhiIndex;
+
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_questionnaire_result, null);
+        View view = inflater.inflate(R.layout.fragment_tcm_result, null);
+
+        ParseTcmJsonUtils parseTcmJsonUtils = new ParseTcmJsonUtils(getActivity());
+        tcmJsonBeans = parseTcmJsonUtils.GetJsonData("PhysiqueChineseMedicineConditioning.json");
 
         InitView(view);
 
@@ -43,7 +52,7 @@ public class QuestionnaireResultFragment extends BaseFragment {
 
         view.findViewById(R.id.id_top_right).setVisibility(View.GONE);
 
-        LeftButton.setText("<问卷(1/" + QuestionCount + ")");
+        LeftButton.setText("<问卷("+userInformationBean.getCurIndex()+"/" + userInformationBean.getSumCount() + ")");
 
         CenterTextview.setText("问卷结果");
 
@@ -52,8 +61,8 @@ public class QuestionnaireResultFragment extends BaseFragment {
 
         LeftButton.setOnClickListener(this);
 
-        ((TextView) view.findViewById(R.id.id_questionnaire_result_name)).setText(userInformationBean.getStrName());
-        ((TextView) view.findViewById(R.id.id_questionnaire_result_score)).setText(String.valueOf(userInformationBean.getUserScore()));
+        ((TextView) view.findViewById(R.id.id_tcm_result_name)).setText(userInformationBean.getStrName());
+        ((TextView) view.findViewById(R.id.id_tcm_result_string)).setText(tcmJsonBeans.get(ZhiIndex).toString());
 
     }
 

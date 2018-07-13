@@ -111,7 +111,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:background="@drawable/background_edit_text"
-            android:text="23"
             android:textColor="@color/colorBlack" />
 
         <TextView

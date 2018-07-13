@@ -4,6 +4,25 @@ import java.util.List;
 
 public class QuestionBean {
     private String Question;
+    private int CorrectAnswer;
+    private String Analysis;
+
+    public String getAnalysis() {
+        return Analysis;
+    }
+
+    public void setAnalysis(String analysis) {
+        Analysis = analysis;
+    }
+
+    public int getCorrectAnswer() {
+        return CorrectAnswer;
+    }
+
+    public void setCorrectAnswer(int correctAnswer) {
+        CorrectAnswer = correctAnswer;
+    }
+
     private int QuestionIndex;
     private List<AnswerBean> answerBeans;
 

@@ -78,9 +78,9 @@ public class FragmentBmi extends BaseFragment {
                     DecimalFormat fmt = new DecimalFormat("##0.00");
 
                     ResultNumber.setText(fmt.format(BMI));
-                    if (BMI >= 18 && BMI <= 25) {
+                    if (BMI >= 18.5 && BMI <= 23.9) {
                         ResultLevel.setText("正常");
-                    } else if (BMI < 18) {
+                    } else if (BMI < 18.5) {
                         ResultLevel.setText("偏瘦");
                     } else {
                         ResultLevel.setText("偏胖");

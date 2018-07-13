@@ -8,16 +8,19 @@ import java.util.List;
 import cn.xiaojii.dapu.Bean.AnswerBean;
 import cn.xiaojii.dapu.Bean.QuestionBean;
 import cn.xiaojii.dapu.Bean.QuestionInJsonBean;
-import cn.xiaojii.dapu.Utils.ParseJsonUtils;
+import cn.xiaojii.dapu.R;
+import cn.xiaojii.dapu.Utils.ParseQuestionnaireJsonUtils;
 
 public class QuestionAndAnswerFactory {
 
     private static List<QuestionInJsonBean> questionInJsonBeanList;
     private List<QuestionBean> questionBeanList;
+    private static int[] ImageId = {R.mipmap.ic_correct, R.mipmap.ic_wrong};
+    private static String[] StrAnswerCode = {"A", "B", "C", "D"};
 
     public static List<QuestionInJsonBean> GetDataFromJSONFile(Context context, String filename) {
-        ParseJsonUtils parseJsonUtils = new ParseJsonUtils(context);
-        questionInJsonBeanList = parseJsonUtils.GetJsonData(filename);
+        ParseQuestionnaireJsonUtils parseQuestionnaireJsonUtils = new ParseQuestionnaireJsonUtils(context);
+        questionInJsonBeanList = parseQuestionnaireJsonUtils.GetJsonData(filename);
         return questionInJsonBeanList;
     }
 
@@ -42,9 +45,20 @@ public class QuestionAndAnswerFactory {
                 AnswerBean answerBean = new AnswerBean();
                 answerBean.setStringAnswer(q.getAnswerCandidate().get(answerindex));
                 answerBean.setAnswerIndex(answerindex);
-                answerBeans.add(answerBean);
-            }
+                if (answerindex < 4) {
+                    questionBean.setCorrectAnswer(answerindex);
+                    if (StrAnswerCode[answerindex].equals(q.getAnswer())) {
+                        answerBean.setImageId(ImageId[0]);
+                    } else {
+                        answerBean.setImageId(ImageId[1]);
+                    }
+                }
 
+
+                answerBeans.add(answerBean);
+
+            }
+            questionBean.setAnalysis(q.getAnswerHint());
 
             questionBean.setAnswerBeans(answerBeans);
 

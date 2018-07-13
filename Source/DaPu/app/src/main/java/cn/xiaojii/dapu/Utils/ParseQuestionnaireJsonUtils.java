@@ -13,12 +13,12 @@ import java.util.List;
 
 import cn.xiaojii.dapu.Bean.QuestionInJsonBean;
 
-public class ParseJsonUtils {
+public class ParseQuestionnaireJsonUtils {
     private ReadFileToStringUtils readFileToStringUtils;
     private List<QuestionInJsonBean> questionInJsonBeanList;
 
 
-    public ParseJsonUtils(Context context) {
+    public ParseQuestionnaireJsonUtils(Context context) {
         readFileToStringUtils = new ReadFileToStringUtils(context);
 
     }

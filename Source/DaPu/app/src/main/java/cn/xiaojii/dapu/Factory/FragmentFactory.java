@@ -3,11 +3,14 @@ package cn.xiaojii.dapu.Factory;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
+import cn.xiaojii.dapu.Activity.SkipActivity;
 import cn.xiaojii.dapu.Bean.GlogalBean;
+import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetes;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentBmi;
-import cn.xiaojii.dapu.Fragment.Discover.FragmentTcmConstitution;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentTcmConstitutionIdentificationSecondary;
+import cn.xiaojii.dapu.Fragment.Discover.TcmResultFragment;
+import cn.xiaojii.dapu.Fragment.Template.QuestionnaireResultFragment;
 import cn.xiaojii.dapu.Fragment.Template.QuestionnaireTemplateFragment;
 import cn.xiaojii.dapu.Fragment.Template.UserInfoCollectTemplateFragment;
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
@@ -17,6 +20,8 @@ import cn.xiaojii.dapu.Fragment.TopBar.FragmentAbout;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentPdfReadList;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentPdfReadPdf;
 import cn.xiaojii.dapu.R;
+
+import static cn.xiaojii.dapu.Bean.GlogalBean.InformationType.TcmConstitutionIdentification;
 
 
 public class FragmentFactory {
@@ -123,7 +128,7 @@ public class FragmentFactory {
 
         switch (fragmentName) {
             case "FragmentTcmConstitution":
-                fragment = new FragmentTcmConstitution(context);
+                //fragment = new FragmentTcmConstitution(context);
                 break;
 
             case "FragmentWaitYouChallage":
@@ -135,33 +140,41 @@ public class FragmentFactory {
         return fragment;
     }
 
-    public static Fragment createByJsonFileName(String jsonFileName, Context context) {
+    public static Fragment createByUserInfoType(Context context, UserInformationBean userInformationBean) {
         Fragment fragment = null;
 
 
-        switch (jsonFileName) {
-            case "PhysicalTest":
-                fragment = new QuestionnaireTemplateFragment(context, "<中医体质辨识", "PhysicalTest.json");
+        switch (userInformationBean.getInformationType()) {
+            case TcmConstitutionIdentification:
+                fragment = new QuestionnaireTemplateFragment(context, "<中医体质辨识", "PhysicalTest.json", userInformationBean);
                 break;
 
-            case "WaitYouChallage":
-                fragment = new QuestionnaireTemplateFragment(context, "<发现", "WaitYouChallage.json");
+            case WaitYouChallage:
+                fragment = new QuestionnaireTemplateFragment(context, "<发现", "WaitYouChallage.json", userInformationBean);
                 break;
-            case "HypertensionQuestionnaire":
-                fragment = new QuestionnaireTemplateFragment(context, "<高血压问卷", "HypertensionQuestionnaire.json");
+            case HypertensionQuestionnaire:
+                fragment = new QuestionnaireTemplateFragment(context, "<高血压问卷", "HypertensionQuestionnaire.json", userInformationBean);
                 break;
-            case "HypertensionTest":
-                fragment = new QuestionnaireTemplateFragment(context, "<高血压自测", "HypertensionTest.json");
+            case HypertensionSelfTest:
+                fragment = new QuestionnaireTemplateFragment(context, "<高血压自测", "HypertensionTest.json", userInformationBean);
                 break;
-            case "DiabetesQuestionnaire":
-                fragment = new QuestionnaireTemplateFragment(context, "<糖尿病问卷", "DiabetesQuestionnaire.json");
+            case DiabetesQuestionnaire:
+                fragment = new QuestionnaireTemplateFragment(context, "<糖尿病问卷", "DiabetesQuestionnaire.json", userInformationBean);
                 break;
-            case "DiabetesTest":
-                fragment = new QuestionnaireTemplateFragment(context, "<糖尿病自测", "DiabetesTest.json");
+            case DiabetesSelfTest:
+                fragment = new QuestionnaireTemplateFragment(context, "<糖尿病自测", "DiabetesTest.json", userInformationBean);
                 break;
 
         }
         return fragment;
 
+    }
+
+    public static Fragment createForQuestionnaireResult(UserInformationBean userInformationBean2) {
+        return new QuestionnaireResultFragment(userInformationBean2);
+    }
+
+    public static Fragment createForTcmResult(UserInformationBean userInformationBean3, int finalZhiIndex) {
+        return new TcmResultFragment(userInformationBean3, finalZhiIndex);
     }
 }

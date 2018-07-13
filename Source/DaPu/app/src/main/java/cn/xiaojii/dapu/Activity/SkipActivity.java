@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Factory.FragmentFactory;
 import cn.xiaojii.dapu.R;
 
@@ -31,8 +32,6 @@ public class SkipActivity extends FragmentActivity implements View.OnClickListen
 
     public String FragmentName;
 
-    public String JsonFileName;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,17 +43,17 @@ public class SkipActivity extends FragmentActivity implements View.OnClickListen
         ft = fm.beginTransaction();
 
         intent = getIntent();
+        Bundle bundle = intent.getExtras();
+
 
         Code = intent.getIntExtra("code", 0);
         if (Code != 0) {
             ResId = intent.getIntExtra("ResId", 0);
             switch (Code) {
                 case 1:
-                    if (ResId==R.id.id_waiting_for_challenge){
-                        ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName("FragmentWaitYouChallage",SkipActivity.this));
-                    }else {
-                        ft.replace(R.id.fl_click_button, FragmentFactory.createById(ResId));
-                    }
+
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createById(ResId));
+
 
                     break;
 
@@ -70,14 +69,29 @@ public class SkipActivity extends FragmentActivity implements View.OnClickListen
                     break;
                 case 4:
                     FragmentName = intent.getStringExtra("fragmentName");
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName(FragmentName,SkipActivity.this));
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName(FragmentName, SkipActivity.this));
 
                     break;
                 case 5:
-                    JsonFileName = intent.getStringExtra("jsonFileName");
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createByJsonFileName(JsonFileName,SkipActivity.this));
+                    UserInformationBean userInformationBean = (UserInformationBean) bundle.get("userinfobean");
+
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createByUserInfoType(SkipActivity.this, userInformationBean));
 
                     break;
+                case 6:
+                    UserInformationBean userInformationBean2 = (UserInformationBean) bundle.get("userinfobean");
+
+                    ft.replace(R.id.fl_click_button, FragmentFactory.createForQuestionnaireResult(userInformationBean2));
+
+                    break;
+                case 7:
+                    UserInformationBean userInformationBean3 = (UserInformationBean) bundle.get("userinfobean");
+                    int finalZhiIndex = bundle.getInt("ZhiIndex", -1);
+                    if (finalZhiIndex != -1) {
+                        ft.replace(R.id.fl_click_button, FragmentFactory.createForTcmResult(userInformationBean3,finalZhiIndex));
+
+                    }
+
 
             }
         }

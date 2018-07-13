@@ -10,22 +10,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import java.util.List;
+
 import cn.xiaojii.dapu.Adapter.AnswerAdapter;
+import cn.xiaojii.dapu.Bean.TcmJsonBean;
+import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Factory.DataFactory.QuestionAndAnswerFactory;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
+import cn.xiaojii.dapu.Interfaces.SubmitInterface;
 import cn.xiaojii.dapu.R;
+import cn.xiaojii.dapu.Utils.ParseTcmJsonUtils;
 
 
 @SuppressLint("ValidFragment")
-public class FragmentTcmConstitution extends BaseFragment {
+public class FragmentTcmConstitution extends BaseFragment implements SubmitInterface {
 
+
+    private List<TcmJsonBean> tcmJsonBeans;
 
     @SuppressLint("ValidFragment")
-    public FragmentTcmConstitution(Context context) {
+    public FragmentTcmConstitution(Context context, UserInformationBean userInformationBean) {
         this.context = context;
         questionBeanList = QuestionAndAnswerFactory.GetNormalData(context, "PhysicalTest.json");
         QuestionCount = questionBeanList.size();
         CurQuestionIndex = 1;
+        UserAnswerArray = new int[QuestionCount];
+        this.userInformationBean = userInformationBean;
+        ParseTcmJsonUtils parseTcmJsonUtils=new ParseTcmJsonUtils(getActivity());
+        tcmJsonBeans= parseTcmJsonUtils.GetJsonData("PhysiqueChineseMedicineConditioning.json");
+
     }
 
 
@@ -79,6 +92,7 @@ public class FragmentTcmConstitution extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
+                UserAnswerArray[CurQuestionIndex - 1] = position;
                 AnswerSelectedTextView.setText(IndexString[position]);
 
             }
@@ -95,6 +109,7 @@ public class FragmentTcmConstitution extends BaseFragment {
                 onBack();
                 break;
             case R.id.id_top_right:
+              //  Submit();
                 break;
             case R.id.id_bommom_bar_previous:
                 if (CurQuestionIndex > 1) {
@@ -107,6 +122,9 @@ public class FragmentTcmConstitution extends BaseFragment {
                 if (CurQuestionIndex < QuestionCount) {
                     CurQuestionIndex++;
                     UpdateView();
+                } else {
+
+                    Submit();
                 }
 
                 break;
@@ -116,4 +134,56 @@ public class FragmentTcmConstitution extends BaseFragment {
     }
 
 
+    @Override
+    public void Submit() {
+
+        int QiXuScore = FourItemSumScore(2, 3, 4, 14);
+        int YangXuScore = FourItemSumScore(11, 12, 13, 29);
+        int YinXuScore = FourItemSumScore(10, 21, 26, 31);
+        int TanShiScore = FourItemSumScore(9, 16, 28, 32);
+        int ShiReScore = FourItemSumScore(23, 25, 27, 30);
+        int XueYuScore = FourItemSumScore(19, 22, 24, 33);
+        int QiYuScore = FourItemSumScore(5, 6, 7, 8);
+        int TeBingScore = FourItemSumScore(15, 17, 18, 20);
+        int PingHeScore = PingHeScore();
+
+        String ZhiName[] = {"气虚质", "阳虚质", "阴虚质", "痰湿质", "湿热质", "血瘀质", "气郁质", "特禀质", "平和质"};
+        int ZhiScore[] = {QiXuScore, YangXuScore, YinXuScore, TanShiScore, ShiReScore, XueYuScore, QiYuScore, TeBingScore, PingHeScore};
+
+        int MaxScoreIndex = 0;
+        for (int ZhiScoreIndex = 1; ZhiScoreIndex < ZhiScore.length - 1; ZhiScoreIndex++) {
+            if (ZhiScore[ZhiScoreIndex] > ZhiScore[MaxScoreIndex]) {
+                MaxScoreIndex = ZhiScoreIndex;
+            }
+        }
+
+        if (ZhiScore[MaxScoreIndex] < 8 && PingHeScore >= 17) {
+            //平和质
+        } else if (ZhiScore[MaxScoreIndex] < 10 && PingHeScore >= 17) {
+            //基本是平和质
+        } else if (ZhiScore[MaxScoreIndex] >= 11) {
+            String Nama = ZhiName[MaxScoreIndex];//是
+        } else if (ZhiScore[MaxScoreIndex] >= 9 && ZhiScore[MaxScoreIndex] <= 10) {
+            String Nama = ZhiName[MaxScoreIndex];//倾向是
+        } else if (ZhiScore[MaxScoreIndex] <= 8) {
+            //什么都不是
+        }
+
+        SaveData(userInformationBean, "demo");
+    }
+
+
+    private int FourItemSumScore(int a, int b, int c, int d) {
+        return ItemScore(a) + ItemScore(b) + ItemScore(c) + ItemScore(d);
+    }
+
+    private int ItemScore(int a) {
+        return TcmScoreStandard[UserAnswerArray[a - 1]];
+    }
+
+    private int PingHeScore() {
+        return TcmScoreStandard[UserAnswerArray[1 - 1]] + TcmScoreStandard[4 - UserAnswerArray[2 - 1]]
+                + TcmScoreStandard[4 - UserAnswerArray[4 - 1]] + TcmScoreStandard[4 - UserAnswerArray[5 - 1]]
+                + TcmScoreStandard[4 - UserAnswerArray[13 - 1]];
+    }
 }

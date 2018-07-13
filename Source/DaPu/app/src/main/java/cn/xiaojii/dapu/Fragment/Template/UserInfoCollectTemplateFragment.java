@@ -24,8 +24,9 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
 
     public UserInfoCollectTemplateFragment(GlogalBean.InformationType type) {
         Type = type;
+        userInformationBean=new UserInformationBean();
+        userInformationBean.setInformationType(type);
     }
-
 
 
     @Override
@@ -226,71 +227,55 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
 
     @Override
     public void Determine() {
+//
+//        String name = EtName.getText().toString();
+//        String str_age = EtAge.getText().toString();
+//        String idnumber = EtIdNumber.getText().toString();
+//
+//        String str_numberoftablets = EtNumberOfTablets.getText().toString();
+//        String str_fastingbloodsugar = EtFastingBloodSugar.getText().toString();
+//        String str_totalamountofinsulinaday = EtTotalAmountOfInsulinAday.getText().toString();
+//
+//        if (name == "" || str_age == "" || idnumber == "" || str_numberoftablets == "" || str_fastingbloodsugar == "" || str_totalamountofinsulinaday == "") {
+//            return;
+//
+//        }
+//
+//        int int_age;
+//        try {
+//            int_age = Integer.parseInt(str_age);
+//        } catch (NumberFormatException e) {
+//            return;
+//        }
+//        userInformationBean.setIntAge(int_age);
+//
+//        int int_numberoftablets;
+//        try {
+//            int_numberoftablets = Integer.parseInt(str_numberoftablets);
+//        } catch (NumberFormatException e) {
+//            return;
+//        }
+//
+//        userInformationBean.setNumberOfTablets(int_numberoftablets);
+//
+//        int int_fastingbloodsugar;
+//        try {
+//            int_fastingbloodsugar = Integer.parseInt(str_fastingbloodsugar);
+//        } catch (NumberFormatException e) {
+//            return;
+//        }
+//
+//        userInformationBean.setFastingBloodSugar(int_fastingbloodsugar);
+//
+//        int int_totalamountofinsulinaday;
+//        try {
+//            int_totalamountofinsulinaday = Integer.parseInt(str_totalamountofinsulinaday);
+//        } catch (NumberFormatException e) {
+//            return;
+//        }
+//        userInformationBean.setTotalAmountOfInsulinAday(int_totalamountofinsulinaday);
 
-        String name = EtName.getText().toString();
-        String str_age = EtAge.getText().toString();
-        String idnumber = EtIdNumber.getText().toString();
+        StartUtils.startActivityByUserInfo(getActivity(), userInformationBean);
 
-        String str_numberoftablets = EtNumberOfTablets.getText().toString();
-        String str_fastingbloodsugar = EtFastingBloodSugar.getText().toString();
-        String str_totalamountofinsulinaday = EtTotalAmountOfInsulinAday.getText().toString();
-
-        if (name == "" || str_age == "" || idnumber == "" || str_numberoftablets == "" || str_fastingbloodsugar == "" || str_totalamountofinsulinaday == "") {
-            return;
-
-        }
-
-        int int_age;
-        try {
-            int_age = Integer.parseInt(str_age);
-        } catch (NumberFormatException e) {
-            return;
-        }
-        userInformationBean.setIntAge(int_age);
-
-        int int_numberoftablets;
-        try {
-            int_numberoftablets = Integer.parseInt(str_numberoftablets);
-        } catch (NumberFormatException e) {
-            return;
-        }
-
-        userInformationBean.setNumberOfTablets(int_numberoftablets);
-
-        int int_fastingbloodsugar;
-        try {
-            int_fastingbloodsugar = Integer.parseInt(str_fastingbloodsugar);
-        } catch (NumberFormatException e) {
-            return;
-        }
-
-        userInformationBean.setFastingBloodSugar(int_fastingbloodsugar);
-
-        int int_totalamountofinsulinaday;
-        try {
-            int_totalamountofinsulinaday = Integer.parseInt(str_totalamountofinsulinaday);
-        } catch (NumberFormatException e) {
-            return;
-        }
-        userInformationBean.setTotalAmountOfInsulinAday(int_totalamountofinsulinaday);
-
-
-        SaveUserInfoData();
-
-
-        if (Type == GlogalBean.InformationType.HypertensionSelfTest) {
-            StartUtils.startActivityByJsonFileName(getActivity(), "HypertensionTest");
-
-        } else if (Type == GlogalBean.InformationType.HypertensionQuestionnaire) {
-            StartUtils.startActivityByJsonFileName(getActivity(), "HypertensionQuestionnaire");
-
-        } else if (Type == GlogalBean.InformationType.DiabetesSelfTest) {
-
-            StartUtils.startActivityByJsonFileName(getActivity(), "DiabetesTest");
-
-        } else if (Type == GlogalBean.InformationType.DiabetesQuestionnaire) {
-            StartUtils.startActivityByJsonFileName(getActivity(), "DiabetesQuestionnaire");
-
-        }
     }
 }
