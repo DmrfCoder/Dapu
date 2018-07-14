@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,6 @@ import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
 import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetes;
 import cn.xiaojii.dapu.Adapter.FragmentAdapter;
 import cn.xiaojii.dapu.R;
-import cn.xiaojii.dapu.Utils.SendMailUtil;
 import cn.xiaojii.dapu.Utils.StartUtil;
 import cn.xiaojii.dapu.Widght.NoScrollViewPager;
 
@@ -53,9 +53,9 @@ public class MainActivity extends FragmentActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SendMailUtil.send("1241302030@qq.com");
-//        initView();//初始化控件
-//        initPage();//初始化页面
+        // SendMailUtil.send("1241302030@qq.com");
+        initView();//初始化控件
+        initPage();//初始化页面
     }
 
 
@@ -68,6 +68,8 @@ public class MainActivity extends FragmentActivity implements
 
         topLeftButton.setOnClickListener(this);
         topRightButton.setOnClickListener(this);
+
+        topLeftButton.setGravity(Gravity.CENTER);
 
         vp = (NoScrollViewPager) findViewById(R.id.id_pager);
 
@@ -131,10 +133,14 @@ public class MainActivity extends FragmentActivity implements
     public void onTabChanged(String tabId) {//Tab改变的时候调用
 
 
+
+
+
         int position = mTabHost.getCurrentTab();
         for (int i = 0; i < mTabHost.getTabWidget().getChildCount(); i++) {
             TextView tv = (TextView) mTabHost.getTabWidget().getChildAt(i).findViewById(R.id.id_tab_name);
             ImageView iv = (ImageView) mTabHost.getTabWidget().getChildAt(i).findViewById(R.id.id_tab_icon);
+
 
             if (i == position) {//选中
                 iv.setBackgroundResource(imageSelectedViewArray[i]);

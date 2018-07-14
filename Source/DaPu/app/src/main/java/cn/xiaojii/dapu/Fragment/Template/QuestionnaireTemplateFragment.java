@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import java.util.List;
 
@@ -119,25 +117,25 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
 
                     AnalysisTextView.setMovementMethod(ScrollingMovementMethod.getInstance());
 
-                    LinearLayout linearLayout = (LinearLayout) answerAdapter.getView(position, null, null);
-                    ImageView imageView = (ImageView) linearLayout.findViewById(R.id.id_item_answers_listview_image);
 
                     int CorrentAnswerIndex = questionBeanList.get(CurQuestionIndex - 1).getCorrectAnswer();
 
                     if (CorrentAnswerIndex == position) {
-                        imageView.setVisibility(View.VISIBLE);
+                        answerAdapter.setCurrentItem(-1,position);
+
                         AnswerSelectedTextView.setTextColor(getActivity().getResources().getColor(R.color.colorGreen));
                         AnswerSelectedTextView.setText("正确");
                         AnalysisTextView.setTextColor(getActivity().getResources().getColor(R.color.colorGreen));
                     } else {
-                        LinearLayout linearLayout2 = (LinearLayout) answerAdapter.getView(CorrentAnswerIndex, null, null);
-                        ImageView imageView1 = (ImageView) linearLayout2.findViewById(R.id.id_item_answers_listview_image);
-                        imageView.setVisibility(View.VISIBLE);
-                        imageView1.setVisibility(View.VISIBLE);
+                        answerAdapter.setCurrentItem(position,CorrentAnswerIndex);
+
+
                         AnswerSelectedTextView.setTextColor(getActivity().getResources().getColor(R.color.colorRed));
                         AnswerSelectedTextView.setText("错误");
                         AnalysisTextView.setTextColor(getActivity().getResources().getColor(R.color.colorRed));
                     }
+                    answerAdapter.notifyDataSetChanged();
+
                     AnalysisTextView.setVisibility(View.VISIBLE);
                     String Analysis = questionBeanList.get(CurQuestionIndex - 1).getAnalysis();
                     AnalysisTextView.setText("解析:" + Analysis);
@@ -170,56 +168,8 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
                 break;
             case R.id.id_top_right:
 
+                Submit();
 
-                userInformationBean.setUserScore(Score);
-                userInformationBean.setUserAnswerArray(UserAnswerArray);
-                userInformationBean.setCurIndex(CurQuestionIndex);
-                userInformationBean.setSumCount(QuestionCount);
-
-                SaveData(userInformationBean, "demo");
-
-                if (userInformationBean.getInformationType() == GlogalBean.InformationType.TcmConstitutionIdentification) {
-                    int QiXuScore = FourItemSumScore(2, 3, 4, 14);
-                    int YangXuScore = FourItemSumScore(11, 12, 13, 29);
-                    int YinXuScore = FourItemSumScore(10, 21, 26, 31);
-                    int TanShiScore = FourItemSumScore(9, 16, 28, 32);
-                    int ShiReScore = FourItemSumScore(23, 25, 27, 30);
-                    int XueYuScore = FourItemSumScore(19, 22, 24, 33);
-                    int QiYuScore = FourItemSumScore(5, 6, 7, 8);
-                    int TeBingScore = FourItemSumScore(15, 17, 18, 20);
-                    int PingHeScore = PingHeScore();
-
-                    String ZhiName[] = {"气虚质", "阳虚质", "阴虚质", "痰湿质", "湿热质", "血瘀质", "气郁质", "特禀质", "平和质"};
-                    int ZhiScore[] = {QiXuScore, YangXuScore, YinXuScore, TanShiScore, ShiReScore, XueYuScore, QiYuScore, TeBingScore, PingHeScore};
-
-                    int MaxScoreIndex = 0;
-                    for (int ZhiScoreIndex = 1; ZhiScoreIndex < ZhiScore.length - 1; ZhiScoreIndex++) {
-                        if (ZhiScore[ZhiScoreIndex] > ZhiScore[MaxScoreIndex]) {
-                            MaxScoreIndex = ZhiScoreIndex;
-                        }
-                    }
-
-                    int FinalZhiIndex = 0;
-
-                    if (ZhiScore[MaxScoreIndex] < 8 && PingHeScore >= 17) {
-                        //平和质
-                    } else if (ZhiScore[MaxScoreIndex] < 10 && PingHeScore >= 17) {
-                        //基本是平和质
-                    } else if (ZhiScore[MaxScoreIndex] >= 11) {
-                        String Nama = ZhiName[MaxScoreIndex];//是
-                    } else if (ZhiScore[MaxScoreIndex] >= 9 && ZhiScore[MaxScoreIndex] <= 10) {
-                        String Nama = ZhiName[MaxScoreIndex];//倾向是
-                    } else if (ZhiScore[MaxScoreIndex] <= 8) {
-                        //什么都不是
-                    }
-
-                    StartUtil.startActivityForTcmResult(getActivity(), userInformationBean, FinalZhiIndex);
-                    return;
-
-                }
-
-
-                StartUtil.startActivityForQuestionnaireResult(getActivity(), userInformationBean);
 
                 break;
             case R.id.id_bommom_bar_previous:
@@ -233,6 +183,8 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
                 if (CurQuestionIndex < QuestionCount) {
                     CurQuestionIndex++;
                     UpdateView();
+                } else {
+                    Submit();
                 }
 
                 break;
@@ -241,6 +193,56 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
         }
     }
 
+
+    private void Submit() {
+        userInformationBean.setIntUserScore(Score);
+        userInformationBean.setUserAnswerArray(UserAnswerArray);
+        userInformationBean.setIntCurIndex(CurQuestionIndex);
+        userInformationBean.setIntSumCount(QuestionCount);
+
+        SaveData(userInformationBean, userInformationBean.getStrName() + "_" + userInformationBean.getInformationType());
+
+        if (userInformationBean.getInformationType() == GlogalBean.InformationType.TcmConstitutionIdentification) {
+            int QiXuScore = FourItemSumScore(2, 3, 4, 14);
+            int YangXuScore = FourItemSumScore(11, 12, 13, 29);
+            int YinXuScore = FourItemSumScore(10, 21, 26, 31);
+            int TanShiScore = FourItemSumScore(9, 16, 28, 32);
+            int ShiReScore = FourItemSumScore(23, 25, 27, 30);
+            int XueYuScore = FourItemSumScore(19, 22, 24, 33);
+            int QiYuScore = FourItemSumScore(5, 6, 7, 8);
+            int TeBingScore = FourItemSumScore(15, 17, 18, 20);
+            int PingHeScore = PingHeScore();
+
+            String ZhiName[] = {"气虚质", "阳虚质", "阴虚质", "痰湿质", "湿热质", "血瘀质", "气郁质", "特禀质", "平和质"};
+            int ZhiScore[] = {QiXuScore, YangXuScore, YinXuScore, TanShiScore, ShiReScore, XueYuScore, QiYuScore, TeBingScore, PingHeScore};
+
+            int MaxScoreIndex = 0;
+            for (int ZhiScoreIndex = 1; ZhiScoreIndex < ZhiScore.length - 1; ZhiScoreIndex++) {
+                if (ZhiScore[ZhiScoreIndex] > ZhiScore[MaxScoreIndex]) {
+                    MaxScoreIndex = ZhiScoreIndex;
+                }
+            }
+
+            int FinalZhiIndex = 0;
+
+            if (ZhiScore[MaxScoreIndex] < 8 && PingHeScore >= 17) {
+                //平和质
+            } else if (ZhiScore[MaxScoreIndex] < 10 && PingHeScore >= 17) {
+                //基本是平和质
+            } else if (ZhiScore[MaxScoreIndex] >= 11) {
+                String Nama = ZhiName[MaxScoreIndex];//是
+            } else if (ZhiScore[MaxScoreIndex] >= 9 && ZhiScore[MaxScoreIndex] <= 10) {
+                String Nama = ZhiName[MaxScoreIndex];//倾向是
+            } else if (ZhiScore[MaxScoreIndex] <= 8) {
+                //什么都不是
+            }
+
+            StartUtil.startActivityForTcmResult(getActivity(), userInformationBean, FinalZhiIndex);
+            return;
+
+        }
+        StartUtil.startActivityForQuestionnaireResult(getActivity(), userInformationBean);
+    }
 
     private int FourItemSumScore(int a, int b, int c, int d) {
         return ItemScore(a) + ItemScore(b) + ItemScore(c) + ItemScore(d);

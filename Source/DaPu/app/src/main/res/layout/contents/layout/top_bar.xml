@@ -6,32 +6,34 @@
     android:orientation="horizontal">
 
     <Button
-        android:textColor="@color/colorWhite"
         android:id="@+id/id_top_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:background="@android:color/transparent"
-        android:text="left" />
+        android:gravity="left|center_vertical"
+        android:paddingLeft="5dp"
+        android:text="left"
+        android:textColor="@color/colorWhite" />
 
     <TextView
-        android:textColor="@color/colorWhite"
-        android:layout_centerVertical="true"
         android:id="@+id/id_top_center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:background="@android:color/transparent"
-        android:text="center" />
+        android:text="center"
+        android:textColor="@color/colorWhite" />
 
     <Button
-        android:textColor="@color/colorWhite"
         android:id="@+id/id_top_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:background="@android:color/transparent"
-        android:text="right" />
+        android:text="right"
+        android:textColor="@color/colorWhite" />
 
 
 </RelativeLayout>

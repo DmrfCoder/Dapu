@@ -146,23 +146,23 @@ public class FragmentFactory {
 
         switch (userInformationBean.getInformationType()) {
             case TcmConstitutionIdentification:
-                fragment = new QuestionnaireTemplateFragment(context, "<中医体质辨识", "PhysicalTest.json", userInformationBean);
+                fragment = new QuestionnaireTemplateFragment(context, "＜ 中医体质辨识", "PhysicalTest.json", userInformationBean);
                 break;
 
             case WaitYouChallage:
-                fragment = new QuestionnaireTemplateFragment(context, "<发现", "WaitYouChallage.json", userInformationBean);
+                fragment = new QuestionnaireTemplateFragment(context, "＜ 发现", "WaitYouChallage.json", userInformationBean);
                 break;
             case HypertensionQuestionnaire:
-                fragment = new QuestionnaireTemplateFragment(context, "<高血压问卷", "HypertensionQuestionnaire.json", userInformationBean);
+                fragment = new QuestionnaireTemplateFragment(context, "＜ 高血压问卷", "HypertensionQuestionnaire.json", userInformationBean);
                 break;
             case HypertensionSelfTest:
-                fragment = new QuestionnaireTemplateFragment(context, "<高血压自测", "HypertensionTest.json", userInformationBean);
+                fragment = new QuestionnaireTemplateFragment(context, "＜ 高血压自测", "HypertensionTest.json", userInformationBean);
                 break;
             case DiabetesQuestionnaire:
-                fragment = new QuestionnaireTemplateFragment(context, "<糖尿病问卷", "DiabetesQuestionnaire.json", userInformationBean);
+                fragment = new QuestionnaireTemplateFragment(context, "＜ 糖尿病问卷", "DiabetesQuestionnaire.json", userInformationBean);
                 break;
             case DiabetesSelfTest:
-                fragment = new QuestionnaireTemplateFragment(context, "<糖尿病自测", "DiabetesTest.json", userInformationBean);
+                fragment = new QuestionnaireTemplateFragment(context, "＜ 糖尿病自测", "DiabetesTest.json", userInformationBean);
                 break;
 
         }

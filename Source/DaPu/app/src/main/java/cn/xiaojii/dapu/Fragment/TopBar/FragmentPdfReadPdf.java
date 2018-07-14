@@ -41,7 +41,7 @@ public class FragmentPdfReadPdf extends BaseFragment implements View.OnClickList
         view.findViewById(R.id.id_top_center).setVisibility(View.GONE);
         view.findViewById(R.id.id_top_right).setVisibility(View.GONE);
         leftButton = view.findViewById(R.id.id_top_left);
-        leftButton.setText("<资料");
+        leftButton.setText("＜资料");
         leftButton.setOnClickListener(this);
 
 
@@ -54,7 +54,6 @@ public class FragmentPdfReadPdf extends BaseFragment implements View.OnClickList
             case R.id.id_top_left:
                 onBack();
                 break;
-
         }
     }
 }

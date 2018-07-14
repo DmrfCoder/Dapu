@@ -52,7 +52,7 @@ public class TcmResultFragment extends BaseFragment {
 
         view.findViewById(R.id.id_top_right).setVisibility(View.GONE);
 
-        LeftButton.setText("<问卷("+userInformationBean.getCurIndex()+"/" + userInformationBean.getSumCount() + ")");
+        LeftButton.setText("＜问卷("+userInformationBean.getIntCurIndex()+"/" + userInformationBean.getIntSumCount() + ")");
 
         CenterTextview.setText("问卷结果");
 

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
@@ -17,12 +18,9 @@ import cn.xiaojii.dapu.R;
 public class QuestionnaireResultFragment extends BaseFragment {
 
 
-
-
     @SuppressLint("ValidFragment")
     public QuestionnaireResultFragment(UserInformationBean userInformationBean) {
 
-        this.QuestionCount = userInformationBean.getUserAnswerArray().length;
         this.userInformationBean = userInformationBean;
     }
 
@@ -42,7 +40,7 @@ public class QuestionnaireResultFragment extends BaseFragment {
 
         view.findViewById(R.id.id_top_right).setVisibility(View.GONE);
 
-        LeftButton.setText("<问卷(1/" + QuestionCount + ")");
+        LeftButton.setText("＜问卷(" + userInformationBean.getIntCurIndex() + "/" + userInformationBean.getIntSumCount() + ")");
 
         CenterTextview.setText("问卷结果");
 
@@ -52,7 +50,17 @@ public class QuestionnaireResultFragment extends BaseFragment {
         LeftButton.setOnClickListener(this);
 
         ((TextView) view.findViewById(R.id.id_questionnaire_result_name)).setText(userInformationBean.getStrName());
-        ((TextView) view.findViewById(R.id.id_questionnaire_result_score)).setText(String.valueOf(userInformationBean.getUserScore()));
+        ((TextView) view.findViewById(R.id.id_questionnaire_result_score)).setText(String.valueOf(userInformationBean.getIntUserScore()));
+
+        if (userInformationBean.getInformationType() == GlogalBean.InformationType.WaitYouChallage) {
+            ((TextView) view.findViewById(R.id.id_questionnaire_result_title)).setText("挑战结果");
+        } else if (userInformationBean.getInformationType() == GlogalBean.InformationType.DiabetesQuestionnaire || userInformationBean.getInformationType() == GlogalBean.InformationType.DiabetesSelfTest) {
+            ((TextView) view.findViewById(R.id.id_questionnaire_result_title)).setText("糖尿病调查结果");
+        }
+        if (userInformationBean.getInformationType() == GlogalBean.InformationType.HypertensionQuestionnaire || userInformationBean.getInformationType() == GlogalBean.InformationType.HypertensionSelfTest) {
+            ((TextView) view.findViewById(R.id.id_questionnaire_result_title)).setText("高血压调查结果");
+        }
+
 
     }
 
@@ -62,7 +70,7 @@ public class QuestionnaireResultFragment extends BaseFragment {
 
         switch (view.getId()) {
             case R.id.id_top_left:
-                getActivity().onBackPressed();
+                getActivity().onBackPressed();//销毁当前Fragment避免陷入Fragment跳转循环
                 break;
         }
 

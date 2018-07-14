@@ -46,9 +46,10 @@ public class QuestionAndAnswerFactory {
                 answerBean.setStringAnswer(q.getAnswerCandidate().get(answerindex));
                 answerBean.setAnswerIndex(answerindex);
                 if (answerindex < 4) {
-                    questionBean.setCorrectAnswer(answerindex);
+
                     if (StrAnswerCode[answerindex].equals(q.getAnswer())) {
                         answerBean.setImageId(ImageId[0]);
+                        questionBean.setCorrectAnswer(answerindex);
                     } else {
                         answerBean.setImageId(ImageId[1]);
                     }

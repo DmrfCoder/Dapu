@@ -23,7 +23,7 @@ public class FragmentAbout extends BaseFragment implements View.OnClickListener{
         LeftButton = view.findViewById(R.id.id_top_left);
         view.findViewById(R.id.id_top_center).setVisibility(View.GONE);
         view.findViewById(R.id.id_top_right).setVisibility(View.GONE);
-        LeftButton.setText("<发现");
+        LeftButton.setText("＜发现");
         LeftButton.setOnClickListener(this);
         return view;
     }

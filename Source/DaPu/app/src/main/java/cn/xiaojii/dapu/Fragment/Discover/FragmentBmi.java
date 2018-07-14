@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 
@@ -45,7 +46,7 @@ public class FragmentBmi extends BaseFragment {
         LeftButton.setVisibility(View.VISIBLE);
 
 
-        LeftButton.setText("<发现");
+        LeftButton.setText("＜ 发现");
 
 
         LeftButton.setOnClickListener(this);
@@ -64,6 +65,11 @@ public class FragmentBmi extends BaseFragment {
             case R.id.id_bmi_calculate:
                 String StrWeight = BodyWeight.getText().toString();
                 String StrHeight = Height.getText().toString();
+
+                if (StrHeight.equals("") || StrWeight.equals("")) {
+                    Toast.makeText(getActivity(), "请填写正确的身高和体重!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 float FloatWeight = -1;
                 float FloatHeight = -1;

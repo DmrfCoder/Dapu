@@ -42,7 +42,7 @@ public class FragmentWaitYouChallage extends BaseFragment {
         RightButton = view.findViewById(R.id.id_top_right);
 
 
-        LeftButton.setText("<发现");
+        LeftButton.setText("＜发现");
         LeftButton.setVisibility(View.VISIBLE);
 
 

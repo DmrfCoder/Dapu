@@ -5,53 +5,94 @@ import android.os.Parcelable;
 
 public class UserInformationBean implements Parcelable {
 
-    private int[] UserAnswerArray;
-    private int UserScore;
+    private int[] UserAnswerArray;//用户答题答案数据
+
+    private String StrName;//用户姓名
+    private String StrIdNumber;//用户身份证号
 
 
-    private String StrName;
-    private int IntAge;
-    private GlogalBean.Sex Sex;
-    private String StrIdNumber;
+    public void setIntAge(String str) throws Exception {
+        try {
+            this.IntAge = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            throw e;
+        }
+    }
+
+    public void setIntUserScore(String str) throws Exception {
+        try {
+            this.IntUserScore = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            throw e;
+        }
+    }
+
+
+    public void setIntNumberOfTablets(String str) throws Exception {
+        try {
+            this.IntNumberOfTablets = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            throw e;
+        }
+    }
+
+    public void setIntFastingBloodSugar(String str) throws Exception {
+        try {
+            this.IntFastingBloodSugar = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            throw e;
+        }
+    }
+
+    public void setIntTotalAmountOfInsulinAday(String str) throws Exception {
+        try {
+            this.IntTotalAmountOfInsulinAday = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            throw e;
+        }
+    }
+
+    private int IntAge;//用户年龄
+    private int IntUserScore;//用户答题得分
+    private int IntCurIndex;//用户当前答题Index
+    private int IntSumCount;//当前题库题量
+    private int IntNumberOfTablets;//服药总粒数
+    private int IntFastingBloodSugar;//空腹血糖
+    private int IntTotalAmountOfInsulinAday;//胰岛素用量
+
+    private GlogalBean.TypeOfMedication typeOfMedication;
     private GlogalBean.InformationType informationType;
     private GlogalBean.EducationalLevel educationalLevel;
     private GlogalBean.IllTime illTime;
     private GlogalBean.InsulinTherapy insulinTherapy;
     private GlogalBean.WorkStatus workStatus;
+    private GlogalBean.Sex Sex;
 
-    private int CurIndex;
 
-    public int getCurIndex() {
-        return CurIndex;
+    public int getIntCurIndex() {
+        return IntCurIndex;
     }
 
-    public void setCurIndex(int curIndex) {
-        CurIndex = curIndex;
+    public void setIntCurIndex(int intCurIndex) {
+        IntCurIndex = intCurIndex;
     }
 
-    public int getSumCount() {
-        return SumCount;
+    public int getIntSumCount() {
+        return IntSumCount;
     }
 
-    public void setSumCount(int sumCount) {
-        SumCount = sumCount;
+    public void setIntSumCount(int intSumCount) {
+        IntSumCount = intSumCount;
     }
-
-    private int SumCount;
 
 
     public GlogalBean.InformationType getInformationType() {
         return informationType;
     }
 
-    private GlogalBean.TypeOfMedication typeOfMedication;
-    private int NumberOfTablets;
-    private int FastingBloodSugar;
-    private int TotalAmountOfInsulinAday;
 
-
-    public int getUserScore() {
-        return UserScore;
+    public int getIntUserScore() {
+        return IntUserScore;
     }
 
     public void setUserAnswerArray(int[] userAnswerArray) {
@@ -63,8 +104,8 @@ public class UserInformationBean implements Parcelable {
         return UserAnswerArray;
     }
 
-    public void setUserScore(int userScore) {
-        UserScore = userScore;
+    public void setIntUserScore(int intUserScore) {
+        IntUserScore = intUserScore;
     }
 
     public void setEducationalLevel(GlogalBean.EducationalLevel educationalLevel) {
@@ -91,16 +132,16 @@ public class UserInformationBean implements Parcelable {
         this.typeOfMedication = typeOfMedication;
     }
 
-    public void setNumberOfTablets(int numberOfTablets) {
-        NumberOfTablets = numberOfTablets;
+    public void setIntNumberOfTablets(int intNumberOfTablets) {
+        IntNumberOfTablets = intNumberOfTablets;
     }
 
-    public void setFastingBloodSugar(int fastingBloodSugar) {
-        FastingBloodSugar = fastingBloodSugar;
+    public void setIntFastingBloodSugar(int intFastingBloodSugar) {
+        IntFastingBloodSugar = intFastingBloodSugar;
     }
 
-    public void setTotalAmountOfInsulinAday(int totalAmountOfInsulinAday) {
-        TotalAmountOfInsulinAday = totalAmountOfInsulinAday;
+    public void setIntTotalAmountOfInsulinAday(int intTotalAmountOfInsulinAday) {
+        IntTotalAmountOfInsulinAday = intTotalAmountOfInsulinAday;
     }
 
     public void setInformationType(GlogalBean.InformationType informationType) {
@@ -112,7 +153,6 @@ public class UserInformationBean implements Parcelable {
 
     public UserInformationBean(String strName, int intAge, GlogalBean.Sex sex, String strIdNumber) {
         StrName = strName;
-
         IntAge = intAge;
         Sex = sex;
         StrIdNumber = strIdNumber;
@@ -143,7 +183,7 @@ public class UserInformationBean implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeIntArray(this.UserAnswerArray);
-        dest.writeInt(this.UserScore);
+        dest.writeInt(this.IntUserScore);
         dest.writeString(this.StrName);
         dest.writeInt(this.IntAge);
         dest.writeInt(this.Sex == null ? -1 : this.Sex.ordinal());
@@ -153,15 +193,17 @@ public class UserInformationBean implements Parcelable {
         dest.writeInt(this.illTime == null ? -1 : this.illTime.ordinal());
         dest.writeInt(this.insulinTherapy == null ? -1 : this.insulinTherapy.ordinal());
         dest.writeInt(this.workStatus == null ? -1 : this.workStatus.ordinal());
+        dest.writeInt(this.IntCurIndex);
+        dest.writeInt(this.IntSumCount);
         dest.writeInt(this.typeOfMedication == null ? -1 : this.typeOfMedication.ordinal());
-        dest.writeInt(this.NumberOfTablets);
-        dest.writeInt(this.FastingBloodSugar);
-        dest.writeInt(this.TotalAmountOfInsulinAday);
+        dest.writeInt(this.IntNumberOfTablets);
+        dest.writeInt(this.IntFastingBloodSugar);
+        dest.writeInt(this.IntTotalAmountOfInsulinAday);
     }
 
     protected UserInformationBean(Parcel in) {
         this.UserAnswerArray = in.createIntArray();
-        this.UserScore = in.readInt();
+        this.IntUserScore = in.readInt();
         this.StrName = in.readString();
         this.IntAge = in.readInt();
         int tmpSex = in.readInt();
@@ -177,11 +219,13 @@ public class UserInformationBean implements Parcelable {
         this.insulinTherapy = tmpInsulinTherapy == -1 ? null : GlogalBean.InsulinTherapy.values()[tmpInsulinTherapy];
         int tmpWorkStatus = in.readInt();
         this.workStatus = tmpWorkStatus == -1 ? null : GlogalBean.WorkStatus.values()[tmpWorkStatus];
+        this.IntCurIndex = in.readInt();
+        this.IntSumCount = in.readInt();
         int tmpTypeOfMedication = in.readInt();
         this.typeOfMedication = tmpTypeOfMedication == -1 ? null : GlogalBean.TypeOfMedication.values()[tmpTypeOfMedication];
-        this.NumberOfTablets = in.readInt();
-        this.FastingBloodSugar = in.readInt();
-        this.TotalAmountOfInsulinAday = in.readInt();
+        this.IntNumberOfTablets = in.readInt();
+        this.IntFastingBloodSugar = in.readInt();
+        this.IntTotalAmountOfInsulinAday = in.readInt();
     }
 
     public static final Creator<UserInformationBean> CREATOR = new Creator<UserInformationBean>() {

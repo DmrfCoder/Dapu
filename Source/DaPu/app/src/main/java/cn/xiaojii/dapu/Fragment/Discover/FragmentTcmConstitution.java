@@ -61,7 +61,7 @@ public class FragmentTcmConstitution extends BaseFragment implements SubmitInter
         RightButton = view.findViewById(R.id.id_top_right);
 
 
-        LeftButton.setText("<中医体质辨识");
+        LeftButton.setText("＜中医体质辨识");
         LeftButton.setVisibility(View.VISIBLE);
 
         RightButton.setText("交卷");
@@ -169,7 +169,7 @@ public class FragmentTcmConstitution extends BaseFragment implements SubmitInter
             //什么都不是
         }
 
-        SaveData(userInformationBean, "demo");
+        SaveData(userInformationBean, userInformationBean.getStrName()+"_"+userInformationBean.getInformationType());
     }
 
 

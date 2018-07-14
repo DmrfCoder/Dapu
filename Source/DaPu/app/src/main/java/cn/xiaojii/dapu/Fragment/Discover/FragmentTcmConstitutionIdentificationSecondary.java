@@ -17,9 +17,6 @@ import cn.xiaojii.dapu.Utils.StartUtil;
 public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment {
 
 
-
-
-
     public FragmentTcmConstitutionIdentificationSecondary() {
         userInformationBean = new UserInformationBean();
         userInformationBean.setInformationType(GlogalBean.InformationType.TcmConstitutionIdentification);
@@ -37,7 +34,7 @@ public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment
 
     private void InitView(View view) {
         LeftButton = view.findViewById(R.id.id_top_left);
-        LeftButton.setText("<发现");
+        LeftButton.setText("＜ 发现");
         LeftButton.setVisibility(View.VISIBLE);
 
 
@@ -95,25 +92,33 @@ public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment
         String str_age = EtAge.getText().toString();
         String id = EtIdNumber.getText().toString();
 
-//        //检测输入是否都不为空
-//        if (name == "" || str_age == "" || id == "") {//有未输入的内容,提示用户输入
-//            return;
-//        }
-//
-//
-//        //检测输入的年龄格式是否正确
-//        int int_age;
-//        try {
-//            int_age = Integer.parseInt(str_age);
-//        } catch (NumberFormatException e) {
-//            return;
-//        }
-//
-//        userInformationBean.setIntAge(int_age);
+        if (!GlogalBean.DEBUG) {
+            //检测输入是否都不为空
+            if (name.equals("") || str_age.equals("") || id.equals("")) {//有未输入的内容,提示用户输入
+                WarningInput();
+                return;
+            }
+
+            try {
+                userInformationBean.setIntAge(str_age);
+            } catch (Exception e) {
+                WarningAge();
+                return;
+            }
+
+
+            if (id.length() != 18) {
+                WarningIdNumber();
+                return;
+            }
+
+        }
+
+
         userInformationBean.setStrIdNumber(id);
         userInformationBean.setStrName(name);
 
 
-        StartUtil.startActivityByUserInfo(getActivity(),userInformationBean);
+        StartUtil.startActivityByUserInfo(getActivity(), userInformationBean);
     }
 }

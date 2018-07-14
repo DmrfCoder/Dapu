@@ -2,6 +2,8 @@ package cn.xiaojii.dapu.Bean;
 
 public class GlogalBean {
 
+    public static boolean DEBUG=false;
+
     public enum Type {
         Questionnaire, SelfTest
     }

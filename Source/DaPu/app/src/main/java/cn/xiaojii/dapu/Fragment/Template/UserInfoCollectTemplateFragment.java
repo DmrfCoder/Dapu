@@ -24,7 +24,7 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
 
     public UserInfoCollectTemplateFragment(GlogalBean.InformationType type) {
         Type = type;
-        userInformationBean=new UserInformationBean();
+        userInformationBean = new UserInformationBean();
         userInformationBean.setInformationType(type);
     }
 
@@ -46,7 +46,7 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
         if (Type == GlogalBean.InformationType.HypertensionSelfTest) {
             userInformationBean.setInformationType(GlogalBean.InformationType.HypertensionSelfTest);
 
-            LeftButton.setText("<高血压");
+            LeftButton.setText("＜ 高血压");
             CenterTextview.setText("高血压自测");
             RightButton.setText("自测");
 
@@ -58,7 +58,7 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
         } else if (Type == GlogalBean.InformationType.HypertensionQuestionnaire) {
             userInformationBean.setInformationType(GlogalBean.InformationType.HypertensionQuestionnaire);
 
-            LeftButton.setText("<高血压");
+            LeftButton.setText("＜ 高血压");
             CenterTextview.setText("高血压问卷");
             RightButton.setText("问卷");
 
@@ -69,7 +69,7 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
         } else if (Type == GlogalBean.InformationType.DiabetesSelfTest) {
             userInformationBean.setInformationType(GlogalBean.InformationType.DiabetesSelfTest);
 
-            LeftButton.setText("<糖尿病");
+            LeftButton.setText("＜ 糖尿病");
             CenterTextview.setText("糖尿病自测");
             RightButton.setText("自测");
 
@@ -79,7 +79,7 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
 
         } else if (Type == GlogalBean.InformationType.DiabetesQuestionnaire) {
             userInformationBean.setInformationType(GlogalBean.InformationType.DiabetesQuestionnaire);
-            LeftButton.setText("<糖尿病");
+            LeftButton.setText("＜ 糖尿病");
             CenterTextview.setText("糖尿病问卷");
             RightButton.setText("问卷");
 
@@ -227,53 +227,60 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
 
     @Override
     public void Determine() {
-//
-//        String name = EtName.getText().toString();
-//        String str_age = EtAge.getText().toString();
-//        String idnumber = EtIdNumber.getText().toString();
-//
-//        String str_numberoftablets = EtNumberOfTablets.getText().toString();
-//        String str_fastingbloodsugar = EtFastingBloodSugar.getText().toString();
-//        String str_totalamountofinsulinaday = EtTotalAmountOfInsulinAday.getText().toString();
-//
-//        if (name == "" || str_age == "" || idnumber == "" || str_numberoftablets == "" || str_fastingbloodsugar == "" || str_totalamountofinsulinaday == "") {
-//            return;
-//
-//        }
-//
-//        int int_age;
-//        try {
-//            int_age = Integer.parseInt(str_age);
-//        } catch (NumberFormatException e) {
-//            return;
-//        }
-//        userInformationBean.setIntAge(int_age);
-//
-//        int int_numberoftablets;
-//        try {
-//            int_numberoftablets = Integer.parseInt(str_numberoftablets);
-//        } catch (NumberFormatException e) {
-//            return;
-//        }
-//
-//        userInformationBean.setNumberOfTablets(int_numberoftablets);
-//
-//        int int_fastingbloodsugar;
-//        try {
-//            int_fastingbloodsugar = Integer.parseInt(str_fastingbloodsugar);
-//        } catch (NumberFormatException e) {
-//            return;
-//        }
-//
-//        userInformationBean.setFastingBloodSugar(int_fastingbloodsugar);
-//
-//        int int_totalamountofinsulinaday;
-//        try {
-//            int_totalamountofinsulinaday = Integer.parseInt(str_totalamountofinsulinaday);
-//        } catch (NumberFormatException e) {
-//            return;
-//        }
-//        userInformationBean.setTotalAmountOfInsulinAday(int_totalamountofinsulinaday);
+
+
+        if (!GlogalBean.DEBUG) {
+            String name = EtName.getText().toString();
+            String str_age = EtAge.getText().toString();
+            String idnumber = EtIdNumber.getText().toString();
+
+            String str_numberoftablets = EtNumberOfTablets.getText().toString();
+            String str_fastingbloodsugar = EtFastingBloodSugar.getText().toString();
+            String str_totalamountofinsulinaday = EtTotalAmountOfInsulinAday.getText().toString();
+
+            if (name.equals("") || str_age.equals("") || idnumber.equals("") || str_numberoftablets.equals("") || str_fastingbloodsugar.equals("") || str_totalamountofinsulinaday.equals("")) {
+                WarningInput();
+                return;
+
+            }
+
+            try {
+                userInformationBean.setIntAge(str_age);
+            } catch (Exception e) {
+                WarningAge();
+                return;
+            }
+
+
+            if (idnumber.length() != 18) {
+                WarningIdNumber();
+                return;
+            }
+
+            try {
+                userInformationBean.setIntNumberOfTablets(str_numberoftablets);
+            } catch (Exception e) {
+                WarningFuYao();
+                return;
+            }
+
+
+            try {
+                userInformationBean.setIntFastingBloodSugar(str_fastingbloodsugar);
+            } catch (Exception e) {
+                WarningXueTang();
+                return;
+            }
+
+
+            try {
+                userInformationBean.setIntTotalAmountOfInsulinAday(str_totalamountofinsulinaday);
+            } catch (Exception e) {
+                WarningYiDao();
+                return;
+            }
+        }
+
 
         StartUtil.startActivityByUserInfo(getActivity(), userInformationBean);
 

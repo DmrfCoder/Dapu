@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -94,6 +95,8 @@ public class BaseFragment extends Fragment implements View.OnClickListener, Radi
         } catch (NullPointerException e) {
 
         }
+
+
         AnswerSelectedTextView.setText("");
         CenterTextview.setText("问卷(" + CurQuestionIndex + "/" + QuestionCount + ")");
         QuestionTextView.setText("问题:" + questionBeanList.get(CurQuestionIndex - 1).getQuestion());
@@ -118,5 +121,30 @@ public class BaseFragment extends Fragment implements View.OnClickListener, Radi
     @Override
     public void Determine() {
 
+    }
+
+
+    public void WarningInput() {
+        Toast.makeText(getActivity(), "请填写完整的个人信息!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void WarningIdNumber() {
+        Toast.makeText(getActivity(), "请填写正确的身份证号!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void WarningAge() {
+        Toast.makeText(getActivity(), "请填写正确的年龄!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void WarningFuYao() {
+        Toast.makeText(getActivity(), "请填写正确的服药数量!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void WarningXueTang() {
+        Toast.makeText(getActivity(), "请填写正确的血糖值!", Toast.LENGTH_SHORT).show();
+    }
+
+    public void WarningYiDao() {
+        Toast.makeText(getActivity(), "请填写正确的胰岛素总量!", Toast.LENGTH_SHORT).show();
     }
 }

@@ -35,7 +35,7 @@ public class FragmentPdfReadList extends BaseFragment implements View.OnClickLis
         Title.setVisibility(View.VISIBLE);
         view.findViewById(R.id.id_top_right).setVisibility(View.GONE);
         Discover = view.findViewById(R.id.id_top_left);
-        Discover.setText("<发现");
+        Discover.setText("＜发现");
         Discover.setVisibility(View.VISIBLE);
         Discover.setOnClickListener(this);
 
