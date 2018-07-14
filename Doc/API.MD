@@ -211,6 +211,7 @@ Note: Check Email with content and attachment for result
 
 ```
 
+Note: ~~~ 是分割符号，用来邮件内容分段
 
 
 
