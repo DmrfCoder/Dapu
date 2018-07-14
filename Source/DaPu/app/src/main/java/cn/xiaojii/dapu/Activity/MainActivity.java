@@ -53,7 +53,7 @@ public class MainActivity extends FragmentActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // SendMailUtil.send("1241302030@qq.com");
+
         initView();//初始化控件
         initPage();//初始化页面
     }

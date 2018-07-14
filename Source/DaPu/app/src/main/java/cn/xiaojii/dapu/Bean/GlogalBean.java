@@ -4,6 +4,16 @@ public class GlogalBean {
 
     public static boolean DEBUG=false;
 
+    //发送数据到管理员邮箱所需信息
+    public static final String HOST = "smtp.qq.com";
+    public static final String PORT = "587";
+    public static final String FROM_ADD = "2296452542@qq.com"; //发送方邮箱
+    public static final String FROM_PSW = "uzblydlkkdnzebbi";//发送方邮箱授权码
+
+    //发送数据到服务器所需信息
+    public static String Url = "";
+
+
     public enum Type {
         Questionnaire, SelfTest
     }

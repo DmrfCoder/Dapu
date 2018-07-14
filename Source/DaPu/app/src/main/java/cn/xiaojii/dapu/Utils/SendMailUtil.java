@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 
 import java.io.File;
 
+import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Bean.MailSenderInfoBean;
 
 /**
@@ -11,21 +12,11 @@ import cn.xiaojii.dapu.Bean.MailSenderInfoBean;
  */
 
 public class SendMailUtil {
-    //qq
-    private static final String HOST = "smtp.qq.com";
-    private static final String PORT = "587";
-    private static final String FROM_ADD = "2296452542@qq.com"; //发送方邮箱
-    private static final String FROM_PSW = "uzblydlkkdnzebbi";//发送方邮箱授权码
 
-//    //163
-//    private static final String HOST = "smtp.163.com";
-//    private static final String PORT = "465"; //或者465  994
-//    private static final String FROM_ADD = "teprinciple@163.com";
-//    private static final String FROM_PSW = "teprinciple163";
-////    private static final String TO_ADD = "2584770373@qq.com";
 
-    public static void send(final File file, String toAdd) {
-        final MailSenderInfoBean mailInfo = creatMail(toAdd);
+
+    public static void SendDataFileToEmail(String toAdd, String name, final File file) {
+        final MailSenderInfoBean mailInfo = creatMail(toAdd, name);
         final MailSender sms = new MailSender();
         new Thread(new Runnable() {
             @Override
@@ -35,9 +26,10 @@ public class SendMailUtil {
         }).start();
     }
 
-    public static void send(String toAdd) {
-        final MailSenderInfoBean mailInfo = creatMail(toAdd);
+    public static void SendDataToEmail(String toAdd, String name, String content) {
+        final MailSenderInfoBean mailInfo = creatMail(toAdd, name, content);
         final MailSender sms = new MailSender();
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -46,18 +38,33 @@ public class SendMailUtil {
         }).start();
     }
 
+
     @NonNull
-    private static MailSenderInfoBean creatMail(String toAdd) {
+    private static MailSenderInfoBean creatMail(String toAdd, String name) {
         final MailSenderInfoBean mailInfo = new MailSenderInfoBean();
-        mailInfo.setMailServerHost(HOST);
-        mailInfo.setMailServerPort(PORT);
+        mailInfo.setMailServerHost(GlogalBean.HOST);
+        mailInfo.setMailServerPort(GlogalBean.PORT);
         mailInfo.setValidate(true);
-        mailInfo.setUserName(FROM_ADD); // 你的邮箱地址
-        mailInfo.setPassword(FROM_PSW);// 您的邮箱密码
-        mailInfo.setFromAddress(FROM_ADD); // 发送的邮箱
+        mailInfo.setUserName(GlogalBean.FROM_ADD); // 你的邮箱地址
+        mailInfo.setPassword(GlogalBean.FROM_PSW);// 您的邮箱密码
+        mailInfo.setFromAddress(GlogalBean.FROM_ADD); // 发送的邮箱
         mailInfo.setToAddress(toAdd); // 发到哪个邮件去
-        mailInfo.setSubject("Hello"); // 邮件主题
-        mailInfo.setContent("Android 测试"); // 邮件文本
+        mailInfo.setSubject(name); // 邮件主题
+        return mailInfo;
+    }
+
+    @NonNull
+    private static MailSenderInfoBean creatMail(String toAdd, String name, String content) {
+        final MailSenderInfoBean mailInfo = new MailSenderInfoBean();
+        mailInfo.setMailServerHost(GlogalBean.HOST);
+        mailInfo.setMailServerPort(GlogalBean.PORT);
+        mailInfo.setValidate(true);
+        mailInfo.setUserName(GlogalBean.FROM_ADD); // 你的邮箱地址
+        mailInfo.setPassword(GlogalBean.FROM_PSW);// 您的邮箱密码
+        mailInfo.setFromAddress(GlogalBean.FROM_ADD); // 发送的邮箱
+        mailInfo.setToAddress(toAdd); // 发到哪个邮件去
+        mailInfo.setSubject(name); // 邮件主题
+        mailInfo.setContent(content); // 邮件文本
         return mailInfo;
     }
 }
