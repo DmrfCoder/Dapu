@@ -16,13 +16,31 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets{
+        main{
+            res.srcDirs=[
+                    'src/main/res/layout/activities',
+                    'src/main/res/layout/contents',
+                    'src/main/res/layout/fragments/diabetes',
+                    'src/main/res/layout/fragments/discover',
+                    'src/main/res/layout/fragments/hypertension',
+                    'src/main/res/layout/fragments/topbar',
+                    'src/main/res/layout/fragments/template',
+                    'src/main/res'
+
+            ]
+        }
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'info.hoang8f:android-segmented:1.0.6'
+    implementation 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0-alpha3'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation files('src/main/lib/gson-2.3.1.jar')
 }

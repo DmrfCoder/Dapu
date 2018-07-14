@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TableRow android:layout_weight="1">
+
+            <Button
+                android:id="@+id/id_diabetes_questionnaire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/background_main_function"
+                android:text="糖尿病问卷"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/id_diabetes_self_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:background="@mipmap/background_main_function"
+                android:text=" 糖尿病自测 "
+                android:textColor="@color/colorWhite" />
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</RelativeLayout>
