@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="cn.xiaojii.dapu">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission
         android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         tools:ignore="ProtectedPermissions" />
@@ -17,8 +17,12 @@
         android:roundIcon="@mipmap/ic_app_dapu"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.SkipActivity" />
-        <activity android:name=".Activity.MainActivity">
+        <activity
+            android:name=".Activity.SkipActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activity.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

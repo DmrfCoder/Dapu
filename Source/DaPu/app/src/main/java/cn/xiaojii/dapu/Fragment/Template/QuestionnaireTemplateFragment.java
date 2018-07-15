@@ -84,11 +84,11 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
         LeftButton.setOnClickListener(this);
         RightButton.setOnClickListener(this);
 
-        PreviousButton = view.findViewById(R.id.id_bommom_bar_previous);
-        NextButton = view.findViewById(R.id.id_bottom_bar_next);
+        PreviousLinarLayout = view.findViewById(R.id.id_bommom_bar_previous);
+        NextLinearLayout = view.findViewById(R.id.id_bottom_bar_next);
 
-        PreviousButton.setOnClickListener(this);
-        NextButton.setOnClickListener(this);
+        PreviousLinarLayout.setOnClickListener(this);
+        NextLinearLayout.setOnClickListener(this);
 
         QuestionTextView = view.findViewById(R.id.id_questionnaire_question);
         QuestionTextView.setText("问题:" + questionBeanList.get(0).getQuestion());
