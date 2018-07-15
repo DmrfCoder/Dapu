@@ -2,7 +2,10 @@ package cn.xiaojii.dapu.Fragment.BaseFragment;
 
 import android.app.Instrumentation;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.text.method.KeyListener;
+import android.text.method.NumberKeyListener;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -46,6 +49,30 @@ public class BaseFragment extends Fragment implements View.OnClickListener, Radi
     public String[] IndexString = {"A", "B", "C", "D", "E", "F"};
 
     public UserInformationBean userInformationBean;
+
+
+    //限制EditText默认弹出数字键盘&&只能输入0~9以及X
+    public KeyListener keyListener = new NumberKeyListener() {
+        @NonNull
+        @Override
+        protected char[] getAcceptedChars() {
+
+            char[] chars = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'X'};
+            return chars;
+            //return new char[0];
+        }
+
+        /**
+         * 0：无键盘,键盘弹不出来
+         * 1：英文键盘
+         * 2：模拟键盘
+         * 3：数字键盘
+         */
+        @Override
+        public int getInputType() {
+            return 3;
+        }
+    };
 
 
     public EditText EtName;
@@ -147,4 +174,6 @@ public class BaseFragment extends Fragment implements View.OnClickListener, Radi
     public void WarningYiDao() {
         Toast.makeText(getActivity(), "请填写正确的胰岛素总量!", Toast.LENGTH_SHORT).show();
     }
+
+
 }

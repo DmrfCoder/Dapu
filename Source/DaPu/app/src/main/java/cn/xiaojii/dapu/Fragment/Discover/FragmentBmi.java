@@ -49,6 +49,9 @@ public class FragmentBmi extends BaseFragment {
         LeftButton.setText("＜ 发现");
 
 
+        BodyWeight.setKeyListener(keyListener);
+        Height.setKeyListener(keyListener);
+
         LeftButton.setOnClickListener(this);
         Calculate.setOnClickListener(this);
 

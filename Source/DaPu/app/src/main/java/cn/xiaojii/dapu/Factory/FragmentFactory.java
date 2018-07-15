@@ -116,6 +116,10 @@ public class FragmentFactory {
     }
 
 
+
+
+
+
     public static Fragment createByIdAndPdfFileName(String filename) {
         Fragment fragment = null;
         fragment = new FragmentPdfReadPdf(filename);
@@ -127,9 +131,7 @@ public class FragmentFactory {
 
 
         switch (fragmentName) {
-            case "FragmentTcmConstitution":
-                //fragment = new FragmentTcmConstitution(context);
-                break;
+
 
             case "FragmentWaitYouChallage":
                 fragment = new FragmentWaitYouChallage(context);

@@ -53,33 +53,35 @@
                 android:layout_marginTop="20dp">
 
                 <TextView
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="2"
+                    android:gravity="center"
                     android:text="体重"
                     android:textColor="@color/colorBlack" />
 
                 <EditText
-                    android:padding="4sp"
-                    android:paddingLeft="2sp"
                     android:id="@+id/id_body_weight"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="4"
                     android:background="@drawable/background_edit_text"
+                    android:imeOptions="actionDone"
+                    android:padding="4sp"
+                    android:paddingLeft="2sp"
+                    android:singleLine="true"
                     android:textColor="@color/colorBlack" />
 
                 <TextView
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical|left"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="4"
+                    android:gravity="center_vertical|left"
                     android:text="千克"
                     android:textColor="@color/colorBlack" />
             </LinearLayout>
@@ -90,33 +92,35 @@
                 android:layout_marginTop="10dp">
 
                 <TextView
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="2"
+                    android:gravity="center"
                     android:text="身高"
                     android:textColor="@color/colorBlack" />
 
                 <EditText
-                    android:padding="4sp"
-                    android:paddingLeft="2sp"
                     android:id="@+id/id_height"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="4"
                     android:background="@drawable/background_edit_text"
+                    android:imeOptions="actionDone"
+                    android:padding="4sp"
+                    android:paddingLeft="2sp"
+                    android:singleLine="true"
                     android:textColor="@color/colorBlack" />
 
                 <TextView
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical|left"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="20dp"
                     android:layout_weight="4"
+                    android:gravity="center_vertical|left"
                     android:includeFontPadding="true"
                     android:text="厘米"
                     android:textColor="@color/colorBlack" />
@@ -162,9 +166,9 @@
 
 
             <TextView
-                android:layout_gravity="center_vertical"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="2"
                 android:gravity="center"
                 android:text="结果:"
@@ -207,8 +211,6 @@
                 android:gravity="center_vertical" />
 
             <TextView
-                android:padding="4sp"
-                android:paddingLeft="2sp"
                 android:id="@+id/id_result_string"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -216,6 +218,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_weight="4"
                 android:background="@drawable/background_textview"
+                android:padding="4sp"
+                android:paddingLeft="2sp"
                 android:textColor="@color/colorBlack" />
 
             <TextView

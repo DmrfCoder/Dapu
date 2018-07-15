@@ -129,6 +129,13 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
         EtNumberOfTablets = view.findViewById(R.id.id_userinfo_drug_number);
         EtFastingBloodSugar = view.findViewById(R.id.id_userinfo_fasting_blood_sugar);
 
+        EtAge.setKeyListener(keyListener);
+        EtIdNumber.setKeyListener(keyListener);
+        EtTotalAmountOfInsulinAday.setKeyListener(keyListener);
+        EtNumberOfTablets.setKeyListener(keyListener);
+        EtFastingBloodSugar.setKeyListener(keyListener);
+
+
         RgSex.setOnCheckedChangeListener(this);
         RgEducationLevel.setOnCheckedChangeListener(this);
         RgIllTime.setOnCheckedChangeListener(this);

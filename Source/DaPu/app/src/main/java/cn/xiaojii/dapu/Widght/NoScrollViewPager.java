@@ -14,6 +14,7 @@ public class NoScrollViewPager extends ViewPager {
         super(context, attrs);
     }
 
+    //以下两个方法返回false不监控触摸事件从而取消滑动
     @Override
     public boolean onTouchEvent(MotionEvent arg0) {
         return false;
@@ -22,5 +23,11 @@ public class NoScrollViewPager extends ViewPager {
     @Override
     public boolean onInterceptTouchEvent(MotionEvent arg0) {
         return false;
+    }
+
+    @Override
+    public void setCurrentItem(int item) {
+        //第二个参数传入false去掉tab切换动画
+        super.setCurrentItem(item,false);
     }
 }

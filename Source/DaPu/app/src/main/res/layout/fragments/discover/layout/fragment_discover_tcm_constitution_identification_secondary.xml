@@ -45,6 +45,8 @@
                     android:text="姓名" />
 
                 <EditText
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
                     android:id="@+id/id_tcm_name"
                     android:layout_width="140dp"
                     android:layout_height="33dp"
@@ -119,6 +121,8 @@
                     android:text="年龄" />
 
                 <EditText
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
                     android:id="@+id/id_tcm_age"
                     android:layout_width="140dp"
                     android:layout_height="33dp"
@@ -147,6 +151,8 @@
                     android:text="身份证号" />
 
                 <EditText
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
                     android:id="@+id/id_tcm_id_number"
                     android:layout_width="210dp"
                     android:layout_height="33dp"

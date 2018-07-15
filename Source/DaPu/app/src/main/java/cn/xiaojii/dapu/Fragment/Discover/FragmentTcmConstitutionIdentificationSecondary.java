@@ -51,6 +51,9 @@ public class FragmentTcmConstitutionIdentificationSecondary extends BaseFragment
         EtIdNumber = view.findViewById(R.id.id_tcm_id_number);
         RgSex = view.findViewById(R.id.id_tcm_segmentedgroup_sex);
 
+        EtAge.setKeyListener(keyListener);
+        EtIdNumber.setKeyListener(keyListener);
+
 
         RgSex.setOnCheckedChangeListener(this);
 

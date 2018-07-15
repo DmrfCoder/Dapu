@@ -23,6 +23,10 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -106,6 +110,10 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_age"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -138,6 +146,10 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_id_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -447,6 +459,10 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_drug_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -479,6 +495,10 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_fasting_blood_sugar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -487,6 +507,7 @@
             android:textColor="@color/colorBlack" />
 
         <TextView
+            android:layout_marginLeft="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -512,6 +533,10 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_total_amount_of_insulin_a_day"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -520,6 +545,7 @@
             android:textColor="@color/colorBlack" />
 
         <TextView
+            android:layout_marginLeft="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
