@@ -29,7 +29,7 @@ public class TcmJsonBean {
 
     @Override
     public String toString() {
-
-        return "体质类型:" + 体质类型 + "\n" + "代茶饮:" + 代茶饮 + "\n" + "穴位按摩:" + 穴位按摩 + "\n" + "运动:" + 运动 + "\n" + "食疗:" + 食疗;
+        return "\n是 " + 体质类型 + "\n[中医药调养]\n代茶饮:\n" + 代茶饮 +
+                "\n食疗:\n" + 食疗 + "\n运动:\n" + 运动 + "\n穴位按摩:\n" + 穴位按摩;
     }
 }

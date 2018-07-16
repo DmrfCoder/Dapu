@@ -67,11 +67,7 @@ public class SkipActivity extends FragmentActivity implements View.OnClickListen
                     PdfFileName = intent.getStringExtra("pdf_file_name");
                     ft.replace(R.id.fl_click_button, FragmentFactory.createByIdAndPdfFileName(PdfFileName));
                     break;
-                case 4:
-                    FragmentName = intent.getStringExtra("fragmentName");
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createByFragmentName(FragmentName, SkipActivity.this));
 
-                    break;
                 case 5:
                     UserInformationBean userInformationBean = (UserInformationBean) bundle.get("userinfobean");
 
@@ -84,13 +80,6 @@ public class SkipActivity extends FragmentActivity implements View.OnClickListen
                     ft.replace(R.id.fl_click_button, FragmentFactory.createForQuestionnaireResult(userInformationBean2));
 
                     break;
-                case 7:
-                    UserInformationBean userInformationBean3 = (UserInformationBean) bundle.get("userinfobean");
-                    int finalZhiIndex = bundle.getInt("ZhiIndex", -1);
-                    if (finalZhiIndex != -1) {
-                        ft.replace(R.id.fl_click_button, FragmentFactory.createForTcmResult(userInformationBean3,finalZhiIndex));
-
-                    }
 
 
             }

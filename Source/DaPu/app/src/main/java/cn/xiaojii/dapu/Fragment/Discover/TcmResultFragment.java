@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,25 +22,20 @@ import cn.xiaojii.dapu.Utils.ParseTcmJsonUtil;
 public class TcmResultFragment extends BaseFragment {
 
 
-
-    private List<TcmJsonBean> tcmJsonBeans;
     private int ZhiIndex;
 
-    @SuppressLint("ValidFragment")
-    public TcmResultFragment(UserInformationBean userInformationBean,int ZhiIndex) {
 
+    @SuppressLint("ValidFragment")
+    public TcmResultFragment(UserInformationBean userInformationBean) {
+        this.ZhiIndex = ZhiIndex;
         this.userInformationBean = userInformationBean;
-        this.ZhiIndex=ZhiIndex;
+
 
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tcm_result, null);
-
-        ParseTcmJsonUtil parseTcmJsonUtil = new ParseTcmJsonUtil(getActivity());
-        tcmJsonBeans = parseTcmJsonUtil.GetJsonData("PhysiqueChineseMedicineConditioning.json");
-
         InitView(view);
 
         return view;
@@ -52,7 +48,7 @@ public class TcmResultFragment extends BaseFragment {
 
         view.findViewById(R.id.id_top_right).setVisibility(View.GONE);
 
-        LeftButton.setText("＜问卷("+userInformationBean.getIntCurIndex()+"/" + userInformationBean.getIntSumCount() + ")");
+        LeftButton.setText("＜问卷(" + userInformationBean.getIntCurIndex() + "/" + userInformationBean.getIntSumCount() + ")");
 
         CenterTextview.setText("问卷结果");
 
@@ -62,8 +58,10 @@ public class TcmResultFragment extends BaseFragment {
         LeftButton.setOnClickListener(this);
 
         ((TextView) view.findViewById(R.id.id_tcm_result_name)).setText(userInformationBean.getStrName());
-        ((TextView) view.findViewById(R.id.id_tcm_result_string)).setText(tcmJsonBeans.get(ZhiIndex).toString());
 
+
+        ((TextView) view.findViewById(R.id.id_tcm_result_string)).setMovementMethod(ScrollingMovementMethod.getInstance());
+        ((TextView) view.findViewById(R.id.id_tcm_result_string)).setText(userInformationBean.getStrTcmResult());
     }
 
 

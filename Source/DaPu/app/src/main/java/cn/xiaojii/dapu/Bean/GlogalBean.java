@@ -11,7 +11,11 @@ public class GlogalBean {
     public static final String FROM_PSW = "uzblydlkkdnzebbi";//发送方邮箱授权码
 
     //发送数据到服务器所需信息
-    public static String Url = "";
+    public static String Url = "http://apidapuzhongyitest.xiaojii.cn/api/v1.0/sendDataJson";
+
+
+    public static String WrongNumber="×";
+    public static String CorrentNumber="√";
 
 
     public enum Type {
@@ -19,7 +23,7 @@ public class GlogalBean {
     }
 
     public enum InformationType {
-        TcmConstitutionIdentification,HypertensionQuestionnaire,HypertensionSelfTest,DiabetesQuestionnaire,DiabetesSelfTest,WaitYouChallage
+        TcmConstitutionIdentification,HypertensionQuestionnaire,HypertensionSelfTest,DiabetesQuestionnaire,DiabetesSelfTest,WaitYouChallage,TcmResult
     }
 
     public enum Sex {
@@ -29,6 +33,7 @@ public class GlogalBean {
     public enum EducationalLevel {
         ElementarySchoolAndBelow, SecondarySchool, CollegeOrAbove
     }
+
 
     public enum IllTime {
         LessFive, FiveToTen, MoreThanTen

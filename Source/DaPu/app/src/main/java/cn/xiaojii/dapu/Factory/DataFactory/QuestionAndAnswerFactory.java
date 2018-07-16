@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.xiaojii.dapu.Bean.AnswerBean;
+import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Bean.QuestionBean;
 import cn.xiaojii.dapu.Bean.QuestionInJsonBean;
 import cn.xiaojii.dapu.R;
@@ -15,7 +16,6 @@ public class QuestionAndAnswerFactory {
 
     private static List<QuestionInJsonBean> questionInJsonBeanList;
     private List<QuestionBean> questionBeanList;
-    private static int[] ImageId = {R.mipmap.ic_correct, R.mipmap.ic_wrong};
     private static String[] StrAnswerCode = {"A", "B", "C", "D"};
 
     public static List<QuestionInJsonBean> GetDataFromJSONFile(Context context, String filename) {
@@ -48,10 +48,10 @@ public class QuestionAndAnswerFactory {
                 if (answerindex < 4) {
 
                     if (StrAnswerCode[answerindex].equals(q.getAnswer())) {
-                        answerBean.setImageId(ImageId[0]);
+                        answerBean.setCorrentOrWrong(GlogalBean.CorrentNumber);
                         questionBean.setCorrectAnswer(answerindex);
                     } else {
-                        answerBean.setImageId(ImageId[1]);
+                        answerBean.setCorrentOrWrong(GlogalBean.WrongNumber);
                     }
                 }
 

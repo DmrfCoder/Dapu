@@ -41,14 +41,7 @@ public class StartUtil {
     }
 
 
-    public static void startActivityByFragment(Context context, String fragmentName) {
 
-        Context context1 = DapuApplication.getContext();
-        Intent intent = new Intent(context1, SkipActivity.class);
-        intent.putExtra("fragmentName", fragmentName);
-        intent.putExtra("code", 4);
-        context.startActivity(intent);
-    }
 
     public static void startActivityByUserInfo(Context context, UserInformationBean userInformationBean){
         Context context1 = DapuApplication.getContext();
@@ -94,23 +87,5 @@ public class StartUtil {
         context.startActivity(intent);
     }
 
-    public static void startActivityForTcmResult(Context context, UserInformationBean userInformationBean, int finalZhiIndex) {
-        Context context1 = DapuApplication.getContext();
 
-        Intent intent = new Intent(context1, SkipActivity.class);
-
-        Bundle bundle=new Bundle();
-        bundle.putParcelable("userinfobean",userInformationBean);
-        bundle.putInt("ZhiIndex",finalZhiIndex);
-
-
-        intent.putExtra("code",7);
-
-
-        intent.putExtras(bundle);
-
-        context.startActivity(intent);
-
-
-    }
 }

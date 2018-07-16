@@ -36,7 +36,6 @@
             android:layout_marginTop="10dp"
             android:scrollbars="vertical"
             android:singleLine="false"
-
             android:textColor="@color/colorRed" />
 
         <LinearLayout

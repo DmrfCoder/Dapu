@@ -3,7 +3,6 @@ package cn.xiaojii.dapu.Factory;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
-import cn.xiaojii.dapu.Activity.SkipActivity;
 import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Fragment.Diabetes.FragmentDiabetes;
@@ -15,13 +14,10 @@ import cn.xiaojii.dapu.Fragment.Template.QuestionnaireTemplateFragment;
 import cn.xiaojii.dapu.Fragment.Template.UserInfoCollectTemplateFragment;
 import cn.xiaojii.dapu.Fragment.Hypertension.FragmentHypertension;
 import cn.xiaojii.dapu.Fragment.Discover.FragmentDiscover;
-import cn.xiaojii.dapu.Fragment.Discover.FragmentWaitYouChallage;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentAbout;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentPdfReadList;
 import cn.xiaojii.dapu.Fragment.TopBar.FragmentPdfReadPdf;
 import cn.xiaojii.dapu.R;
-
-import static cn.xiaojii.dapu.Bean.GlogalBean.InformationType.TcmConstitutionIdentification;
 
 
 public class FragmentFactory {
@@ -116,31 +112,13 @@ public class FragmentFactory {
     }
 
 
-
-
-
-
     public static Fragment createByIdAndPdfFileName(String filename) {
         Fragment fragment = null;
         fragment = new FragmentPdfReadPdf(filename);
         return fragment;
     }
 
-    public static Fragment createByFragmentName(String fragmentName, Context context) {
-        Fragment fragment = null;
 
-
-        switch (fragmentName) {
-
-
-            case "FragmentWaitYouChallage":
-                fragment = new FragmentWaitYouChallage(context);
-                break;
-
-
-        }
-        return fragment;
-    }
 
     public static Fragment createByUserInfoType(Context context, UserInformationBean userInformationBean) {
         Fragment fragment = null;
@@ -166,6 +144,9 @@ public class FragmentFactory {
             case DiabetesSelfTest:
                 fragment = new QuestionnaireTemplateFragment(context, "＜ 糖尿病自测", "DiabetesTest.json", userInformationBean);
                 break;
+            case TcmResult:
+                fragment = new TcmResultFragment(userInformationBean);
+                break;
 
         }
         return fragment;
@@ -176,7 +157,4 @@ public class FragmentFactory {
         return new QuestionnaireResultFragment(userInformationBean2);
     }
 
-    public static Fragment createForTcmResult(UserInformationBean userInformationBean3, int finalZhiIndex) {
-        return new TcmResultFragment(userInformationBean3, finalZhiIndex);
-    }
 }

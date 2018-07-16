@@ -11,15 +11,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.xiaojii.dapu.Adapter.AnswerAdapter;
 import cn.xiaojii.dapu.Bean.GlogalBean;
+import cn.xiaojii.dapu.Bean.ServerJsonBean;
 import cn.xiaojii.dapu.Bean.TcmJsonBean;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Factory.DataFactory.QuestionAndAnswerFactory;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
+import cn.xiaojii.dapu.Utils.ParseTcmJsonUtil;
 import cn.xiaojii.dapu.Utils.StartUtil;
 
 @SuppressLint("ValidFragment")
@@ -29,8 +32,8 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
     private String FileName;
     private String UserName;
 
-    private int[] UserAnswerArray;//保存用户问卷/自测的答案
-    private int[] UserScoreArray;//保存用户问卷/自测的答案
+    private int[] UserScoreArray;//保存用户问卷/自测的得分
+    private List<Integer> UserAnswerList;//保存用户问卷/自测的答案
     private int Score;
 
     private int ChallageFlag = -1;
@@ -45,8 +48,9 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
         questionBeanList = QuestionAndAnswerFactory.GetNormalData(context, fileName);
         QuestionCount = questionBeanList.size();
         CurQuestionIndex = 1;
-        UserAnswerArray = new int[QuestionCount];
-        UserScoreArray = new int[QuestionCount];
+
+        UserAnswerList = new ArrayList<>();
+        UserScoreArray = new int[questionBeanList.size()];
 
         Score = 0;
         this.userInformationBean = userInformationBean;
@@ -108,6 +112,7 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
+
                 if (userInformationBean.getInformationType() == GlogalBean.InformationType.WaitYouChallage) {
 
                     if (ChallageFlag == CurQuestionIndex) {
@@ -116,19 +121,20 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
                     ChallageFlag = CurQuestionIndex;
 
                     AnalysisTextView.setMovementMethod(ScrollingMovementMethod.getInstance());
+                    AnalysisTextView.scrollTo(0, 0);//点击next后自动回滚到顶部
+                    AnalysisTextView.setHorizontalScrollBarEnabled(false);// 隐藏滚动条
 
 
                     int CorrentAnswerIndex = questionBeanList.get(CurQuestionIndex - 1).getCorrectAnswer();
 
                     if (CorrentAnswerIndex == position) {
-                        answerAdapter.setCurrentItem(-1,position);
+                        answerAdapter.setCurrentItem(-1, position);
 
                         AnswerSelectedTextView.setTextColor(getActivity().getResources().getColor(R.color.colorGreen));
                         AnswerSelectedTextView.setText("正确");
                         AnalysisTextView.setTextColor(getActivity().getResources().getColor(R.color.colorGreen));
                     } else {
-                        answerAdapter.setCurrentItem(position,CorrentAnswerIndex);
-
+                        answerAdapter.setCurrentItem(position, CorrentAnswerIndex);
 
                         AnswerSelectedTextView.setTextColor(getActivity().getResources().getColor(R.color.colorRed));
                         AnswerSelectedTextView.setText("错误");
@@ -142,11 +148,20 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
 
                 } else {
                     AnswerSelectedTextView.setText(IndexString[position]);
+                    answerAdapter.setmCurrentItemNormal(position);
+                    answerAdapter.notifyDataSetChanged();
+
                 }
 
-                UserAnswerArray[CurQuestionIndex - 1] = position;
 
-                if (position < 4) {
+                if ((CurQuestionIndex - 1) >= UserAnswerList.size()) {
+                    UserAnswerList.add(position);
+                } else if (CurQuestionIndex == UserAnswerList.size()) {
+                    UserAnswerList.set(CurQuestionIndex - 1, position);
+                }
+
+
+                if (position < 5) {
                     Score -= UserScoreArray[CurQuestionIndex - 1];
                     UserScoreArray[CurQuestionIndex - 1] = QuestionnaireScoreStandard[position];
                     Score += UserScoreArray[CurQuestionIndex - 1];
@@ -174,13 +189,22 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
                 break;
             case R.id.id_bommom_bar_previous:
                 if (CurQuestionIndex > 1) {
+                    //注意以下几个语句执行的顺序
                     CurQuestionIndex--;
                     UpdateView();
+                    RestoreAnswerView();
+
+                } else {
+                    onBack();
                 }
 
                 break;
             case R.id.id_bottom_bar_next:
-                if (CurQuestionIndex < QuestionCount) {
+                if (CurQuestionIndex < UserAnswerList.size()) {
+                    CurQuestionIndex++;
+                    UpdateView();
+                    RestoreAnswerView();
+                } else if (CurQuestionIndex < QuestionCount) {
                     CurQuestionIndex++;
                     UpdateView();
                 } else {
@@ -194,13 +218,56 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
     }
 
 
+    private void RestoreAnswerView() {
+
+        if (CurQuestionIndex - 1 >= UserAnswerList.size()) {
+            return;
+        }
+
+        if (userInformationBean.getInformationType() == GlogalBean.InformationType.WaitYouChallage) {
+
+
+            AnalysisTextView.setMovementMethod(ScrollingMovementMethod.getInstance());
+            AnalysisTextView.scrollTo(0, 0);//点击next后自动回滚到顶部
+            AnalysisTextView.setHorizontalScrollBarEnabled(false);// 隐藏滚动条
+
+
+            int CorrentAnswerIndex = questionBeanList.get(CurQuestionIndex - 1).getCorrectAnswer();
+
+            if (CorrentAnswerIndex == UserAnswerList.get(CurQuestionIndex - 1)) {
+                answerAdapter.setCurrentItem(-1, UserAnswerList.get(CurQuestionIndex - 1));
+
+                AnswerSelectedTextView.setTextColor(getActivity().getResources().getColor(R.color.colorGreen));
+                AnswerSelectedTextView.setText("正确");
+                AnalysisTextView.setTextColor(getActivity().getResources().getColor(R.color.colorGreen));
+            } else {
+                answerAdapter.setCurrentItem(UserAnswerList.get(CurQuestionIndex - 1), CorrentAnswerIndex);
+
+                AnswerSelectedTextView.setTextColor(getActivity().getResources().getColor(R.color.colorRed));
+                AnswerSelectedTextView.setText("错误");
+                AnalysisTextView.setTextColor(getActivity().getResources().getColor(R.color.colorRed));
+            }
+            answerAdapter.notifyDataSetChanged();
+
+            AnalysisTextView.setVisibility(View.VISIBLE);
+            String Analysis = questionBeanList.get(CurQuestionIndex - 1).getAnalysis();
+            AnalysisTextView.setText("解析:" + Analysis);
+
+        } else {
+            AnswerSelectedTextView.setText(IndexString[UserAnswerList.get(CurQuestionIndex - 1)]);
+            answerAdapter.setmCurrentItemNormal(UserAnswerList.get(CurQuestionIndex - 1));
+            answerAdapter.notifyDataSetChanged();
+
+        }
+
+    }
+
     private void Submit() {
         userInformationBean.setIntUserScore(Score);
-        userInformationBean.setUserAnswerArray(UserAnswerArray);
+        userInformationBean.setUserAnswerList(UserAnswerList);
         userInformationBean.setIntCurIndex(CurQuestionIndex);
         userInformationBean.setIntSumCount(QuestionCount);
 
-        SaveData(userInformationBean, userInformationBean.getStrName() + "_" + userInformationBean.getInformationType());
 
         if (userInformationBean.getInformationType() == GlogalBean.InformationType.TcmConstitutionIdentification) {
             int QiXuScore = FourItemSumScore(2, 3, 4, 14);
@@ -213,7 +280,14 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
             int TeBingScore = FourItemSumScore(15, 17, 18, 20);
             int PingHeScore = PingHeScore();
 
-            String ZhiName[] = {"气虚质", "阳虚质", "阴虚质", "痰湿质", "湿热质", "血瘀质", "气郁质", "特禀质", "平和质"};
+
+            ParseTcmJsonUtil parseTcmJsonUtil = new ParseTcmJsonUtil(getActivity());
+
+            List<TcmJsonBean> tcmJsonBeanList = parseTcmJsonUtil.GetJsonData("PhysiqueChineseMedicineConditioning.json");
+
+            List<TcmJsonBean> tcmJsonBeanList1 = new ArrayList<>();
+
+
             int ZhiScore[] = {QiXuScore, YangXuScore, YinXuScore, TanShiScore, ShiReScore, XueYuScore, QiYuScore, TeBingScore, PingHeScore};
 
             int MaxScoreIndex = 0;
@@ -223,24 +297,55 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
                 }
             }
 
-            int FinalZhiIndex = 0;
 
             if (ZhiScore[MaxScoreIndex] < 8 && PingHeScore >= 17) {
-                //平和质
-            } else if (ZhiScore[MaxScoreIndex] < 10 && PingHeScore >= 17) {
-                //基本是平和质
-            } else if (ZhiScore[MaxScoreIndex] >= 11) {
-                String Nama = ZhiName[MaxScoreIndex];//是
-            } else if (ZhiScore[MaxScoreIndex] >= 9 && ZhiScore[MaxScoreIndex] <= 10) {
-                String Nama = ZhiName[MaxScoreIndex];//倾向是
-            } else if (ZhiScore[MaxScoreIndex] <= 8) {
-                //什么都不是
+                tcmJsonBeanList1.add(tcmJsonBeanList.get(0));
             }
 
-            StartUtil.startActivityForTcmResult(getActivity(), userInformationBean, FinalZhiIndex);
+            if (QiXuScore >= 11) {
+                tcmJsonBeanList1.add(tcmJsonBeanList.get(1));
+            }
+            if (YangXuScore >= 11) {
+                tcmJsonBeanList1.add(tcmJsonBeanList.get(2));
+            }
+            if (YinXuScore >= 11) {
+                tcmJsonBeanList1.add(tcmJsonBeanList.get(3));
+            }
+
+            if (TanShiScore >= 11) {
+                tcmJsonBeanList1.add(tcmJsonBeanList.get(4));
+            }
+            if (ShiReScore >= 11) {
+                tcmJsonBeanList1.add(tcmJsonBeanList.get(5));
+            }
+            if (XueYuScore >= 11) {
+                tcmJsonBeanList1.add(tcmJsonBeanList.get(6));
+            }
+
+            if (QiYuScore >= 11) {
+                tcmJsonBeanList1.add(tcmJsonBeanList.get(7));
+            }
+
+            if (TeBingScore >= 11) {
+                tcmJsonBeanList1.add(tcmJsonBeanList.get(8));
+            }
+
+            String tcmResult = "\n 您好，您的体质：";
+
+            for (TcmJsonBean t : tcmJsonBeanList1) {
+                tcmResult = tcmResult + t.toString();
+            }
+            tcmResult = tcmResult + "\n\n";
+            userInformationBean.setStrTcmResult(tcmResult);
+            userInformationBean.setInformationType(GlogalBean.InformationType.TcmResult);
+
+            SaveData(userInformationBean);
+            StartUtil.startActivityByUserInfo(getActivity(), userInformationBean);
             return;
 
         }
+
+        SaveData(userInformationBean);
         StartUtil.startActivityForQuestionnaireResult(getActivity(), userInformationBean);
     }
 
@@ -249,13 +354,28 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
     }
 
     private int ItemScore(int a) {
-        return TcmScoreStandard[UserAnswerArray[a - 1]];
+
+        if (a - 1 < UserAnswerList.size()) {
+            return TcmScoreStandard[UserAnswerList.get(a - 1)];
+        } else {
+            return 0;
+        }
+
+    }
+
+    private int ReverseItemScore(int a) {
+
+        if (a - 1 < UserAnswerList.size()) {
+            return TcmScoreStandard[4 - UserAnswerList.get(a - 1)];
+        } else {
+            return 0;
+        }
+
     }
 
     private int PingHeScore() {
-        return TcmScoreStandard[UserAnswerArray[1 - 1]] + TcmScoreStandard[4 - UserAnswerArray[2 - 1]]
-                + TcmScoreStandard[4 - UserAnswerArray[4 - 1]] + TcmScoreStandard[4 - UserAnswerArray[5 - 1]]
-                + TcmScoreStandard[4 - UserAnswerArray[13 - 1]];
+        return ItemScore(1) + ReverseItemScore(2) + ReverseItemScore(4) + ReverseItemScore(5) + ReverseItemScore(13);
+
     }
 
 }

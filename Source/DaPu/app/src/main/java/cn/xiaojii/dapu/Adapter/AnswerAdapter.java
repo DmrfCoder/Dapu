@@ -1,13 +1,14 @@
 package cn.xiaojii.dapu.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.xiaojii.dapu.Bean.AnswerBean;
+import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Bean.QuestionBean;
 import cn.xiaojii.dapu.R;
 
@@ -16,21 +17,23 @@ public class AnswerAdapter extends BaseAdapter {
     public void setQuestionBean(QuestionBean questionBean) {
         this.questionBean = questionBean;
 
-        mPreItem = this.mCurrentItem;
-        mPreItem2 = this.mCurrentItem2;
         this.mCurrentItem = -1;
         this.mCurrentItem2 = -1;
+        this.mCurrentItemNormal = -1;
+
     }
 
     private Context context;
     private int mCurrentItem = -1;
     private int mCurrentItem2 = -1;
-
-    private int mPreItem = -1;
-    private int mPreItem2 = -1;
+    private int mCurrentItemNormal = -1;
 
 
-    private boolean isClick = false;
+
+
+    public void setmCurrentItemNormal(int mCurrentItemNormal) {
+        this.mCurrentItemNormal = mCurrentItemNormal;
+    }
 
 
     public QuestionBean getQuestionBean() {
@@ -60,6 +63,7 @@ public class AnswerAdapter extends BaseAdapter {
         return position;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -76,21 +80,19 @@ public class AnswerAdapter extends BaseAdapter {
         holder.AnswerText.setText(answer.getAnswerIndex() + " " + answer.getStringAnswer());
 
 
-        //下面两个if顺序不能乱
-        if (mPreItem == position || mPreItem2 == position) {
 
-            holder.TureOrFalseImageView.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
+        if (mCurrentItemNormal == position) {
+            holder.TureOrFalseTextView.setText(GlogalBean.CorrentNumber);
+        } else if (mCurrentItem == position) {
+            holder.TureOrFalseTextView.setTextColor(context.getResources().getColor(R.color.colorRed));
 
-        }
+            holder.TureOrFalseTextView.setText(GlogalBean.WrongNumber);
 
-        if (mCurrentItem == position) {
-
-            holder.TureOrFalseImageView.setBackgroundResource(R.mipmap.ic_wrong);
-
-        }
-
-        if (mCurrentItem2 == position) {
-            holder.TureOrFalseImageView.setBackgroundResource(R.mipmap.ic_correct);
+        } else if (mCurrentItem2 == position) {
+            holder.TureOrFalseTextView.setTextColor(context.getResources().getColor(R.color.colorGreenLight));
+            holder.TureOrFalseTextView.setText(GlogalBean.CorrentNumber);
+        }else {
+            holder.TureOrFalseTextView.setText("");
         }
 
 
@@ -102,18 +104,17 @@ public class AnswerAdapter extends BaseAdapter {
 
         public TextView AnswerText;
 
-        public ImageView TureOrFalseImageView;
+        public TextView TureOrFalseTextView;
 
         ViewHolder(View view) {
             this.AnswerText = view.findViewById(R.id.id_item_answers_listview_text);
-            this.TureOrFalseImageView = view.findViewById(R.id.id_item_answers_listview_image);
+            this.TureOrFalseTextView = view.findViewById(R.id.id_item_answers_textview_trueorfalse);
+            this.TureOrFalseTextView.setText("");
 
         }
     }
 
     public void setCurrentItem(int mCurrentItem, int mCurrentItem2) {
-        mPreItem = this.mCurrentItem;
-        mPreItem2 = this.mCurrentItem2;
         this.mCurrentItem = mCurrentItem;
         this.mCurrentItem2 = mCurrentItem2;
 

@@ -8,6 +8,7 @@
     <color name="colorBlack">#000000</color>
     <color name="colorRed">#FF0000</color>
     <color name="colorGreen">#008000</color>
+    <color name="colorGreenLight">#7CFC00</color>
 
 
 </resources>

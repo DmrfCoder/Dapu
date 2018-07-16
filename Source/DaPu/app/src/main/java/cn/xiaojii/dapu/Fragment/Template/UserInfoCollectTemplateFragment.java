@@ -251,6 +251,11 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
 
             }
 
+
+            userInformationBean.setStrName(name);
+            userInformationBean.setStrIdNumber(idnumber);
+
+
             try {
                 userInformationBean.setIntAge(str_age);
             } catch (Exception e) {

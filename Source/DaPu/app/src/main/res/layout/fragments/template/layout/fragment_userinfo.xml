@@ -153,14 +153,14 @@
             android:id="@+id/id_userinfo_id_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="6"
             android:background="@drawable/background_edit_text"
             android:textColor="@color/colorBlack" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="1"
             android:textColor="@color/colorBlack" />
 
 
