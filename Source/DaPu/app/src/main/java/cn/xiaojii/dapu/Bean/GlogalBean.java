@@ -2,7 +2,7 @@ package cn.xiaojii.dapu.Bean;
 
 public class GlogalBean {
 
-    public static boolean DEBUG=false;
+    public static boolean DEBUG=true;
 
     //发送数据到管理员邮箱所需信息
     public static final String HOST = "smtp.qq.com";

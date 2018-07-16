@@ -11,7 +11,7 @@
         android:layout_height="40dp"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="10dp"
-        android:background="@color/colorWhite"
+        android:textColor="@color/colorBlue"
         android:gravity="center_vertical"
         android:textSize="25dp" />
 

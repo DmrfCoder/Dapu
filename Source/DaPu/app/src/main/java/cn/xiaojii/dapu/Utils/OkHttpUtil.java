@@ -44,9 +44,15 @@ public class OkHttpUtil {
             public void onResponse(Call call, Response response) throws IOException {
                 final String res = response.body().string();
                 Gson gson = new Gson();
-                ResponseBean responseBean = gson.fromJson(res, ResponseBean.class);
+                ResponseBean responseBean;
+                try {
+                    responseBean = gson.fromJson(res, ResponseBean.class);
+                } catch (Exception e) {
+                    return;
+                }
+
                 String result = responseBean.getResult();
-                Log.i("response info",result);
+                Log.i("response info", result);
                 if (result.equals("True")) {//成功
 
                 } else if (result.equals("False")) {//失败

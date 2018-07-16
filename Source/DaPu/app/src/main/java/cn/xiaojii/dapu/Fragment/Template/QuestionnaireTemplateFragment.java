@@ -98,7 +98,6 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
         QuestionTextView.setText("问题:" + questionBeanList.get(0).getQuestion());
 
         AnalysisTextView = view.findViewById(R.id.id_questionnaire_analysis);
-        AnalysisTextView.setVisibility(View.GONE);
 
 
         AnswerListView = view.findViewById(R.id.id_questionnaire_answer_listview);
@@ -142,7 +141,6 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
                     }
                     answerAdapter.notifyDataSetChanged();
 
-                    AnalysisTextView.setVisibility(View.VISIBLE);
                     String Analysis = questionBeanList.get(CurQuestionIndex - 1).getAnalysis();
                     AnalysisTextView.setText("解析:" + Analysis);
 

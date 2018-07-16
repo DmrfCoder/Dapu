@@ -133,7 +133,7 @@ public class BaseFragment extends Fragment implements View.OnClickListener, Radi
 
     public void UpdateView() {
         try {
-            AnalysisTextView.setVisibility(View.GONE);
+            AnalysisTextView.setText("");
         } catch (NullPointerException e) {
 
         }
