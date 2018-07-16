@@ -38,7 +38,7 @@ public class MainActivity extends FragmentActivity implements
     private LayoutInflater layoutInflater;
     private Class fragmentArray[] = {FragmentDiscover.class, FragmentHypertension.class, FragmentDiabetes.class};
     private int imageViewArray[] = {R.mipmap.ic_tab_bar_discover, R.mipmap.ic_tab_bar_hypertension, R.mipmap.ic_tab_bar_diabetes};
-    private int imageSelectedViewArray[] = {R.mipmap.ic_tab_bar_discover_selected, R.mipmap.ic_tab_bar_hypertension, R.mipmap.ic_tab_bar_diabetes};
+    private int imageSelectedViewArray[] = {R.mipmap.ic_tab_bar_discover_selected, R.mipmap.ic_tab_bar_hypertension_selected, R.mipmap.ic_tab_bar_diabetes_selected};
 
     private String textViewArray[] = {"发现", "高血压", "糖尿病"};
     private List<Fragment> fragmentList = new ArrayList<Fragment>();//三个tab对应的content fragment
