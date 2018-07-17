@@ -1,35 +1,59 @@
 package cn.xiaojii.dapu.Bean;
 
 public class TcmJsonBean {
-    private String 代茶饮;
-    private String 体质类型;
-    private String 穴位按摩;
-    private String 运动;
-    private String 食疗;
 
-    public String get代茶饮() {
-        return 代茶饮;
+    private String DaiChaYin;
+    private String TiZhiLeiXing;
+    private String XueWeiAnMo;
+    private String YunDong;
+    private String ShiLiao;
+
+
+
+    public void setDaiChaYin(String daiChaYin) {
+        this.DaiChaYin = daiChaYin;
     }
 
-    public String get体质类型() {
-        return 体质类型;
+    public void setTiZhiLeiXing(String tiZhiLeiXing) {
+        this.TiZhiLeiXing = tiZhiLeiXing;
     }
 
-    public String get穴位按摩() {
-        return 穴位按摩;
+    public void setXueWeiAnMo(String xueWeiAnMo) {
+        this.XueWeiAnMo = xueWeiAnMo;
     }
 
-    public String get运动() {
-        return 运动;
+    public void setYunDong(String yunDong) {
+        this.YunDong = yunDong;
     }
 
-    public String get食疗() {
-        return 食疗;
+    public void setShiLiao(String shiLiao) {
+        this.ShiLiao = shiLiao;
+    }
+
+
+    public String getDaiChaYin() {
+        return DaiChaYin;
+    }
+
+    public String getTiZhiLeiXing() {
+        return TiZhiLeiXing;
+    }
+
+    public String getXueWeiAnMo() {
+        return XueWeiAnMo;
+    }
+
+    public String getYunDong() {
+        return YunDong;
+    }
+
+    public String getShiLiao() {
+        return ShiLiao;
     }
 
     @Override
     public String toString() {
-        return "\n是 " + 体质类型 + "\n[中医药调养]\n代茶饮:\n" + 代茶饮 +
-                "\n食疗:\n" + 食疗 + "\n运动:\n" + 运动 + "\n穴位按摩:\n" + 穴位按摩;
+        return "\n是 " + TiZhiLeiXing + "\n[中医药调养]\n代茶饮:\n" + DaiChaYin +
+                "\n食疗:\n" + ShiLiao + "\n运动:\n" + YunDong + "\n穴位按摩:\n" + XueWeiAnMo;
     }
 }

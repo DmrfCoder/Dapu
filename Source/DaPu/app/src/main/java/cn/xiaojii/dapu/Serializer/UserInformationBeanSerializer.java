@@ -269,7 +269,7 @@ public class UserInformationBeanSerializer implements JsonSerializer<UserInforma
             report = report + "第" + (answer + 1) + "题:选" + IndexString[answers[answer]] + ",\n";
         }
         if (userInformationBean.getUserAnswerList().size() - 1 >= 0) {
-            report = report + "第" + (userInformationBean.getUserAnswerList().size() - 1) + "题:选" + IndexString[answers[userInformationBean.getUserAnswerList().size() - 1]];
+            report = report + "第" + (userInformationBean.getUserAnswerList().size()) + "题:选" + IndexString[answers[userInformationBean.getUserAnswerList().size() - 1]];
         }
 
         report = report + ", \n\n~~~\n[报告]:" + userInformationBean.getStrTcmResult();
