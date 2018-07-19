@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Factory.FragmentFactory;
 import cn.xiaojii.dapu.R;
@@ -77,7 +78,14 @@ public class SkipActivity extends FragmentActivity implements View.OnClickListen
                 case 6:
                     UserInformationBean userInformationBean2 = (UserInformationBean) bundle.get("userinfobean");
 
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createForQuestionnaireResult(userInformationBean2));
+
+                    if (userInformationBean2.getInformationType()== GlogalBean.InformationType.TcmResult){
+                        ft.replace(R.id.fl_click_button, FragmentFactory.createByUserInfoType(this,userInformationBean2));
+
+                    }else {
+                        ft.replace(R.id.fl_click_button, FragmentFactory.createForQuestionnaireResult(userInformationBean2));
+
+                    }
 
                     break;
 

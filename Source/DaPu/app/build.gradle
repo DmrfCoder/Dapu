@@ -46,5 +46,4 @@ dependencies {
     implementation files('src/main/lib/gson-2.3.1.jar')
     implementation files('src/main/lib/activation.jar')
     implementation files('src/main/lib/additionnal.jar')
-    implementation files('src/main/lib/mail.jar')
 }
