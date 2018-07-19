@@ -5,7 +5,7 @@
     android:background="@mipmap/background_secondary_page"
     android:orientation="vertical">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@mipmap/ic_top_bar_background"
@@ -15,47 +15,50 @@
             android:id="@+id/id_about_top_left"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_gravity="left"
+            android:layout_weight="1"
             android:background="@android:color/transparent"
+            android:gravity="left|center_vertical"
             android:paddingLeft="5dp"
             android:text="left"
             android:textColor="@color/colorWhite" />
 
-        <TextView
-            android:id="@+id/id_about_top_center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:background="@android:color/transparent"
-            android:textColor="@color/colorWhite" />
 
         <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/id_about_right"
+            android:id="@+id/id_top_about_right"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_gravity="center_vertical"
+
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
             android:orientation="horizontal"
             segmentedgroup:sc_border_width="2dp"
-            segmentedgroup:sc_corner_radius="5dp">
+            segmentedgroup:sc_corner_radius="5dp"
+
+            segmentedgroup:sc_tint_color="@color/colorWhite"
+            segmentedgroup:sc_checked_text_color="@color/colorRed"
+            >
 
             <RadioButton
-                android:layout_gravity="center_vertical"
-                android:id="@+id/id_userinfo_sex_male"
+                android:id="@+id/id_keyan"
                 style="@style/RadioButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:checked="true"
-                android:text="男" />
+                android:text="科研" />
 
             <RadioButton
-                android:layout_gravity="center_vertical"
-                android:id="@+id/id_userinfo_sex_female"
+                android:id="@+id/id_menzhen"
                 style="@style/RadioButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="女" />
+                android:text="门诊" />
         </info.hoang8f.android.segmented.SegmentedGroup>
 
 

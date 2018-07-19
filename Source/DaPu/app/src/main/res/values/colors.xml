@@ -9,6 +9,7 @@
     <color name="colorRed">#FF0000</color>
     <color name="colorGreen">#008000</color>
     <color name="colorGreenLight">#7CFC00</color>
+    <color name="colorGray">#708090</color>
 
 
 </resources>
