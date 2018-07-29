@@ -38,7 +38,7 @@
             segmentedgroup:sc_corner_radius="5dp"
 
             segmentedgroup:sc_tint_color="@color/colorWhite"
-            segmentedgroup:sc_checked_text_color="@color/colorRed"
+            segmentedgroup:sc_checked_text_color="@color/colorBrown"
             >
 
             <RadioButton
