@@ -146,7 +146,7 @@ public class UserInformationBeanSerializer implements JsonSerializer<UserInforma
             data.addProperty("SignatureID", userInformationBean.getSignatureID());
         }
 
-
+        data.addProperty("UsageIndex", "1");
         Server.add("data", data);
 
         return Server;

@@ -18,6 +18,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.lang.reflect.Field;
+
 import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Fragment.BaseFragment.BaseFragment;
 import cn.xiaojii.dapu.R;
@@ -30,6 +32,7 @@ public class FragmentAbout extends BaseFragment implements View.OnClickListener 
     private RadioButton KeYan;
     private RadioButton MenZhen;
     private SegmentedGroup segmentedGroup;
+    private int CheckedId;
 
 
     @Nullable
@@ -43,27 +46,28 @@ public class FragmentAbout extends BaseFragment implements View.OnClickListener 
         LeftButton.setOnClickListener(this);
         KeYan.setOnClickListener(this);
         MenZhen.setOnClickListener(this);
+
+        CheckedId = R.id.id_keyan;
+
         segmentedGroup = view.findViewById(R.id.id_top_about_right);
 
         segmentedGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
-                if (checkedId == R.id.id_keyan) {
-                    radioGroup.check(R.id.id_menzhen);
-                } else if (checkedId == R.id.id_menzhen) {
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (CheckedId == R.id.id_keyan) {
                     KeYan.setChecked(true);
-                    //radioGroup.check(R.id.id_keyan);
+                    MenZhen.setChecked(false);
+                } else {
+                    KeYan.setChecked(false);
+                    MenZhen.setChecked(true);
                 }
-
-               dialogEditText();
             }
         });
-
         return view;
     }
 
 
-    private void dialogEditText() {
+    private void dialogEditText(final int code) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         View view = View
                 .inflate(getActivity(), R.layout.alert_dialog, null);
@@ -76,25 +80,8 @@ public class FragmentAbout extends BaseFragment implements View.OnClickListener 
         Button btn_comfirm = (Button) view
                 .findViewById(R.id.btn_comfirm);//确定按钮
 
-        btn_comfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String pass = input_edt.getText().toString();
-                if (pass.equals(GlogalBean.PassWord)) {
-
-                    KeYan.setChecked(!KeYan.isChecked());
-                    MenZhen.setChecked(!MenZhen.isChecked());
-                    return;
-                } else {
-                    KeYan.setChecked(KeYan.isChecked());
-                    MenZhen.setChecked(MenZhen.isChecked());
-                    Toast.makeText(getActivity(), "密码错误!", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
         //取消或确定按钮监听事件处理
-        AlertDialog dialog = builder.create();
+        final AlertDialog dialog = builder.create();
         Window window = dialog.getWindow();
         //这一句消除白块
         window.setBackgroundDrawable(new BitmapDrawable());
@@ -107,6 +94,39 @@ public class FragmentAbout extends BaseFragment implements View.OnClickListener 
         p.width = (int) (d.getWidth() * 0.8);    //宽度设置为屏幕的0.5
         dialog.getWindow().setAttributes(p);     //设置生效
 
+
+        btn_comfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String pass = input_edt.getText().toString();
+                if (pass.equals(GlogalBean.PassWord)) {
+                    if (code == 0) {
+                        CheckedId = R.id.id_keyan;
+                        KeYan.setChecked(true);
+                        MenZhen.setChecked(false);
+                    } else {
+                        CheckedId = R.id.id_menzhen;
+                        KeYan.setChecked(false);
+                        MenZhen.setChecked(true);
+                    }
+
+                } else {
+                    if (code == 0) {
+                        KeYan.setChecked(false);
+                        MenZhen.setChecked(true);
+                    } else {
+                        KeYan.setChecked(true);
+                        MenZhen.setChecked(false);
+                    }
+
+                    Toast.makeText(getActivity(), "密码错误!", Toast.LENGTH_SHORT).show();
+                }
+
+                dialog.dismiss();
+
+            }
+        });
+
     }
 
 
@@ -115,6 +135,17 @@ public class FragmentAbout extends BaseFragment implements View.OnClickListener 
         switch (view.getId()) {
             case R.id.id_top_left:
                 onBack();
+                break;
+            case R.id.id_keyan:
+                if (CheckedId == R.id.id_menzhen) {
+
+                    dialogEditText(0);
+                }
+                break;
+            case R.id.id_menzhen:
+                if (CheckedId == R.id.id_keyan) {
+                    dialogEditText(1);
+                }
                 break;
 
         }

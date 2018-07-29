@@ -46,7 +46,7 @@ public class ServerJsonBean {
     public String type;
     public String typeChinese;
     public String SignatureID = "4ddc59b2-4525-4611-a89e-bc68e25feaca";
-
+    public String UsageIndex = "1";
 
 
 }
