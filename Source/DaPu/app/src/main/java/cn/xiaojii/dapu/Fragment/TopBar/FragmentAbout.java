@@ -6,6 +6,8 @@ import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.method.KeyListener;
+import android.text.method.NumberKeyListener;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,6 +70,33 @@ public class FragmentAbout extends BaseFragment implements View.OnClickListener 
 
 
     private void dialogEditText(final int code) {
+
+        KeyListener listener = new NumberKeyListener() {
+
+            /**
+             * @return ：返回哪些希望可以被输入的字符,默认不允许输入
+             */
+            @Override
+            protected char[] getAcceptedChars() {
+                char[] chars = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+                return chars;
+//            return new char[0];
+            }
+
+            /**
+             * 0：无键盘,键盘弹不出来
+             * 1：英文键盘
+             * 2：模拟键盘
+             * 3：数字键盘
+             *
+             * @return
+             */
+            @Override
+            public int getInputType() {
+                return 3;
+            }
+        };
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         View view = View
                 .inflate(getActivity(), R.layout.alert_dialog, null);
@@ -76,7 +105,7 @@ public class FragmentAbout extends BaseFragment implements View.OnClickListener 
 
         final EditText input_edt = (EditText) view
                 .findViewById(R.id.dialog_edit);//输入内容
-
+        input_edt.setKeyListener(keyListener);
         Button btn_comfirm = (Button) view
                 .findViewById(R.id.btn_comfirm);//确定按钮
 
@@ -133,7 +162,7 @@ public class FragmentAbout extends BaseFragment implements View.OnClickListener 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.id_top_left:
+            case R.id.id_about_top_left:
                 onBack();
                 break;
             case R.id.id_keyan:
