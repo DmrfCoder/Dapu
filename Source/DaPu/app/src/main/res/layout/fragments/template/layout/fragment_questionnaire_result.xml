@@ -29,7 +29,6 @@
             android:background="@drawable/background_textview"
             android:gravity="center"
             android:padding="6sp"
-            android:text="糖尿病调查结果"
             android:textSize="20dp" />
 
         <TextView

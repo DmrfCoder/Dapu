@@ -19,14 +19,15 @@ public class UserInformationBean implements Parcelable {
     private int IntFastingBloodSugar;//空腹血糖
     private int IntTotalAmountOfInsulinAday;//胰岛素用量
 
-    private GlogalBean.TypeOfMedication typeOfMedication= GlogalBean.TypeOfMedication.One;
+    private GlogalBean.TypeOfMedication typeOfMedication = GlogalBean.TypeOfMedication.One;
     private GlogalBean.InformationType informationType;
-    private GlogalBean.EducationalLevel educationalLevel= GlogalBean.EducationalLevel.ElementarySchoolAndBelow;
-    private GlogalBean.IllTime illTime= GlogalBean.IllTime.LessFive;
-    private GlogalBean.InsulinTherapy insulinTherapy= GlogalBean.InsulinTherapy.TRUE;
-    private GlogalBean.WorkStatus workStatus= GlogalBean.WorkStatus.Retirement;
-    private GlogalBean.Sex Sex= GlogalBean.Sex.Male;
+    private GlogalBean.EducationalLevel educationalLevel = GlogalBean.EducationalLevel.ElementarySchoolAndBelow;
+    private GlogalBean.IllTime illTime = GlogalBean.IllTime.LessFive;
+    private GlogalBean.InsulinTherapy insulinTherapy = GlogalBean.InsulinTherapy.TRUE;
+    private GlogalBean.WorkStatus workStatus = GlogalBean.WorkStatus.Retirement;
+    private GlogalBean.Sex Sex = GlogalBean.Sex.Male;
 
+<<<<<<< HEAD
     private GlogalBean.PayWay payWay= GlogalBean.PayWay.YiLiaoBaoXian;
     private GlogalBean.JiangYaYaoCiShu jiangYaYaoCiShu= GlogalBean.JiangYaYaoCiShu.One;
 
@@ -50,8 +51,23 @@ public class UserInformationBean implements Parcelable {
     }
 
     private String Vsersion="1.0";
+=======
+    private String StrTcmResult = "\n2\n";
 
-    private String SignatureID="4ddc59b2-4525-4611-a89e-bc68e25feaca";
+    private String Vsersion = "1.0";
+>>>>>>> cfaee16b1d358d133a263054599da4d540eacea3
+
+    private String SignatureID = "4ddc59b2-4525-4611-a89e-bc68e25feaca";
+
+    private int UsageIndex = 1;
+
+    public int getUsageIndex() {
+        return UsageIndex;
+    }
+
+    public void setUsageIndex(int usageIndex) {
+        UsageIndex = usageIndex;
+    }
 
     public String getSignatureID() {
         return SignatureID;
@@ -150,7 +166,6 @@ public class UserInformationBean implements Parcelable {
     }
 
 
-
     public void setIntUserScore(int intUserScore) {
         IntUserScore = intUserScore;
     }
@@ -196,7 +211,7 @@ public class UserInformationBean implements Parcelable {
     }
 
     public UserInformationBean() {
-        UserAnswerList=new ArrayList<Integer>();
+        UserAnswerList = new ArrayList<Integer>();
     }
 
     public UserInformationBean(String strName, int intAge, GlogalBean.Sex sex, String strIdNumber) {
@@ -222,7 +237,6 @@ public class UserInformationBean implements Parcelable {
     public void setStrIdNumber(String strIdNumber) {
         StrIdNumber = strIdNumber;
     }
-
 
 
     public void setIntAge(String str) throws Exception {

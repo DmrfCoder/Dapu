@@ -23,22 +23,22 @@ public class TcmJsonBeanDeserializer implements JsonDeserializer<TcmJsonBean> {
         }
 
         if (jsonObject.has("体质类型")) {
-            tcmJsonBean.setDaiChaYin(jsonObject.get("体质类型").getAsString());
+            tcmJsonBean.setTiZhiLeiXing(jsonObject.get("体质类型").getAsString());
         }
 
         if (jsonObject.has("穴位按摩")) {
-            tcmJsonBean.setDaiChaYin(jsonObject.get("穴位按摩").getAsString());
+            tcmJsonBean.setXueWeiAnMo(jsonObject.get("穴位按摩").getAsString());
         }
 
         if (jsonObject.has("运动")) {
-            tcmJsonBean.setDaiChaYin(jsonObject.get("运动").getAsString());
+            tcmJsonBean.setYunDong(jsonObject.get("运动").getAsString());
         }
 
         if (jsonObject.has("食疗")) {
-            tcmJsonBean.setDaiChaYin(jsonObject.get("食疗").getAsString());
+            tcmJsonBean.setShiLiao(jsonObject.get("食疗").getAsString());
         }
 
 
-        return null;
+        return tcmJsonBean;
     }
 }

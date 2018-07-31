@@ -154,6 +154,8 @@ public class FragmentFactory {
     }
 
     public static Fragment createForQuestionnaireResult(UserInformationBean userInformationBean2) {
+
+
         return new QuestionnaireResultFragment(userInformationBean2);
     }
 

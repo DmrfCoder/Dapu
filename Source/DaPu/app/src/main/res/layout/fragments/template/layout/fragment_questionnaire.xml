@@ -16,12 +16,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5" />
+
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_weight="9"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_weight="9"
             android:orientation="vertical">
 
             <LinearLayout
@@ -69,10 +70,11 @@
 
 
         </LinearLayout>
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"/>
+            android:layout_weight="0.5" />
 
     </LinearLayout>
 
@@ -91,9 +93,10 @@
             android:background="@android:color/transparent"
             android:textSize="20dp" />
 
+
         <include
             layout="@layout/bottom_arrow"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true" />
     </RelativeLayout>

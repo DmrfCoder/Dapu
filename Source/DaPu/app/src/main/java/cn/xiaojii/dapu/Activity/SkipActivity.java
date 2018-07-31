@@ -1,6 +1,7 @@
 package cn.xiaojii.dapu.Activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import cn.xiaojii.dapu.Bean.GlogalBean;
 import cn.xiaojii.dapu.Bean.UserInformationBean;
 import cn.xiaojii.dapu.Factory.FragmentFactory;
 import cn.xiaojii.dapu.R;
@@ -47,6 +49,13 @@ public class SkipActivity extends FragmentActivity implements View.OnClickListen
 
 
         Code = intent.getIntExtra("code", 0);
+
+        if (Build.VERSION.SDK_INT >= 11) {
+            ft.setCustomAnimations(R.animator.fragment_slide_right_in,
+                    R.animator.fragment_slide_left_out, R.animator.fragment_slide_left_in,
+                    R.animator.fragment_slide_right_out);
+        }
+
         if (Code != 0) {
             ResId = intent.getIntExtra("ResId", 0);
             switch (Code) {
@@ -77,7 +86,14 @@ public class SkipActivity extends FragmentActivity implements View.OnClickListen
                 case 6:
                     UserInformationBean userInformationBean2 = (UserInformationBean) bundle.get("userinfobean");
 
-                    ft.replace(R.id.fl_click_button, FragmentFactory.createForQuestionnaireResult(userInformationBean2));
+
+                    if (userInformationBean2.getInformationType() == GlogalBean.InformationType.TcmResult) {
+                        ft.replace(R.id.fl_click_button, FragmentFactory.createByUserInfoType(this, userInformationBean2));
+
+                    } else {
+                        ft.replace(R.id.fl_click_button, FragmentFactory.createForQuestionnaireResult(userInformationBean2));
+
+                    }
 
                     break;
 

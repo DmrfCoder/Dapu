@@ -4,6 +4,7 @@ public class GlogalBean {
 
     public static boolean DEBUG=false;
 
+    public static String PassWord="2222";
     //发送数据到管理员邮箱所需信息
     public static final String HOST = "smtp.qq.com";
     public static final String PORT = "587";

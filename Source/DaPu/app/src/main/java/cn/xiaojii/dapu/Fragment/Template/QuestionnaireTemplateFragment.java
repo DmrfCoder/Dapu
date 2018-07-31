@@ -65,6 +65,10 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_questionnaire, null);
         CurQuestionIndex = 1;
+        if (userInformationBean.getInformationType() == GlogalBean.InformationType.TcmConstitutionIdentification) {
+            userInformationBean.setInformationType(GlogalBean.InformationType.TcmResult);
+        }
+
         InitView(view);
 
         return view;
@@ -269,7 +273,7 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
         userInformationBean.setIntSumCount(QuestionCount);
 
 
-        if (userInformationBean.getInformationType() == GlogalBean.InformationType.TcmConstitutionIdentification) {
+        if (userInformationBean.getInformationType() == GlogalBean.InformationType.TcmResult) {
             int QiXuScore = FourItemSumScore(2, 3, 4, 14);
             int YangXuScore = FourItemSumScore(11, 12, 13, 29);
             int YinXuScore = FourItemSumScore(10, 21, 26, 31);

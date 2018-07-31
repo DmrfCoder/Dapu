@@ -22,15 +22,11 @@ import cn.xiaojii.dapu.Utils.ParseTcmJsonUtil;
 public class TcmResultFragment extends BaseFragment {
 
 
-    private int ZhiIndex;
 
 
     @SuppressLint("ValidFragment")
     public TcmResultFragment(UserInformationBean userInformationBean) {
-        this.ZhiIndex = ZhiIndex;
         this.userInformationBean = userInformationBean;
-
-
     }
 
     @Override

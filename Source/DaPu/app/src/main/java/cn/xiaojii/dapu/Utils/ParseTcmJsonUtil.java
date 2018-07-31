@@ -3,6 +3,7 @@ package cn.xiaojii.dapu.Utils;
 import android.content.Context;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
@@ -12,6 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import cn.xiaojii.dapu.Bean.TcmJsonBean;
+import cn.xiaojii.dapu.Serializer.TcmJsonBeanDeserializer;
 
 public class ParseTcmJsonUtil {
     private ReadFileToStringUtil readFileToStringUtil;
@@ -25,8 +27,11 @@ public class ParseTcmJsonUtil {
 
     public List<TcmJsonBean> GetJsonData(String filename) {
         String json = readFileToStringUtil.ReadJsonToString(filename);
-        Gson gson = new Gson();
-        List<JsonElement> list = new ArrayList();
+        GsonBuilder gsonBuilder=new GsonBuilder();
+        TcmJsonBeanDeserializer tcmJsonBeanDeserializer=new TcmJsonBeanDeserializer();
+        gsonBuilder.registerTypeAdapter(TcmJsonBean.class,tcmJsonBeanDeserializer);
+        Gson gson=gsonBuilder.create();
+
         JsonParser jsonParser = new JsonParser();
         JsonElement jsonElement = jsonParser.parse(json);  //将json字符串转换成JsonElement
         JsonArray jsonArray = jsonElement.getAsJsonArray();  //将JsonElement转换成JsonArray
