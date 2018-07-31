@@ -32,6 +32,8 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
     private String FileName;
     private String UserName;
 
+    public String finaldata="";
+
     private int[] UserScoreArray;//保存用户问卷/自测的得分
     private List<Integer> UserAnswerList;//保存用户问卷/自测的答案
     private int Score;
@@ -343,7 +345,7 @@ public class QuestionnaireTemplateFragment extends BaseFragment {
 
         }
 
-        SaveData(userInformationBean);
+        finaldata=SaveData(userInformationBean);
         StartUtil.startActivityForQuestionnaireResult(getActivity(), userInformationBean);
     }
 

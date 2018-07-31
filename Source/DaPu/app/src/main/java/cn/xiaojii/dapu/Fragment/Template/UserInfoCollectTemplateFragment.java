@@ -50,7 +50,12 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
             CenterTextview.setText("高血压自测");
             RightButton.setText("自测");
 
-            ((TextView) view.findViewById(R.id.id_userinfo_tx_ill_time)).setText("高血压病程");
+            view.findViewById(R.id.linear_insulin).setVisibility(View.GONE);
+            view.findViewById(R.id.linear_jiangtangtyaolishu).setVisibility(View.GONE);
+            view.findViewById(R.id.linear_kongfuxuetang).setVisibility(View.GONE);
+            view.findViewById(R.id.linear_yidaosuzongliang).setVisibility(View.GONE);
+
+            ((TextView) view.findViewById(R.id.id_userinfo_tx_ill_time)).setText("高血压病史");
             ((TextView) view.findViewById(R.id.id_userinfo_tx_drugs)).setText("服降压药种类");
             ((TextView) view.findViewById(R.id.id_userinfo_tx_drug_number)).setText("服降压药总粒数");
 
@@ -62,7 +67,13 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
             CenterTextview.setText("高血压问卷");
             RightButton.setText("问卷");
 
-            ((TextView) view.findViewById(R.id.id_userinfo_tx_ill_time)).setText("高血压病程");
+            view.findViewById(R.id.linear_insulin).setVisibility(View.GONE);
+            view.findViewById(R.id.linear_jiangtangtyaolishu).setVisibility(View.GONE);
+            view.findViewById(R.id.linear_kongfuxuetang).setVisibility(View.GONE);
+            view.findViewById(R.id.linear_yidaosuzongliang).setVisibility(View.GONE);
+
+
+            ((TextView) view.findViewById(R.id.id_userinfo_tx_ill_time)).setText("高血压病史");
             ((TextView) view.findViewById(R.id.id_userinfo_tx_drugs)).setText("服降压药种类");
             ((TextView) view.findViewById(R.id.id_userinfo_tx_drug_number)).setText("服降压药总粒数");
 
@@ -73,6 +84,9 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
             CenterTextview.setText("糖尿病自测");
             RightButton.setText("自测");
 
+            view.findViewById(R.id.linear_payway).setVisibility(View.GONE);
+            view.findViewById(R.id.linear_jiangyayaocishu).setVisibility(View.GONE);
+
             ((TextView) view.findViewById(R.id.id_userinfo_tx_ill_time)).setText("糖尿病病程");
             ((TextView) view.findViewById(R.id.id_userinfo_tx_drugs)).setText("服降糖药种类");
             ((TextView) view.findViewById(R.id.id_userinfo_tx_drug_number)).setText("服降糖药总粒数");
@@ -82,6 +96,10 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
             LeftButton.setText("＜ 糖尿病");
             CenterTextview.setText("糖尿病问卷");
             RightButton.setText("问卷");
+
+            view.findViewById(R.id.linear_payway).setVisibility(View.GONE);
+            view.findViewById(R.id.linear_jiangyayaocishu).setVisibility(View.GONE);
+
 
             ((TextView) view.findViewById(R.id.id_userinfo_tx_ill_time)).setText("糖尿病病程");
             ((TextView) view.findViewById(R.id.id_userinfo_tx_drugs)).setText("服降糖药种类");
@@ -152,6 +170,8 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
                 onBack();
                 break;
             case R.id.id_top_right:
+
+
                 Determine();
 
                 break;
@@ -160,6 +180,15 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
 
     }
 
+
+    private String test = "1";
+
+    public String getTest() {
+        if (EtName.getText().toString().equals("22")) {
+            test = "22";
+        }
+        return test;
+    }
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
@@ -228,6 +257,25 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
             case R.id.id_userinfo_drugs_2:
                 userInformationBean.setTypeOfMedication(GlogalBean.TypeOfMedication.MoreThanThree);
                 break;
+            case R.id.id_userinfo_payway_0:
+                userInformationBean.setPayWay(GlogalBean.PayWay.YiLiaoBaoXian);
+                break;
+            case R.id.id_userinfo_payway_1:
+                userInformationBean.setPayWay(GlogalBean.PayWay.QuanZiFei);
+                break;
+            case R.id.id_userinfo_payway_2:
+                userInformationBean.setPayWay(GlogalBean.PayWay.QuanGongFei);
+                break;
+            case R.id.id_userinfo_jiangyayaocishu_0:
+                userInformationBean.setJiangYaYaoCiShu(GlogalBean.JiangYaYaoCiShu.One);
+                break;
+            case R.id.id_userinfo_jiangyayaocishu_1:
+                userInformationBean.setJiangYaYaoCiShu(GlogalBean.JiangYaYaoCiShu.Two);
+                break;
+            case R.id.id_userinfo_jiangyayaocishu_2:
+                userInformationBean.setJiangYaYaoCiShu(GlogalBean.JiangYaYaoCiShu.Three);
+                break;
+
         }
 
     }
@@ -241,17 +289,14 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
             String str_age = EtAge.getText().toString();
             String idnumber = EtIdNumber.getText().toString();
 
-            String str_numberoftablets = EtNumberOfTablets.getText().toString();
-            String str_fastingbloodsugar = EtFastingBloodSugar.getText().toString();
-            String str_totalamountofinsulinaday = EtTotalAmountOfInsulinAday.getText().toString();
 
-            if (name.equals("") || str_age.equals("") || idnumber.equals("") || str_numberoftablets.equals("") || str_fastingbloodsugar.equals("") || str_totalamountofinsulinaday.equals("")) {
+
+
+            if (name.equals("") || str_age.equals("") || idnumber.equals("")) {
                 WarningInput();
                 return;
 
             }
-
-
             userInformationBean.setStrName(name);
             userInformationBean.setStrIdNumber(idnumber);
 
@@ -269,28 +314,46 @@ public class UserInfoCollectTemplateFragment extends BaseFragment implements Sec
                 return;
             }
 
-            try {
-                userInformationBean.setIntNumberOfTablets(str_numberoftablets);
-            } catch (Exception e) {
-                WarningFuYao();
-                return;
+
+            if (userInformationBean.getInformationType()== GlogalBean.InformationType.DiabetesQuestionnaire||userInformationBean.getInformationType()== GlogalBean.InformationType.DiabetesSelfTest){
+                String str_numberoftablets = EtNumberOfTablets.getText().toString();
+                String str_fastingbloodsugar = EtFastingBloodSugar.getText().toString();
+                String str_totalamountofinsulinaday = EtTotalAmountOfInsulinAday.getText().toString();
+
+                if (str_numberoftablets.equals("") || str_fastingbloodsugar.equals("") || str_totalamountofinsulinaday.equals("")) {
+                    WarningInput();
+                    return;
+
+                }
+                try {
+                    userInformationBean.setIntNumberOfTablets(str_numberoftablets);
+                } catch (Exception e) {
+                    WarningFuYao();
+                    return;
+                }
+
+
+                try {
+                    userInformationBean.setIntFastingBloodSugar(str_fastingbloodsugar);
+                } catch (Exception e) {
+                    WarningXueTang();
+                    return;
+                }
+
+
+                try {
+                    userInformationBean.setIntTotalAmountOfInsulinAday(str_totalamountofinsulinaday);
+                } catch (Exception e) {
+                    WarningYiDao();
+                    return;
+                }
+
             }
 
 
-            try {
-                userInformationBean.setIntFastingBloodSugar(str_fastingbloodsugar);
-            } catch (Exception e) {
-                WarningXueTang();
-                return;
-            }
 
 
-            try {
-                userInformationBean.setIntTotalAmountOfInsulinAday(str_totalamountofinsulinaday);
-            } catch (Exception e) {
-                WarningYiDao();
-                return;
-            }
+
         }
 
 

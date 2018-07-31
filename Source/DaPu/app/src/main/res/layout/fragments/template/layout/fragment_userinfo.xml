@@ -23,15 +23,15 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            android:padding="4sp"
-            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:background="@drawable/background_edit_text"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
+            android:singleLine="true"
             android:textColor="@color/colorBlack" />
 
         <TextView
@@ -110,15 +110,15 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            android:padding="4sp"
-            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_age"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:background="@drawable/background_edit_text"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
+            android:singleLine="true"
             android:textColor="@color/colorBlack" />
 
         <TextView
@@ -146,15 +146,15 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            android:padding="4sp"
-            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_id_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="6"
             android:background="@drawable/background_edit_text"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
+            android:singleLine="true"
             android:textColor="@color/colorBlack" />
 
         <TextView
@@ -277,8 +277,60 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/linear_payway"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:text="费用支付方式"
+            android:textColor="@color/colorBlack" />
+
+
+        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/id_userinfo_payway"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="2dp"
+            segmentedgroup:sc_corner_radius="5dp">
+
+            <RadioButton
+                android:id="@+id/id_userinfo_payway_0"
+                style="@style/RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="医疗保险" />
+
+            <RadioButton
+                android:id="@+id/id_userinfo_payway_1"
+                style="@style/RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全自费" />
+
+
+            <RadioButton
+                android:id="@+id/id_userinfo_payway_2"
+                style="@style/RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全公费" />
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
+    </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linear_insulin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -442,8 +494,67 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/linear_jiangyayaocishu"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/id_userinfo_drug_count"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:text="服降压药次数"
+            android:textColor="@color/colorBlack" />
+
+
+        <info.hoang8f.android.segmented.SegmentedGroup xmlns:segmentedgroup="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/id_userinfo_jiangyayaocishu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:orientation="horizontal"
+            segmentedgroup:sc_border_width="2dp"
+            segmentedgroup:sc_corner_radius="5dp">
+
+
+            <RadioButton
+                android:id="@+id/id_userinfo_jiangyayaocishu_0"
+                style="@style/RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="1次/d" />
+
+            <RadioButton
+                android:id="@+id/id_userinfo_jiangyayaocishu_1"
+                style="@style/RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2次/d" />
+
+            <RadioButton
+                android:id="@+id/id_userinfo_jiangyayaocishu_2"
+                style="@style/RadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3次/d" />
+
+
+        </info.hoang8f.android.segmented.SegmentedGroup>
+
+
+    </LinearLayout>
+
+
 
     <LinearLayout
+        android:id="@+id/linear_jiangtangtyaolishu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -455,19 +566,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:text="服降压药总粒数"
+            android:text="服降糖药总粒数"
             android:textColor="@color/colorBlack" />
 
         <EditText
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            android:padding="4sp"
-            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_drug_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:background="@drawable/background_edit_text"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
+            android:singleLine="true"
             android:textColor="@color/colorBlack" />
 
         <TextView
@@ -485,6 +596,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
+        android:id="@+id/linear_kongfuxuetang"
         android:orientation="horizontal">
 
         <TextView
@@ -495,21 +607,21 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            android:padding="4sp"
-            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_fasting_blood_sugar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:background="@drawable/background_edit_text"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
+            android:singleLine="true"
             android:textColor="@color/colorBlack" />
 
         <TextView
-            android:layout_marginLeft="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_weight="3"
             android:text="mmol/l"
             android:textColor="@color/colorBlack" />
@@ -519,6 +631,7 @@
 
 
     <LinearLayout
+        android:id="@+id/linear_yidaosuzongliang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
@@ -533,21 +646,21 @@
             android:textColor="@color/colorBlack" />
 
         <EditText
-            android:singleLine="true"
-            android:imeOptions="actionDone"
-            android:padding="4sp"
-            android:paddingLeft="2sp"
             android:id="@+id/id_userinfo_total_amount_of_insulin_a_day"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
             android:background="@drawable/background_edit_text"
+            android:imeOptions="actionDone"
+            android:padding="4sp"
+            android:paddingLeft="2sp"
+            android:singleLine="true"
             android:textColor="@color/colorBlack" />
 
         <TextView
-            android:layout_marginLeft="5dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:layout_weight="3"
             android:text="u"
             android:textColor="@color/colorBlack" />

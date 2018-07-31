@@ -2,7 +2,7 @@ package cn.xiaojii.dapu.Bean;
 
 public class GlogalBean {
 
-    public static boolean DEBUG=true;
+    public static boolean DEBUG=false;
 
     //发送数据到管理员邮箱所需信息
     public static final String HOST = "smtp.qq.com";
@@ -20,6 +20,14 @@ public class GlogalBean {
 
     public enum Type {
         Questionnaire, SelfTest
+    }
+
+    public enum PayWay{
+        YiLiaoBaoXian,QuanZiFei,QuanGongFei
+    }
+
+    public enum JiangYaYaoCiShu{
+        One,Two,Three
     }
 
     public enum InformationType {

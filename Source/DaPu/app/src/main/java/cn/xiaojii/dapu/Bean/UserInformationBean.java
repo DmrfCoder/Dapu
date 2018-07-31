@@ -27,7 +27,27 @@ public class UserInformationBean implements Parcelable {
     private GlogalBean.WorkStatus workStatus= GlogalBean.WorkStatus.Retirement;
     private GlogalBean.Sex Sex= GlogalBean.Sex.Male;
 
+    private GlogalBean.PayWay payWay= GlogalBean.PayWay.YiLiaoBaoXian;
+    private GlogalBean.JiangYaYaoCiShu jiangYaYaoCiShu= GlogalBean.JiangYaYaoCiShu.One;
+
+
     private String StrTcmResult="\n2\n";
+
+    public GlogalBean.PayWay getPayWay() {
+        return payWay;
+    }
+
+    public void setPayWay(GlogalBean.PayWay payWay) {
+        this.payWay = payWay;
+    }
+
+    public GlogalBean.JiangYaYaoCiShu getJiangYaYaoCiShu() {
+        return jiangYaYaoCiShu;
+    }
+
+    public void setJiangYaYaoCiShu(GlogalBean.JiangYaYaoCiShu jiangYaYaoCiShu) {
+        this.jiangYaYaoCiShu = jiangYaYaoCiShu;
+    }
 
     private String Vsersion="1.0";
 

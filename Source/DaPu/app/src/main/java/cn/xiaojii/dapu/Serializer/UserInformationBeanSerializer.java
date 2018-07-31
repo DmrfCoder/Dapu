@@ -38,7 +38,7 @@ public class UserInformationBeanSerializer implements JsonSerializer<UserInforma
         if (userInformationBean.getInformationType() == GlogalBean.InformationType.HypertensionQuestionnaire) {
 
             basicData.addProperty("gender", userInformationBean.getSex().ordinal() + "");
-            basicData.addProperty("payWay", "0");
+            basicData.addProperty("payWay", userInformationBean.getPayWay().ordinal() + "");
             basicData.addProperty("idNumber", userInformationBean.getStrIdNumber());
             basicData.addProperty("age", userInformationBean.getIntAge() + "");
             basicData.addProperty("workStatus", userInformationBean.getWorkStatus().ordinal() + "");
@@ -47,7 +47,7 @@ public class UserInformationBeanSerializer implements JsonSerializer<UserInforma
             basicData.addProperty("JiangyaType", userInformationBean.getTypeOfMedication().ordinal() + "");
             basicData.addProperty("Score", userInformationBean.getIntUserScore() + "");
             basicData.addProperty("name", userInformationBean.getStrName());
-            basicData.addProperty("JiangyeTimes", "0");
+            basicData.addProperty("JiangyeTimes", userInformationBean.getJiangYaYaoCiShu().ordinal() + "");
 
 
             data.add("basicData", basicData);
@@ -172,25 +172,50 @@ public class UserInformationBeanSerializer implements JsonSerializer<UserInforma
         } else {
             switch (userInformationBean.getEducationalLevel()) {
                 case CollegeOrAbove:
-                    report = ",\n学历:" + report + "大专及以上,\n病史:";
+                    report = report + ",\n学历:" + "大专及以上,\n病史:";
                     break;
                 case SecondarySchool:
-                    report = ",\n学历:" + report + "中学/中专,\n病史:";
+                    report = report + ",\n学历:" + "中学/中专,\n病史:";
                     break;
                 case ElementarySchoolAndBelow:
-                    report = ",\n学历:" + report + "小学及以下,\n病史:";
+                    report = report + ",\n学历:" + "小学及以下,\n病史:";
                     break;
             }
 
             switch (userInformationBean.getIllTime()) {
                 case LessFive:
-                    report = report + "<5年,\n工作状态:";
+                    report = report + "<5年";
                     break;
                 case FiveToTen:
-                    report = report + "5年-10年,\n工作状态:";
+                    report = report + "5年-10年";
                     break;
                 case MoreThanTen:
-                    report = report + ">10年,\n工作状态:";
+                    report = report + ">10年";
+                    break;
+            }
+
+            switch (userInformationBean.getInformationType()) {
+                case DiabetesSelfTest:
+                case DiabetesQuestionnaire:
+                    report = report + ",\n工作状态:";
+                    break;
+                case HypertensionSelfTest:
+                case HypertensionQuestionnaire:
+                    report = report + ",\n支付方式:";
+                    switch (userInformationBean.getPayWay()) {
+                        case QuanZiFei:
+                            report = report + "全自费";
+                            break;
+                        case QuanGongFei:
+                            report = report + "全公费";
+                            break;
+                        case YiLiaoBaoXian:
+                            report = report + "医疗保险";
+                            break;
+                    }
+                    report = report + ",\n工作状态:";
+
+
                     break;
             }
 
@@ -207,68 +232,105 @@ public class UserInformationBeanSerializer implements JsonSerializer<UserInforma
                     break;
             }
 
+
             switch (userInformationBean.getTypeOfMedication()) {
                 case One:
-                    report = report + "1种,\n目前血糖:";
+                    report = report + "1种";
                     break;
                 case Two:
-                    report = report + "2种,\n目前血糖:";
+                    report = report + "2种";
                     break;
                 case MoreThanThree:
-                    report = report + "3种及以上,\n目前血糖:";
+                    report = report + "3种及以上";
                     break;
             }
-
-            report = report + userInformationBean.getIntFastingBloodSugar() + ",\n胰岛素一天总量:" + userInformationBean.getIntTotalAmountOfInsulinAday();
-
-            if (userInformationBean.getInformationType() == GlogalBean.InformationType.HypertensionQuestionnaire || userInformationBean.getInformationType() == GlogalBean.InformationType.HypertensionSelfTest) {
-                report = report + ",\n降压药总量" + userInformationBean.getIntNumberOfTablets();
-            } else if (userInformationBean.getInformationType() == GlogalBean.InformationType.DiabetesSelfTest || userInformationBean.getInformationType() == GlogalBean.InformationType.DiabetesQuestionnaire) {
-                report = report + ",\n降糖药总量" + userInformationBean.getIntNumberOfTablets();
-            }
-
-            switch (userInformationBean.getInsulinTherapy()) {
-                case TRUE:
-                    report = report + ",\n胰岛素治疗:是,\n得分:" + userInformationBean.getIntUserScore();
-                    break;
-                case FALSE:
-                    report = report + ",\n胰岛素治疗:否,\n得分:" + userInformationBean.getIntUserScore();
-                    break;
-            }
-
-            report = report + ", \n~~~\n        \n\n [";
 
             switch (userInformationBean.getInformationType()) {
-                case HypertensionSelfTest:
-                    report = report + "高血压自测]:\n";
-                    break;
-                case HypertensionQuestionnaire:
-                    report = report + "高血压问卷]:\n";
-                    break;
                 case DiabetesSelfTest:
-                    report = report + "糖尿病自测]:\n";
-                    break;
                 case DiabetesQuestionnaire:
-                    report = report + "高血压问卷]:\n";
+                    report = report + ",\n目前血糖:";
+                    report = report + userInformationBean.getIntFastingBloodSugar() + ",\n胰岛素一天总量:" + userInformationBean.getIntTotalAmountOfInsulinAday();
+                    report = report + ",\n降糖药总量" + userInformationBean.getIntNumberOfTablets();
+                    switch (userInformationBean.getInsulinTherapy()) {
+                        case TRUE:
+                            report = report + ",\n胰岛素治疗:是";
+                            break;
+                        case FALSE:
+                            report = report + ",\n胰岛素治疗:否";
+                            break;
+                    }
+
+                    break;
+                case HypertensionSelfTest:
+                case HypertensionQuestionnaire:
+                    report=report+",\n服药次数 : ";
+                    switch (userInformationBean.getJiangYaYaoCiShu()){
+                        case One:
+                            report=report+"1次/d";
+                            break;
+                        case Two:
+                            report=report+"2次/d";
+                            break;
+                        case Three:
+                            report=report+"3次/d";
+                            break;
+                    }
                     break;
 
             }
+
+
+        }
+
+        report = report + ",\n得分:" + userInformationBean.getIntUserScore();
+
+        report = report + ", \n~~~\n        \n\n [";
+
+        switch (userInformationBean.getInformationType()) {
+            case HypertensionSelfTest:
+                report = report + "高血压自测]:\n";
+                break;
+            case HypertensionQuestionnaire:
+                report = report + "高血压问卷]:\n";
+                break;
+            case DiabetesSelfTest:
+                report = report + "糖尿病自测]:\n";
+                break;
+            case DiabetesQuestionnaire:
+                report = report + "高血压问卷]:\n";
+                break;
 
         }
 
 
         int answers[] = new int[userInformationBean.getUserAnswerList().size()];
 
-        for (int answerIndex = 0; answerIndex < userInformationBean.getUserAnswerList().size(); answerIndex++) {
+        for (
+                int answerIndex = 0; answerIndex < userInformationBean.getUserAnswerList().
+
+                size();
+
+                answerIndex++)
+
+        {
             answers[answerIndex] = userInformationBean.getUserAnswerList().get(answerIndex);
         }
 
         String[] IndexString = {"A", "B", "C", "D", "E", "F"};
 
-        for (int answer = 0; answer < userInformationBean.getUserAnswerList().size() - 1; answer++) {
+        for (
+                int answer = 0; answer < userInformationBean.getUserAnswerList().
+
+                size() - 1; answer++)
+
+        {
             report = report + "第" + (answer + 1) + "题:选" + IndexString[answers[answer]] + ",\n";
         }
-        if (userInformationBean.getUserAnswerList().size() - 1 >= 0) {
+        if (userInformationBean.getUserAnswerList().
+
+                size() - 1 >= 0)
+
+        {
             report = report + "第" + (userInformationBean.getUserAnswerList().size()) + "题:选" + IndexString[answers[userInformationBean.getUserAnswerList().size() - 1]];
         }
 

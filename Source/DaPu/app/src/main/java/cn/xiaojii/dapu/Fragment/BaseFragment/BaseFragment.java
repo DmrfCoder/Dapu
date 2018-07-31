@@ -147,7 +147,7 @@ public class BaseFragment extends Fragment implements View.OnClickListener, Radi
     }
 
     //用来保存用户信息(userInformationBean)
-    public void SaveData(UserInformationBean userInformationBean) {
+    public String SaveData(UserInformationBean userInformationBean) {
 
 
         UserInformationBeanSerializer userInformationBeanSerializer = new UserInformationBeanSerializer();
@@ -178,6 +178,7 @@ public class BaseFragment extends Fragment implements View.OnClickListener, Radi
         WriteStringToFileUtil writeStringToFileUtil = new WriteStringToFileUtil(getActivity());
         writeStringToFileUtil.WriteStringToFile(datacontent, filename);
 
+        return datacontent;
     }
 
 
