@@ -32,7 +32,6 @@ public class QuestionnaireTemplateFragmentTest {
     public Button RightButton;
     private UserInformationBean userInformationBean;
 
-
     @Before
     public void setUp() {
         //输出日志

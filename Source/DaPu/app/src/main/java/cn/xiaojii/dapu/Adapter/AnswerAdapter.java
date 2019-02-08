@@ -14,6 +14,7 @@ import cn.xiaojii.dapu.R;
 
 
 public class AnswerAdapter extends BaseAdapter {
+
     public void setQuestionBean(QuestionBean questionBean) {
         this.questionBean = questionBean;
 
