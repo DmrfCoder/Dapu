@@ -3,9 +3,42 @@
 ## 开发工具
 Android Studio 3.1.3 
 
-## 功能需求
+## 功能
 
 - 参考iOS版本：https://itunes.apple.com/cn/app/%E6%89%93%E6%B5%A6%E4%B8%AD%E5%8C%BB/id1261015954?mt=8
+
+- 屏幕快照
+
+  <table border="2px">
+      <tr>
+      <td>
+          <img src=./Doc/Image/readme/1.png alt=""/>
+          </td>
+          <td>
+           <img src=./Doc/Image/readme/2.png alt=""/>
+          </td>
+      </tr>
+  </table>
+
+  <table border="2px">
+      <tr>
+      <td>
+          <img src=./Doc/Image/readme/3.png alt=""/>
+          </td>
+          <td>
+           <img src=./Doc/Image/readme/4.png alt=""/>
+          </td>
+      </tr>
+  </table>
+
+  <table border="2px">
+      <tr>
+      <td>
+          <img src=./Doc/Image/readme/5.png alt=""/>
+          </td>
+      </tr>
+  </table>
+
 - 数据：Doc/DataResource
 
 ### 功能列表：
@@ -36,4 +69,4 @@ Android Studio 3.1.3
     1. 支持云功能，问卷和测试的答案自动上传云端
     2.  问卷和测试的答案自动发送管理员邮箱
 ```
-要求适配主流的设备，尤其是Pad
+适配主流的设备，尤其是Pad
